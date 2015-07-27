@@ -13,15 +13,25 @@ angular.module('App')
             },
             plotOptions: {
                 pie: {
-                    cursor: 'pointer',
                     dataLabels: {
                         enabled: false
+                    },
+                    size: '100%'
+                },
+                series: {
+                    states: {
+                        hover: {
+                            enabled: false
+                        }
                     }
                 }
             },
             title:{
-                text:null
+                text: null
             },
+            tooltip: {
+              enabled: false
+          }
         },
         series: [{
             data: [
