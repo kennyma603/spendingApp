@@ -1,0 +1,70 @@
+<ion-view view-title="Spending">
+	<ion-content>
+
+		<div class="page-heading row">
+			<div class="col">
+				{{selectedAccount}}
+			</div>
+			<div class="col">
+				{{selectedMonthYear}}
+			</div>			
+		</div>
+
+		<div id="spending-summary" class="widget">
+			<div class="widget-heading">
+				<h4>Spending Summary</h4>
+				<a href="#" class="navigator-right"><i class="icon ion-chevron-right"></i></a>
+			</div>
+
+			<div class="widget-body">
+				<div class="row widget-body-has-data" style="display:none;">
+					<div class="col">
+						<highchart id="SAWChart" config="SAWChartConfig"></highchart>
+					</div>
+					<div class="col">
+						<ul class="list">
+							<li class="item" style="border: none; padding: 12px;">Travel</li>
+							<li class="item" style="border: none; padding: 12px;">Mortgages</li>
+							<li class="item" style="border: none; padding: 12px;">Taxes</li>
+						</ul>
+					</div>
+				</div>
+				<div class="widget-body-no-data">
+					no spending data
+				</div>
+			</div>
+		</div>
+
+		<div id="budget-summary" class="widget">
+			<div class="widget-heading">
+				<h4>Budgets Summary</h4>
+				<a href="#" class="navigator-right"><i class="icon ion-chevron-right"></i></a>
+			</div>
+
+			<div class="widget-body">
+				<div class="row widget-body-has-data" style="display:none;">
+					some budgets data here
+				</div>
+				<div class="widget-body-no-data">
+					no budgets data
+				</div>
+			</div>
+		</div>
+
+		<div id="trends-summary" class="widget">
+			<div class="widget-heading">
+				<h4>Trends Summary</h4>
+				<a href="#" class="navigator-right"><i class="icon ion-chevron-right"></i></a>
+			</div>
+
+			<div class="widget-body">
+				<div class="row widget-body-has-data" style="display:none;">
+					some trends data here
+				</div>
+				<div class="widget-body-no-data">
+					no trends data
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

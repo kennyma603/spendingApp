@@ -1,1 +1,22 @@
-/* Empty. Add your own CSS if you like */
+.page-heading{
+	background: #ccc;
+}
+.page-heading .col:last-child{
+	text-align: right;
+}
+.widget{
+	min-height: 150px;
+	padding: 10px;
+}
+.widget-heading{
+	position: relative;
+}
+.widget-heading .navigator-right{
+	position: absolute;
+	right: 10px;
+	top: 0;
+}
+.widget-heading .navigator-right .icon{
+	font-size: 24px;
+	color: #ccc;
+}

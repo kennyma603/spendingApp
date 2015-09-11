@@ -10,10 +10,10 @@ angular.module('App', ['ionic', 'highcharts-ng'])
 		url: '/home',
 		templateUrl: 'views/home/home.html'
 	});
-	$stateProvider.state('spendingSummary', {
-		url: '/spendingSummary',
-    controller: 'spendingSummaryController',
-		templateUrl: 'views/spendingSummary/spendingSummary.html'
+	$stateProvider.state('spendingHome', {
+		url: '/spendingHome',
+    controller: 'spendingHomeController',
+		templateUrl: 'views/spendingHome/spendingHome.html'
 	});
 	$urlRouterProvider.otherwise('/home');
 })
