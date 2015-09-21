@@ -1,0 +1,344 @@
+[
+    {
+        "categoryId":1,
+        "name":"Uncategorized",
+        "nameDefault":"Uncategorized",
+        "categoryTypeId":1
+    },
+    {
+        "categoryId":2,
+        "name":"Automotive Expenses",
+        "nameDefault":"Automotive Expenses",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":3,
+        "name":"Charitable Giving",
+        "nameDefault":"Charitable Giving",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":4,
+        "name":"Child/Dependent Expenses",
+        "nameDefault":"Child/Dependent Expenses",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":5,
+        "name":"Clothing/Shoes",
+        "nameDefault":"Clothing/Shoes",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":6,
+        "name":"Education",
+        "nameDefault":"Education",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":7,
+        "name":"Entertainment",
+        "nameDefault":"Entertainment",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":8,
+        "name":"Gasoline/Fuel",
+        "nameDefault":"Gasoline/Fuel",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":9,
+        "name":"Gifts",
+        "nameDefault":"Gifts",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":10,
+        "name":"Groceries",
+        "nameDefault":"Groceries",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":11,
+        "name":"Healthcare/Medical",
+        "nameDefault":"Healthcare/Medical",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":12,
+        "name":"Home Maintenance",
+        "nameDefault":"Home Maintenance",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":13,
+        "name":"Home Improvement",
+        "nameDefault":"Home Improvement",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":14,
+        "name":"Insurance",
+        "nameDefault":"Insurance",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":15,
+        "name":"Cable/Satellite Services",
+        "nameDefault":"Cable/Satellite Services",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":16,
+        "name":"Online Services",
+        "nameDefault":"Online Services",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":17,
+        "name":"Loans",
+        "nameDefault":"Loans",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":18,
+        "name":"Mortgages",
+        "nameDefault":"Mortgages",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":19,
+        "name":"Other Expenses",
+        "nameDefault":"Other Expenses",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":20,
+        "name":"Personal Care",
+        "nameDefault":"Personal Care",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":21,
+        "name":"Rent",
+        "nameDefault":"Rent",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":22,
+        "name":"Restaurants/Dining",
+        "nameDefault":"Restaurants/Dining",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":23,
+        "name":"Travel",
+        "nameDefault":"Travel",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":24,
+        "name":"Service Charges/Fees",
+        "nameDefault":"Service Charges/Fees",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":25,
+        "name":"ATM/Cash Withdrawals",
+        "nameDefault":"ATM/Cash Withdrawals",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":26,
+        "name":"Credit Card Payments",
+        "nameDefault":"Credit Card Payments",
+        "categoryTypeId":4
+    },
+    {
+        "categoryId":27,
+        "name":"Deposits",
+        "nameDefault":"Deposits",
+        "categoryTypeId":2
+    },
+    {
+        "categoryId":28,
+        "name":"Transfers",
+        "nameDefault":"Transfers",
+        "categoryTypeId":4
+    },
+    {
+        "categoryId":29,
+        "name":"Paycheques/Salary",
+        "nameDefault":"Paycheques/Salary",
+        "categoryTypeId":2
+    },
+    {
+        "categoryId":30,
+        "name":"Investment Income",
+        "nameDefault":"Investment Income",
+        "categoryTypeId":2
+    },
+    {
+        "categoryId":31,
+        "name":"Retirement Income",
+        "nameDefault":"Retirement Income",
+        "categoryTypeId":2
+    },
+    {
+        "categoryId":32,
+        "name":"Other Income",
+        "nameDefault":"Other Income",
+        "categoryTypeId":2
+    },
+    {
+        "categoryId":33,
+        "name":"Cheques",
+        "nameDefault":"Cheques",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":34,
+        "name":"Hobbies",
+        "nameDefault":"Hobbies",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":35,
+        "name":"Other Bills",
+        "nameDefault":"Other Bills",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":36,
+        "name":"Securities Trades",
+        "nameDefault":"Securities Trades",
+        "categoryTypeId":4
+    },
+    {
+        "categoryId":37,
+        "name":"Taxes",
+        "nameDefault":"Taxes",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":38,
+        "name":"Telephone Services",
+        "nameDefault":"Telephone Services",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":39,
+        "name":"Utilities",
+        "nameDefault":"Utilities",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":40,
+        "name":"Savings",
+        "nameDefault":"Savings",
+        "categoryTypeId":4
+    },
+    {
+        "categoryId":41,
+        "name":"Retirement Contributions",
+        "nameDefault":"Retirement Contributions",
+        "categoryTypeId":5
+    },
+    {
+        "categoryId":42,
+        "name":"Pets/Pet Care",
+        "nameDefault":"Pets/Pet Care",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":43,
+        "name":"Electronics",
+        "nameDefault":"Electronics",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":44,
+        "name":"General Merchandise",
+        "nameDefault":"General Merchandise",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":45,
+        "name":"Office Supplies",
+        "nameDefault":"Office Supplies",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":92,
+        "name":"Consulting",
+        "nameDefault":"Consulting",
+        "categoryTypeId":2
+    },
+    {
+        "categoryId":94,
+        "name":"Sales",
+        "nameDefault":"Sales",
+        "categoryTypeId":2
+    },
+    {
+        "categoryId":96,
+        "name":"Interest",
+        "nameDefault":"Interest",
+        "categoryTypeId":2
+    },
+    {
+        "categoryId":98,
+        "name":"Services",
+        "nameDefault":"Services",
+        "categoryTypeId":2
+    },
+    {
+        "categoryId":100,
+        "name":"Advertising",
+        "nameDefault":"Advertising",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":102,
+        "name":"Business Miscellaneous",
+        "nameDefault":"Business Miscellaneous",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":104,
+        "name":"Postage and Shipping",
+        "nameDefault":"Postage and Shipping",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":106,
+        "name":"Printing",
+        "nameDefault":"Printing",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":108,
+        "name":"Dues and Subscriptions",
+        "nameDefault":"Dues and Subscriptions",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":110,
+        "name":"Office Maintenance",
+        "nameDefault":"Office Maintenance",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":112,
+        "name":"Wages Paid",
+        "nameDefault":"Wages Paid",
+        "categoryTypeId":3
+    },
+    {
+        "categoryId":114,
+        "name":"Expense Reimbursement",
+        "nameDefault":"Expense Reimbursement",
+        "categoryTypeId":2
+    }
+]

@@ -5,7 +5,7 @@
 	text-align: right;
 }
 .widget{
-	min-height: 150px;
+	min-height: 120px;
 	padding: 10px;
 }
 .widget-heading{
@@ -13,10 +13,87 @@
 }
 .widget-heading .navigator-right{
 	position: absolute;
-	right: 10px;
+	right: 0;
 	top: 0;
 }
 .widget-heading .navigator-right .icon{
 	font-size: 24px;
 	color: #ccc;
+}
+.bar .title{
+	font-size: 19px;
+}
+h4{
+	font-size: 15px;
+	font-weight: bold;
+}
+
+/*charts*/
+.chart_legend_scheme0:before{
+    background-color: #3366CC;
+}
+.chart_legend_scheme1:before{
+    background-color: #DC3912;
+}
+.chart_legend_scheme2:before{
+    background-color: #FF9900;
+}
+.chart_legend_scheme3:before{
+    background-color: #109618;
+}
+.chart_legend_scheme4:before{
+    background-color: #990099;
+}
+.chart_legend_scheme5:before{
+    background-color: #0099C6;
+}
+.chart_legend_scheme6:before{
+    background-color: #DD4477;
+}
+.chart_legend_scheme7:before{
+    background-color: #66AA00;
+}
+.chart_legend_scheme8:before{
+    background-color: #B82E2E;
+}
+.chart_legend_scheme9:before{
+    background-color: #316395;
+}
+.chart_legend_scheme10:before{
+    background-color: #994499;
+}
+.chart_legend_scheme11:before{
+    background-color: #FF9900;
+}
+.chart_legend:before {
+    content: '';
+    display: inline-block;
+    height: 10px;
+    margin-right: 2px;
+    width: 10px;
+}
+#SAWChart{
+	margin-left: -16px;
+}
+.col-70 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 70%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 70%;
+  -ms-flex: 0 0 70%;
+  flex: 0 0 70%;
+  max-width: 70%; 
+}
+.col.col-no-padding,
+.row.row-no-padding{
+	padding: 0;
+}
+.col.chart_legend{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-bottom: 14px;
+}
+.spending-info-heading{
+	padding-top: 10px;
 }

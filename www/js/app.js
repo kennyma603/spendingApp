@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('App', ['ionic', 'highcharts-ng'])
 
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 	$stateProvider.state('home', {
 		url: '/home',
 		templateUrl: 'views/home/home.html'
@@ -16,6 +16,8 @@ angular.module('App', ['ionic', 'highcharts-ng'])
 		templateUrl: 'views/spendingHome/spendingHome.html'
 	});
 	$urlRouterProvider.otherwise('/home');
+  $ionicConfigProvider.navBar.alignTitle('center');
+  $ionicConfigProvider.backButton.text('').icon('ion-chevron-left').previousTitleText(false);
 })
 
 .run(function($ionicPlatform) {
