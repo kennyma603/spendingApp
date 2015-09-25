@@ -15,6 +15,12 @@
         },
         {
             "date":"1969-12-31",
+            "categoryId":12,
+            "spent":10.00,
+            "budgetDefault":123.05
+        },
+        {
+            "date":"1969-12-31",
             "categoryId":35,
             "spent":25.43,
             "budgetDefault":0
@@ -27,12 +33,14 @@
         },
         {
             "date":"1969-12-31",
+            "spent":25.43,
             "categoryId":8,
             "budgetDefault":10.93
         },
         {
             "date":"1969-12-31",
             "categoryId":10,
+            "spent":123.45,
             "budgetDefault":316.34
         },
         {

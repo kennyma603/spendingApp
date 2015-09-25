@@ -1,36 +1,23 @@
 <ion-view view-title="Spending">
-	<ion-content>
+<div class="bar bar-subheader bar-spending-subheader">
+  <c1-m-spending-subheading prop="spendingSubheading"></c1-m-spending-subheading>
+</div>
+<ion-pane>
+	<ion-content class="has-subheader">
 
-		<div class="page-heading row">
-			<div class="col">
-				{{selectedAccount}}
-			</div>
-			<div class="col">
-				{{selectedMonthYear}}
-			</div>			
-		</div>
+		
 
-		<div id="spending-summary" class="widget">
-			<div class="widget-heading">
-				<h4>Spending Summary</h4>
-				<a href="#" class="navigator-right"><i class="icon ion-chevron-right"></i></a>
-			</div>
+		<div id="spending-summary-overview" class="widget">
+			<c1-m-spending-widget-heading prop="spendingWidgetHeading" heading="Spending Summary" link="#spendingSummary"></c1-m-spending-widget-heading>
 
 			<div class="widget-body">
 				<div class="row row-no-padding widget-body-has-data">
 					<div class="col col-no-padding">
-						<highchart id="SAWChart" config="SAWChartConfig"></highchart>
+						<c1-m-spending-pie-chart prop="spendingSubheading"></c1-m-spending-pie-chart>
 					</div>
 					<div class="col col-no-padding col-67 spending-info">
 						<p class="spending-info-heading">Top Spending:</p>
-						<ul>
-							<li ng-repeat="category in orderedCategories | limitTo:3 track by $index" style="border: none; padding: 0px;">
-								<div class="row row-no-padding">
-									<div class="col col-67 col-no-padding chart_legend chart_legend_scheme{{$index}} item-text-wrap">{{category.name}}</div>
-									<div class="col col-no-padding item-text-wrap" style="text-align:right;">{{category.y | currency}}</div>
-								</div>
-							</li>
-						</ul>
+						<c1-m-spending-category-list number-of-Category="3"></c1-m-spending-category-list>
 					</div>
 				</div>
 				<div class="widget-body-no-data" style="display:none;">
@@ -40,10 +27,7 @@
 		</div>
 
 		<div id="budget-summary" class="widget">
-			<div class="widget-heading">
-				<h4>Budgets Summary</h4>
-				<a href="#" class="navigator-right"><i class="icon ion-chevron-right"></i></a>
-			</div>
+			<c1-m-spending-widget-heading prop="spendingWidgetHeading" heading="Budgets Summary" link="templates/home.html"></c1-m-spending-widget-heading>
 
 			<div class="widget-body">
 				<div class="row widget-body-has-data" style="display:none;">
@@ -71,4 +55,5 @@
 			</div>
 		</div>
 	</ion-content>
+</ion-pane>
 </ion-view>

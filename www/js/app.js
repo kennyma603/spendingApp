@@ -8,13 +8,18 @@ angular.module('App', ['ionic', 'highcharts-ng'])
 .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 	$stateProvider.state('home', {
 		url: '/home',
-		templateUrl: 'views/home/home.html'
+		templateUrl: 'templates/home/home.html'
 	});
 	$stateProvider.state('spendingHome', {
 		url: '/spendingHome',
     controller: 'spendingHomeController',
-		templateUrl: 'views/spendingHome/spendingHome.html'
+		templateUrl: 'templates/spendingHome/spendingHome.html'
 	});
+  $stateProvider.state('spendingSummary', {
+    url: '/spendingSummary',
+    controller: 'spendingSummaryController',
+    templateUrl: 'templates/spendingHome/spendingSummary.html'
+  });
 	$urlRouterProvider.otherwise('/home');
   $ionicConfigProvider.navBar.alignTitle('center');
   $ionicConfigProvider.backButton.text('').icon('ion-chevron-left').previousTitleText(false);

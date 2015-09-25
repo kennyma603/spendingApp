@@ -7,10 +7,15 @@ angular.module('App')
  	var transaction = {};
 
 	transaction.get = function() {
-	    $http.get(TEST_DATA_URL)
+	    $http({
+			method: 'GET',
+			url: TEST_DATA_URL,
+			params: {test: 'test'},
+		 	cache:true
+		})
 	    .success(function (msg) {
 	      transactionData = msg.topList;
-	      _formatData(transactionData);
+	      transactionData = _formatData(transactionData);
 	      deffered.resolve();
 	    });
 	    return deffered.promise;
@@ -18,11 +23,19 @@ angular.module('App')
 
 	transaction.getTopCategories = function() {
 		var sortedData = orderByFilter(transactionData, '-netSpending');
-		console.table(sortedData);
+		//console.table(sortedData);
 		sortedData = filterFilter(sortedData, function(transaction) {
 			return transaction.spent > 0;
 		});
 		return sortedData;
+	}
+
+	transaction.getTotalNetSpending = function() {
+		var spendingSum = 0;
+		angular.forEach(transactionData, function(spendingCategory) {
+			spendingSum = spendingSum + spendingCategory.netSpending;
+		});
+		return spendingSum;
 	}
 
 	//need to move the following helpers to another factory later
@@ -77,7 +90,7 @@ angular.module('App')
 	    $http.get(TEST_DATA_URL)
 	    .success(function (msg) {
 	      categoryData = msg;
-	      console.log(msg);
+	      //console.log(msg);
 	      deffered.resolve();
 	    });
 	    return deffered.promise;
@@ -92,7 +105,7 @@ angular.module('App')
   return categoryService;	
 })
 
-.service('chartColors', function($http, $q, orderByFilter, filterFilter) {
+.service('chartColors', function() {
 	var chartColors = {};
 	var chartColorsArr = [
 		'#3366CC',

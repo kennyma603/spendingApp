@@ -68,8 +68,9 @@ h4{
 .chart_legend:before {
     content: '';
     display: inline-block;
-    height: 10px;
-    margin-right: 2px;
+    height: 15px;
+    margin-right: 5px;
+    margin-bottom: -2px;
     width: 10px;
 }
 #SAWChart{
@@ -92,8 +93,27 @@ h4{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	padding-bottom: 14px;
+}
+.spending-category-list .row{
+  padding: 5px 5px 5px 0;
+}
+.spending-category-list .chart_legend{
+  font-weight: bold;
+}
+#spending-summary-overview .row{
+  padding-bottom: 14px;
 }
 .spending-info-heading{
 	padding-top: 10px;
+}
+.bar-spending-subheader{
+  padding: 0;
+  border: 0;
+}
+.spending-category-list ul li{
+  border-top: 1px solid #ccc;
+}
+a{
+  text-decoration: none;
+  color: #0c63ee;
 }

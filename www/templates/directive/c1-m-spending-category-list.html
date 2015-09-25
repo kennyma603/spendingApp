@@ -1,0 +1,14 @@
+<div class="c1-m-spending-category-list">
+	<ul>
+		<li ng-repeat="category in orderedCategories | limitTo:numberofCate track by $index">
+			<div class="row row-no-padding" ng-click="loadTransaction(category.categoryId)">
+				<div class="col col-67 col-no-padding chart_legend chart_legend_scheme{{$index}} item-text-wrap">{{category.name}}</div>
+				<div class="col col-no-padding item-text-wrap" style="text-align:right;">{{category.y | currency}}</div>
+				
+			</div>
+			<div class="row row-no-padding" ng-if="onClickLoadTransaction==='enable' && currentViewingCategoryId==category.categoryId">
+				<div class="col col-no-padding"> transaction list for categoryId {{currentViewingCategoryId}} goes here</div>
+			</div>
+		</li>
+	</ul>
+</div>
