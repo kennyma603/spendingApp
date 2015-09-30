@@ -1,5 +1,5 @@
-.page-heading{
-	background: #ccc;
+.bar-spending-subheader{
+	background: #ECF0F1;
 }
 .page-heading .col:last-child{
 	text-align: right;
@@ -101,7 +101,7 @@ h4{
   font-weight: bold;
 }
 #spending-summary-overview .row{
-  padding-bottom: 14px;
+  padding-bottom: 10px;
 }
 .spending-info-heading{
 	padding-top: 10px;
@@ -116,4 +116,7 @@ h4{
 a{
   text-decoration: none;
   color: #0c63ee;
+}
+.widget{
+  border-bottom: 1px solid #e1e1e1;
 }

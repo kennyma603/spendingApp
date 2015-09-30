@@ -40,7 +40,8 @@ angular.module('App')
                     dataLabels: {
                         enabled: false
                     },
-                    size: '100%'
+                    size: '100%',
+                    borderWidth: 0
                 },
                 series: {
                     states: {
@@ -68,6 +69,7 @@ angular.module('App')
     ]).then(function() {
         var spendingCategories = TransactionSvc.getTopCategories();
         var newChartData = getformattedCategoriesData(spendingCategories);
+        $scope.categoryMapToId = mapCategoryToId(newChartData);
         //redraw the chart by updating series data
         $scope.SAWChartConfig.series = [{data: newChartData}];
         //console.table(newChartData);
@@ -77,7 +79,7 @@ angular.module('App')
         var newChartData = [];
         angular.forEach(categories, function(category, index){
             var newObj = {
-                categoryId: category.categoryId, 
+                categoryId: category.categoryId,
                 color: chartColors.getColorbyIndex(index),
                 name: CategorySvc.getCateNameById(category.categoryId), 
                 y: category.netSpending
@@ -86,6 +88,25 @@ angular.module('App')
         });
         return newChartData;
     }
+    function mapCategoryToId(categories) {
+        var map = {};
+        angular.forEach(categories, function(category, index) {
+            map[category.categoryId] = index;
+        });
+        return map;
+    }
+
+    $scope.$on('talkToOne', function( event, data ){
+        var chart = $("#spending-summary #SAWChart");
+        if(chart.length > 0) {
+            var chartIndex = chart.data('highchartsChart');
+            var categoryIndex = $scope.categoryMapToId[data.categoryId];
+            console.log(data.categoryId);
+            Highcharts.charts[chartIndex].series[0].data[categoryIndex].select();
+        }
+    });
+
+
 }])
 
 .controller('spendingCategoryListCtrl', ['$scope', '$q', 'TransactionService', 'CategoryService','chartColors', function ($scope, $q, TransactionSvc, CategorySvc, chartColors) {
@@ -124,7 +145,7 @@ angular.module('App')
     $scope.loadTransaction = function(categoryId){
         if(isOnClickLoadTransactionEnabled) {
             $scope.currentViewingCategoryId = categoryId;
-            console.log(categoryId);
+            $scope.$emit('pushChangesToAllNodes', { name: 'talkToOne', data: {categoryId: categoryId}})
         }
     }
 }])
@@ -137,6 +158,12 @@ angular.module('App')
     ]).then(function() {
         $scope.totalNetSpending = TransactionSvc.getTotalNetSpending();
     });
+
+$scope.$on('pushChangesToAllNodes', function( event, message ){
+    console.log(message)
+  $scope.$broadcast( message.name, message.data );
+});
+
 
 }])
 ;
