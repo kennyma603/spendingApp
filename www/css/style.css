@@ -1,5 +1,15 @@
+.bar-spending-chart-subheader{
+  padding: 0;
+}
+.c1-m-spending-subheading{
+  background: #ECF0F1;
+}
 .bar-spending-subheader{
-	background: #ECF0F1;
+  border: 0px !important;
+  border-bottom-color: transparent !important;
+  background-image: none;
+  border-bottom: none;
+  padding: 0;
 }
 .page-heading .col:last-child{
 	text-align: right;
@@ -26,6 +36,10 @@
 h4{
 	font-size: 15px;
 	font-weight: bold;
+}
+.spending-info .row,
+.spending-info .col{
+  padding: 0;
 }
 
 /*charts*/
@@ -104,13 +118,12 @@ h4{
   padding-bottom: 10px;
 }
 .spending-info-heading{
-	padding-top: 10px;
+  padding-top: 10px;
 }
-.bar-spending-subheader{
-  padding: 0;
-  border: 0;
+#top-spending-category-list .spending-info-heading{
+	padding: 10px 0 0 20px;
 }
-.spending-category-list ul li{
+.spending-category-list ul li.category-list{
   border-top: 1px solid #ccc;
 }
 a{
@@ -119,4 +132,25 @@ a{
 }
 .widget{
   border-bottom: 1px solid #e1e1e1;
+}
+.bar-spending-chart-subheader {
+    top: 44px;
+    height: 214px;
+}
+.has-spending-chart-as-subheader {
+    top: 258px;
+}
+.transaction-heading{
+  background: #ECF0F1;
+  text-align: center;
+  padding: 3px 10px;
+}
+.spending-category-list .transaction-by-date{
+  padding: 0 0 0 17px;
+}
+.spending-category-list .transaction-by-date .col{
+  border-bottom: 1px solid #ccc;
+}
+.spending-category-list .transaction-by-date:last-child .col{
+  border-bottom: none;
 }

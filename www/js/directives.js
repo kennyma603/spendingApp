@@ -43,4 +43,16 @@ angular.module('App')
         templateUrl: 'templates/directive/c1-m-spending-category-list.html',
         controller: 'spendingCategoryListCtrl'
     }
-});
+})
+.directive('c1MSpendingSelectedCategoryTransList', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            prop: '=',
+            categoryId: '='
+        },
+        templateUrl: 'templates/directive/c1-m-spending-selected-category-trans-list.html',
+        controller: 'spendingSelectedCategoryTransListCtrl'
+    }
+})
+;

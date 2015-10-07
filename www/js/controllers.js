@@ -1,5 +1,5 @@
 angular.module('App')
-.controller('spendingHomeController', ['$scope', '$q', 'TransactionService', 'CategoryService','chartColors', function ($scope, $q, TransactionSvc, CategorySvc, chartColors) {
+.controller('spendingHomeController', ['$scope', '$q', 'SpendingService', 'CategoryService','chartColors', function ($scope, $q, TransactionSvc, CategorySvc, chartColors) {
 
 
 }])
@@ -17,7 +17,7 @@ angular.module('App')
     }
 }])
 
-.controller('spendingPieChartCtrl', ['$scope', '$q', 'TransactionService', 'CategoryService','chartColors', function ($scope, $q, TransactionSvc, CategorySvc, chartColors) {
+.controller('spendingPieChartCtrl', ['$scope', '$q', 'SpendingService', 'CategoryService','chartColors', function ($scope, $q, TransactionSvc, CategorySvc, chartColors) {
     if(typeof $scope.height === 'undefined') {
         $scope.height = 140;
     }
@@ -97,11 +97,11 @@ angular.module('App')
     }
 
     $scope.$on('talkToOne', function( event, data ){
+        //when category clicked from transactionlist, the pie chart should react by selecting the corresponding pie
         var chart = $("#spending-summary #SAWChart");
         if(chart.length > 0) {
             var chartIndex = chart.data('highchartsChart');
             var categoryIndex = $scope.categoryMapToId[data.categoryId];
-            console.log(data.categoryId);
             Highcharts.charts[chartIndex].series[0].data[categoryIndex].select();
         }
     });
@@ -109,7 +109,7 @@ angular.module('App')
 
 }])
 
-.controller('spendingCategoryListCtrl', ['$scope', '$q', 'TransactionService', 'CategoryService','chartColors', function ($scope, $q, TransactionSvc, CategorySvc, chartColors) {
+.controller('spendingCategoryListCtrl', ['$scope', '$q', 'SpendingService', 'CategoryService','chartColors', function ($scope, $q, TransactionSvc, CategorySvc, chartColors) {
     var isOnClickLoadTransactionEnabled = ($scope.onClickLoadTransaction === 'enable') ? true : false;
     $scope.currentViewingCategoryId = null;
     $scope.orderedCategories = [];
@@ -144,14 +144,20 @@ angular.module('App')
 
     $scope.loadTransaction = function(categoryId){
         if(isOnClickLoadTransactionEnabled) {
-            $scope.currentViewingCategoryId = categoryId;
-            $scope.$emit('pushChangesToAllNodes', { name: 'talkToOne', data: {categoryId: categoryId}})
+            
+            $scope.$emit('pushChangesToAllNodes', { name: 'talkToOne', data: {categoryId: categoryId}});
+
+            if($scope.currentViewingCategoryId === categoryId) {
+                //if same category is clicked, we reset currentViewingCategoryId to null, so transaction list would collapse
+                $scope.currentViewingCategoryId = null;
+            } else{
+                $scope.currentViewingCategoryId = categoryId;
+            }
         }
     }
 }])
 
-angular.module('App')
-.controller('spendingSummaryController', ['$scope', '$q', 'TransactionService', 'CategoryService', function ($scope, $q, TransactionSvc, CategorySvc) {
+.controller('spendingSummaryController', ['$scope', '$q', 'SpendingService', 'CategoryService', function ($scope, $q, TransactionSvc, CategorySvc) {
     $q.all([
         TransactionSvc.get(),
         CategorySvc.get()
@@ -159,11 +165,22 @@ angular.module('App')
         $scope.totalNetSpending = TransactionSvc.getTotalNetSpending();
     });
 
-$scope.$on('pushChangesToAllNodes', function( event, message ){
-    console.log(message)
-  $scope.$broadcast( message.name, message.data );
-});
+    $scope.$on('pushChangesToAllNodes', function( event, message ){
+      $scope.$broadcast( message.name, message.data );
+    });
+}])
 
+.controller('spendingSelectedCategoryTransListCtrl', ['$scope', '$q', 'TransactionService', function ($scope, $q, TransactionSvc) {
+    $scope.transactionList = {};
+    var requestParams = {categoryId: $scope.categoryId};
+
+    $q.all([
+        TransactionSvc.get({categoryId: $scope.categoryId})
+    ]).then(function() {
+        
+        $scope.transactionList = TransactionSvc.getTransactionListGroupbyDate();
+        console.log('out put data');
+    });
 
 }])
 ;

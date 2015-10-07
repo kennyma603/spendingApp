@@ -1,0 +1,109 @@
+{
+    "transactionList":[
+        {
+            "transactionId":"D000219672758",
+            "pfmId":"59923253",
+            "state":"VALID",
+            "effectiveDate":1440140400000,
+            "entryDate":1440140400000,
+            "descriptions":[
+                "Direct Payment Save On Foods",
+                "952 Sar Chilliwac           ",
+                "                            "
+            ],
+            "userDescription":null,
+            "categoryId":10,
+            "amount":{
+                "text":"-$55.63",
+                "value":-55.63,
+                "currency":"CAD"
+            },
+            "amountInCAD":-55.63,
+            "runningBalance":{
+                "text":"$2,167.40",
+                "value":2167.40,
+                "currency":"CAD"
+            },
+            "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a9ea1f8dee2f534943f479fa405d93db853dadeadfbad9f17",
+            "chequeImageQueryParameter":null,
+            "details":[
+                {
+                    "key":"20",
+                    "value":"       844511",
+                    "label":"Other Reference #",
+                    "type":"STRING"
+                }
+            ]
+        },
+        {
+            "transactionId":"D000489738637",
+            "pfmId":"59923250",
+            "state":"VALID",
+            "effectiveDate":1440399600000,
+            "entryDate":1440399600000,
+            "descriptions":[
+                "Direct Payment Save On Foods",
+                "952 Sar Chilliwac           ",
+                "                            "
+            ],
+            "userDescription":null,
+            "categoryId":10,
+            "amount":{
+                "text":"-$35.37",
+                "value":-35.37,
+                "currency":"CAD"
+            },
+            "amountInCAD":-35.37,
+            "runningBalance":{
+                "text":"$2,132.03",
+                "value":2132.03,
+                "currency":"CAD"
+            },
+            "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a9ea1f8dee2f534943f479fa405d93db853dadeadfbad9f17",
+            "chequeImageQueryParameter":null,
+            "details":[
+                {
+                    "key":"20",
+                    "value":"       671034",
+                    "label":"Other Reference #",
+                    "type":"STRING"
+                }
+            ]
+        },
+        {
+            "transactionId":"D000686252944",
+            "pfmId":"59923245",
+            "state":"VALID",
+            "effectiveDate":1440831600000,
+            "entryDate":1440831600000,
+            "descriptions":[
+                "Direct Payment Safeway 4959 ",
+                "Aldergrove Bccd             ",
+                "                            "
+            ],
+            "userDescription":null,
+            "categoryId":10,
+            "amount":{
+                "text":"-$31.47",
+                "value":-31.47,
+                "currency":"CAD"
+            },
+            "amountInCAD":-31.47,
+            "runningBalance":{
+                "text":"$1,888.37",
+                "value":1888.37,
+                "currency":"CAD"
+            },
+            "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a9ea1f8dee2f534943f479fa405d93db853dadeadfbad9f17",
+            "chequeImageQueryParameter":null,
+            "details":[
+                {
+                    "key":"20",
+                    "value":"        41431",
+                    "label":"Other Reference #",
+                    "type":"STRING"
+                }
+            ]
+        }
+    ]
+}

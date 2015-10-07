@@ -1,12 +1,12 @@
 angular.module('App')
-.factory('TransactionService', function($http, $q, orderByFilter, filterFilter) {
+.factory('SpendingService', function($http, $q, orderByFilter, filterFilter) {
 
 	var TEST_DATA_URL = 'testData/transaction/allTransaction.json'
 	var deffered = $q.defer();
  	var transactionData = [];  
- 	var transaction = {};
+ 	var spending = {};
 
-	transaction.get = function() {
+	spending.get = function() {
 	    $http({
 			method: 'GET',
 			url: TEST_DATA_URL,
@@ -21,7 +21,7 @@ angular.module('App')
 	    return deffered.promise;
 	  };
 
-	transaction.getTopCategories = function() {
+	spending.getTopCategories = function() {
 		var sortedData = orderByFilter(transactionData, '-netSpending');
 		//console.table(sortedData);
 		sortedData = filterFilter(sortedData, function(transaction) {
@@ -30,7 +30,7 @@ angular.module('App')
 		return sortedData;
 	}
 
-	transaction.getTotalNetSpending = function() {
+	spending.getTotalNetSpending = function() {
 		var spendingSum = 0;
 		angular.forEach(transactionData, function(spendingCategory) {
 			spendingSum = spendingSum + spendingCategory.netSpending;
@@ -77,7 +77,7 @@ angular.module('App')
 		});
 		return updatedSpendingData;
 	};
-	return transaction;
+	return spending;
 })
 
 .factory('CategoryService', function($http, $q, filterFilter) {
@@ -103,6 +103,75 @@ angular.module('App')
 		return (matchedData.length > 0) ? matchedData[0].name : null;
 	};
   return categoryService;	
+})
+
+.factory('TransactionService', function($http, $q, filterFilter) {
+	var TEST_DATA_URLS = ['testData/transaction/transaction.json', 'testData/transaction/transaction1.json'];
+ 	var transactionData = [];
+ 	var transactionService = {};
+
+	transactionService.get = function(requestParams) {
+		var deffered = $q.defer();
+	    $http({
+			method: 'GET',
+			url: TEST_DATA_URLS[requestParams.categoryId%2],
+			params: requestParams
+		})
+	    .success(function (msg) {
+	      transactionData = msg.transactionList;
+	      transactionData = _formatData(transactionData);
+	      console.log('rest call finished');
+	      deffered.resolve();
+	    });
+	    return deffered.promise;
+	};
+
+	transactionService.getFormattedTransactionList = function() {
+		return transactionData;
+	}
+
+	transactionService.getTransactionListGroupbyDate = function() {
+		map = {};
+		angular.forEach(transactionData, function(transaction) {
+			if (map.hasOwnProperty(transaction.date)) {
+				//we already have the date object in map, add the transaction to that date object array
+				map[transaction.date].push(transaction);
+			} else {
+				//date object doesnt exist, we create one and add current transaction to array then assign it to object
+				map[transaction.date] = [transaction];
+			}
+		});
+		return map;
+	}
+
+		//need to move the following helpers to another factory later
+	var _formatData = function(transactionData) {
+		// take a look at the data and make a little sense of it here, to save extra logic appearing in the template
+		var updatedTransactionData = [];
+		angular.forEach(transactionData, function(transaction) {
+			transaction.date = _getDateText(transaction);
+			transaction.fullDescription = (transaction.userDescription) ? transaction.userDescription : _getTransactionDescriptionText(transaction.descriptions);
+			updatedTransactionData.push(transaction);
+		});
+		return updatedTransactionData;
+	};
+
+	var _getDateText = function(transaction) {
+		//var dateFormat = 'DD-MMM-YYYY'; //to do: get it from property 'TransactionTable.DateFormat'
+		var useTransactionEntryDate = true; //to do get it from property
+		return useTransactionEntryDate ? transaction.entryDate : transaction.effectiveDate;
+	};
+
+	var _getTransactionDescriptionText = function (descriptions) {
+		var combinedDescription = '';
+        angular.forEach(descriptions, function(description) {
+        	combinedDescription = $.trim(combinedDescription + ' ' + $.trim(description));
+        });
+
+        return combinedDescription;
+    };
+
+  	return transactionService;
 })
 
 .service('chartColors', function() {

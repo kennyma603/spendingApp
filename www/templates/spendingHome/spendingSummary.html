@@ -1,34 +1,32 @@
 <ion-view view-title="Spending">
-<div class="bar bar-subheader bar-spending-subheader">
+<div class="bar bar-subheader bar-spending-subheader bar-spending-chart-subheader">
   <c1-m-spending-subheading prop="spendingSubheading" type="changeAccount"></c1-m-spending-subheading>
-</div>
-<ion-pane>
-	<ion-content class="has-subheader">
-
-		<div id="spending-summary">
-
-			<div class="widget-body">
-				<div class="row row-no-padding widget-body-has-data">
-					<div class="col col-no-padding">
-						<c1-m-spending-pie-chart prop="spendingSubheading" height='160'></c1-m-spending-pie-chart>
-					</div>
-					<div class="col col-no-padding col-50 spending-info">
-						<p>Total Spending <br/> <span>this month</span>:</p>
-						<h2>{{totalNetSpending | currency}}</h2>
-						<p>APR 2015 <br/> <span><a href="#">Change</a></span></p>
-					</div>
+  
+	<div id="spending-summary">
+		<div class="widget-body">
+			<div class="row row-no-padding widget-body-has-data" style="padding-top: 10px;">
+				<div class="col col-no-padding">
+					<c1-m-spending-pie-chart prop="spendingSubheading" height='160'></c1-m-spending-pie-chart>
 				</div>
-				<div class="widget-body-no-data" style="display:none;">
-					no spending data
+				<div class="col col-no-padding col-50 spending-info">
+					<p style="padding-top: 10px;">Total Spending <br/> <span>this month</span>:</p>
+					<h2 style="margin: 10px 0;">{{totalNetSpending | currency}}</h2>
+					<p>APR 2015 <br/> <span><a href="#">Change</a></span></p>
 				</div>
 			</div>
+			<div class="widget-body-no-data" style="display:none;">
+				no spending data
+			</div>
 		</div>
+	</div>
 
-		<div id="top-spending-category-list" class="padding spending-category-list">
+</div>
+<ion-pane>
+	<ion-content class="has-subheader has-spending-chart-as-subheader">
+		<div id="top-spending-category-list" class="spending-category-list">
 			<p class="spending-info-heading">Top Spending by category:</p>
 			<c1-m-spending-category-list on-click-load-transaction="enable"></c1-m-spending-category-list>
 		</div>
-
 	</ion-content>
 </ion-pane>
 </ion-view>
