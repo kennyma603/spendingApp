@@ -15,8 +15,7 @@ angular.module('App')
         restrict: 'E',
         scope: {
             prop: '=',
-            heading: '@heading',
-            link: '@link'
+            heading: '@heading'
         },
         templateUrl: 'templates/directive/c1-m-spending-widget-heading.html'
     }
@@ -49,7 +48,8 @@ angular.module('App')
         restrict: 'E',
         scope: {
             prop: '=',
-            categoryId: '='
+            categoryId: '=',
+            categoryName: '='
         },
         templateUrl: 'templates/directive/c1-m-spending-selected-category-trans-list.html',
         controller: 'spendingSelectedCategoryTransListCtrl'

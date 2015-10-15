@@ -7,9 +7,9 @@
 				
 			</div>
 
-			<div class="row row-no-padding" ng-if="onClickLoadTransaction==='enable' && currentViewingCategoryId==category.categoryId">
+			<div class="animate-if2 row row-no-padding" ng-if="onClickLoadTransaction==='enable' && currentViewingCategoryId==category.categoryId">
 				<div class="col col-no-padding">
-					<c1-m-spending-selected-category-trans-list category-id="currentViewingCategoryId"></c1-m-spending-selected-category-trans-list>
+					<c1-m-spending-selected-category-trans-list category-id="currentViewingCategoryId" category-name=category.name></c1-m-spending-selected-category-trans-list>
 				</div>
 			</div>
 		</li>

@@ -1,6 +1,8 @@
 angular.module('App')
-.controller('spendingHomeController', ['$scope', '$q', 'SpendingService', 'CategoryService','chartColors', function ($scope, $q, TransactionSvc, CategorySvc, chartColors) {
-
+.controller('spendingHomeController', ['$scope', '$state', function ($scope, $state) {
+    $scope.sectionClicked = function(sectionName) {
+        $state.go('spendingSummary');
+    }
 
 }])
 
@@ -170,16 +172,15 @@ angular.module('App')
     });
 }])
 
-.controller('spendingSelectedCategoryTransListCtrl', ['$scope', '$q', 'TransactionService', function ($scope, $q, TransactionSvc) {
+.controller('spendingSelectedCategoryTransListCtrl', ['$scope', '$q', '$ionicScrollDelegate', 'TransactionService', function ($scope, $q, $ionicScrollDelegate, TransactionSvc) {
     $scope.transactionList = {};
     var requestParams = {categoryId: $scope.categoryId};
-
+    $ionicScrollDelegate.resize();
     $q.all([
         TransactionSvc.get({categoryId: $scope.categoryId})
     ]).then(function() {
         
         $scope.transactionList = TransactionSvc.getTransactionListGroupbyDate();
-        console.log('out put data');
     });
 
 }])

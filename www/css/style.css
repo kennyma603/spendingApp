@@ -122,6 +122,7 @@ h4{
 }
 #top-spending-category-list .spending-info-heading{
 	padding: 10px 0 0 20px;
+  margin-bottom: 5px;
 }
 .spending-category-list ul li.category-list{
   border-top: 1px solid #ccc;
@@ -144,13 +145,52 @@ a{
   background: #ECF0F1;
   text-align: center;
   padding: 3px 10px;
+  color: #333;
 }
-.spending-category-list .transaction-by-date{
+.spending-category-list .transaction-list-by-date-wrapper{
   padding: 0 0 0 17px;
 }
-.spending-category-list .transaction-by-date .col{
+.spending-category-list .transaction-by-date{
   border-bottom: 1px solid #ccc;
+  padding: 0;
 }
-.spending-category-list .transaction-by-date:last-child .col{
+.spending-category-list .transaction-by-date:last-child{
   border-bottom: none;
+}
+.spending-category-list .chart_legend{
+  padding-left: 18px;
+}
+.spending-category-list .chart_legend:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 10px;
+}
+.spending-category-list li{
+  position: relative;
+}
+
+.animate-if.ng-enter, .animate-if.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.6s;
+}
+.animate-if.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.1s;
+}
+
+.animate-if.ng-enter,
+.animate-if.ng-leave.ng-leave-active {
+  opacity:0;
+}
+
+.animate-if.ng-leave,
+.animate-if.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.spending-category{
+  color: #333;
+}
+.transaction-by-date + .transaction-by-date{
+  margin-top: 0;
 }
