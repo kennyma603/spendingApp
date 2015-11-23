@@ -180,7 +180,7 @@ angular.module('App')
         TransactionSvc.get({categoryId: $scope.categoryId})
     ]).then(function() {
         
-        $scope.transactionList = TransactionSvc.getTransactionListGroupbyDate();
+        $scope.transactionList = TransactionSvc.getTransactionMapGroupbyDate({order: 'desc'});
     });
 
 }])

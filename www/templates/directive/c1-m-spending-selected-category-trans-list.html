@@ -1,9 +1,9 @@
 <div class="c1-m-spending-selected-category-trans-list category-id{{categoryId}}">
 	<ul>
-		<li ng-repeat="(transactionDate, transactions) in transactionList">
-			<div class="transaction-heading">{{transactionDate | date:'MMM dd, yyyy'}}</div>
+		<li ng-repeat="transDate in transactionList.dateOrderArray">
+			<div class="transaction-heading">{{transDate | date:'MMM dd, yyyy'}}</div>
 			<div class="transaction-list-by-date-wrapper">
-				<div class="row transaction-by-date" ng-repeat="transaction in transactions">
+				<div class="row transaction-by-date" ng-repeat="transaction in transactionList.transactionMap[transDate]">
 					<div class="col col-70 item-text-wrap">
 						<div>{{transaction.fullDescription}}</div>
 						<div class="spending-category">{{categoryName}}</div>

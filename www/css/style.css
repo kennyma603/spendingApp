@@ -139,7 +139,10 @@ a{
     height: 214px;
 }
 .has-spending-chart-as-subheader {
-    top: 258px;
+    top: 258px !important;
+}
+.platform-ios.platform-cordova .has-spending-chart-as-subheader{
+  top: 278px !important;
 }
 .transaction-heading{
   background: #ECF0F1;

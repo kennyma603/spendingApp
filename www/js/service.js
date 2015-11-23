@@ -1,5 +1,5 @@
 angular.module('App')
-.factory('SpendingService', function($http, $q, orderByFilter, filterFilter) {
+.factory('SpendingService', ['$http', '$q', 'orderByFilter', 'filterFilter', function($http, $q, orderByFilter, filterFilter) {
 
 	var TEST_DATA_URL = 'testData/transaction/allTransaction.json'
 	var deffered = $q.defer();
@@ -19,16 +19,16 @@ angular.module('App')
 	      deffered.resolve();
 	    });
 	    return deffered.promise;
-	  };
+	};
 
 	spending.getTopCategories = function() {
 		var sortedData = orderByFilter(transactionData, '-netSpending');
 		//console.table(sortedData);
 		sortedData = filterFilter(sortedData, function(transaction) {
-			return transaction.spent > 0;
+			return transaction.spent > 0 || transaction.credit > 0;
 		});
 		return sortedData;
-	}
+	};
 
 	spending.getTotalNetSpending = function() {
 		var spendingSum = 0;
@@ -36,7 +36,7 @@ angular.module('App')
 			spendingSum = spendingSum + spendingCategory.netSpending;
 		});
 		return spendingSum;
-	}
+	};
 
 	//need to move the following helpers to another factory later
 	var _formatData = function(spendingData) {
@@ -78,9 +78,9 @@ angular.module('App')
 		return updatedSpendingData;
 	};
 	return spending;
-})
+}])
 
-.factory('CategoryService', function($http, $q, filterFilter) {
+.factory('CategoryService', ['$http', '$q', 'filterFilter', function($http, $q, filterFilter) {
 	var TEST_DATA_URL = 'testData/category/category.json'
 	var deffered = $q.defer();
  	var categoryData = [];  
@@ -102,10 +102,11 @@ angular.module('App')
 		});
 		return (matchedData.length > 0) ? matchedData[0].name : null;
 	};
-  return categoryService;	
-})
 
-.factory('TransactionService', function($http, $q, filterFilter) {
+  	return categoryService;	
+}])
+
+.factory('TransactionService', ['$http', '$q', 'filterFilter', 'orderByFilter', function($http, $q, filterFilter, orderByFilter) {
 	var TEST_DATA_URLS = ['testData/transaction/transaction.json', 'testData/transaction/transaction1.json'];
  	var transactionData = [];
  	var transactionService = {};
@@ -128,21 +129,29 @@ angular.module('App')
 
 	transactionService.getFormattedTransactionList = function() {
 		return transactionData;
-	}
+	};
 
-	transactionService.getTransactionListGroupbyDate = function() {
-		map = {};
-		angular.forEach(transactionData, function(transaction) {
+	transactionService.getTransactionMapGroupbyDate = function(options) {
+		var defaultOptions = {
+			order: 'asc'
+		};
+		options = angular.extend({}, defaultOptions, options);
+		var map = {};
+		var dateOrder = []; // associated array has random order, so we need this array to track transaction order.
+		var orderBy = (options.order === 'asc') ? '+date' : '-date';
+		var sortedData = orderByFilter(transactionData, orderBy);
+		angular.forEach(sortedData, function(transaction) {
 			if (map.hasOwnProperty(transaction.date)) {
 				//we already have the date object in map, add the transaction to that date object array
 				map[transaction.date].push(transaction);
 			} else {
 				//date object doesnt exist, we create one and add current transaction to array then assign it to object
 				map[transaction.date] = [transaction];
+				dateOrder.push(transaction.date);
 			}
 		});
-		return map;
-	}
+		return {dateOrderArray: dateOrder, transactionMap: map};
+	};
 
 		//need to move the following helpers to another factory later
 	var _formatData = function(transactionData) {
@@ -172,7 +181,7 @@ angular.module('App')
     };
 
   	return transactionService;
-})
+}])
 
 .service('chartColors', function() {
 	var chartColors = {};
@@ -193,6 +202,6 @@ angular.module('App')
 	chartColors.getColorbyIndex = function(index) {
 		var modIndex = index % 12; //we only have 12 color codes. repeat the color if we need more than 12.
 		return chartColorsArr[index];
-	}
+	};
 	return chartColors;
 });

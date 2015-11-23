@@ -41,6 +41,7 @@
             "date":"1969-12-31",
             "categoryId":10,
             "spent":123.45,
+            "credit":20.00,
             "budgetDefault":316.34
         },
         {

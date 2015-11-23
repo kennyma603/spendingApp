@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('App', ['ionic', 'ui.router', 'highcharts-ng'])
 
-.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', '$provide', function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $provide) {
 	$stateProvider.state('home', {
 		url: '/home',
 		templateUrl: 'templates/home/home.html'
@@ -23,7 +23,15 @@ angular.module('App', ['ionic', 'ui.router', 'highcharts-ng'])
 	$urlRouterProvider.otherwise('/home');
   $ionicConfigProvider.navBar.alignTitle('center');
   $ionicConfigProvider.backButton.text('').icon('ion-chevron-left').previousTitleText(false);
-})
+
+  $provide.decorator('$locale', ['$delegate', function($delegate) {
+    if($delegate.id == 'en-us') {
+      $delegate.NUMBER_FORMATS.PATTERNS[1].negPre = '-\u00A4';
+      $delegate.NUMBER_FORMATS.PATTERNS[1].negSuf = '';
+    }
+    return $delegate;
+  }]);
+}])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
