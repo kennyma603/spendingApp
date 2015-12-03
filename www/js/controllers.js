@@ -12,7 +12,7 @@ angular.module('App')
 
     function getSelectedMonthYear() {
         var currentTime = new Date();
-        var currentMonth = currentTime.getMonth() + 1;
+        var currentMonth = currentTime.getMonth();
         var currentYear = currentTime.getFullYear();
         var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         return monthNames[currentMonth] + ' ' + currentYear;
