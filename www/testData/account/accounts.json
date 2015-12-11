@@ -5,8 +5,8 @@
             "accounts":[
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a9ea1f8dee2f534943f479fa405d93db853dadeadfbad9f17",
-                    "name":"0 STF Chequing",
-                    "balance":3598.62,
+                    "name":"0 STF Chequing 0 STF Chequing 0 STF Chequing 0 STF Chequing 0 STF Chequing 0 STF Chequing 0 STF Chequing",
+                    "balance":39223.01,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
@@ -16,7 +16,27 @@
                         "viewSpendingAnalysis":true,
                         "renameAccount":true
                     },
-                    "balanceInCAD":3598.62,
+                    "balanceInCAD":39223.01,
+                    "hold":0.00,
+                    "acctType":"BANK",
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                },
+                {
+                    "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a9ea1f8dee2f534943f479fa405d93db83efa42d01b081fdd",
+                    "name":"1 update part 2",
+                    "balance":7993.00,
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "payBill":true,
+                        "transferFrom":true,
+                        "eTransfer":true,
+                        "viewSpendingAnalysis":true,
+                        "renameAccount":true
+                    },
+                    "balanceInCAD":7993.00,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -26,7 +46,7 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a4b6c75d99786e545d9ec2dc9c106682953dadeadfbad9f17",
                     "name":"0 Taxes",
-                    "balance":2443.51,
+                    "balance":2847.20,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
@@ -36,7 +56,7 @@
                         "viewSpendingAnalysis":true,
                         "renameAccount":true
                     },
-                    "balanceInCAD":2443.51,
+                    "balanceInCAD":2847.20,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -46,7 +66,7 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a4b6c75d99786e545d9ec2dc9c10668293efa42d01b081fdd",
                     "name":"1 High Interest Savings",
-                    "balance":40.14,
+                    "balance":40.22,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
@@ -56,7 +76,7 @@
                         "viewSpendingAnalysis":true,
                         "renameAccount":true
                     },
-                    "balanceInCAD":40.14,
+                    "balanceInCAD":40.22,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -66,7 +86,7 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a4b6c75d99786e545199f13912a26e67153dadeadfbad9f17",
                     "name":"0 savings",
-                    "balance":1031.81,
+                    "balance":1491.10,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
@@ -76,7 +96,7 @@
                         "viewSpendingAnalysis":true,
                         "renameAccount":true
                     },
-                    "balanceInCAD":1031.81,
+                    "balanceInCAD":1491.10,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -86,7 +106,7 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a4b6c75d99786e545199f13912a26e6716eceb0c3d59852f9",
                     "name":"2 Terry",
-                    "balance":55.76,
+                    "balance":55.75,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
@@ -96,7 +116,7 @@
                         "viewSpendingAnalysis":true,
                         "renameAccount":true
                     },
-                    "balanceInCAD":55.76,
+                    "balanceInCAD":55.75,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -106,7 +126,7 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a4b6c75d99786e545199f13912a26e671ed5608ef431dc260",
                     "name":"3 Jennifer",
-                    "balance":2599.73,
+                    "balance":11392.62,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
@@ -116,7 +136,7 @@
                         "viewSpendingAnalysis":true,
                         "renameAccount":true
                     },
-                    "balanceInCAD":2599.73,
+                    "balanceInCAD":11392.62,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -126,7 +146,7 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932af6e3c915d56bf72560a80c24fd54aa973efa42d01b081fdd",
                     "name":"1 Variable RSP",
-                    "balance":101.81,
+                    "balance":1.81,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
@@ -134,7 +154,7 @@
                         "transferFrom":true,
                         "viewSpendingAnalysis":true
                     },
-                    "balanceInCAD":101.81,
+                    "balanceInCAD":1.81,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -158,22 +178,6 @@
                     "loan":false
                 },
                 {
-                    "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a711287cb0fc8099f0f6c625cb26e6dd453dadeadfbad9f17",
-                    "name":"0 Tax-Free High Interest Savings Account",
-                    "balance":2461.25,
-                    "active":true,
-                    "permissions":{
-                        "viewActivity":true,
-                        "viewSpendingAnalysis":true
-                    },
-                    "balanceInCAD":2461.25,
-                    "hold":0.00,
-                    "acctType":"BANK",
-                    "pfmAvailable":true,
-                    "currency":"CAD",
-                    "loan":false
-                },
-                {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a7a2ed2d7832748dbbbefe870bc8191ac53dadeadfbad9f17",
                     "name":"0 US Chequing Staff",
                     "balance":11.88,
@@ -184,7 +188,7 @@
                         "viewSpendingAnalysis":true,
                         "renameAccount":true
                     },
-                    "balanceInCAD":15.76,
+                    "balanceInCAD":15.80,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -194,13 +198,13 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932ad2daec4eedf42fb0e2e3582a9a912a5f4eff4f01682cf22f",
                     "name":"9 RRSP Term Deposit",
-                    "balance":1622.13,
+                    "balance":1658.63,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
                         "viewSpendingAnalysis":true
                     },
-                    "balanceInCAD":1622.13,
+                    "balanceInCAD":1658.63,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -210,13 +214,13 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932ad2daec4eedf42fb03d58aeca5ca9b93130dd82098a30bdc8",
                     "name":"13 RSP Rate Climber Non-Redeemable",
-                    "balance":1555.31,
+                    "balance":1594.19,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
                         "viewSpendingAnalysis":true
                     },
-                    "balanceInCAD":1555.31,
+                    "balanceInCAD":1594.19,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -226,13 +230,13 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932ad2daec4eedf42fb03d58aeca5ca9b931127026bfe303e48b",
                     "name":"14 RSP Rate Climber Non-Redeemable",
-                    "balance":2384.19,
+                    "balance":2443.79,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
                         "viewSpendingAnalysis":true
                     },
-                    "balanceInCAD":2384.19,
+                    "balanceInCAD":2443.79,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -258,13 +262,13 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932ad2daec4eedf42fb00b0068d2c9c7dc6d4bc0da778184762c",
                     "name":"16 RSP 3-Yrs Rate Climber",
-                    "balance":2020.45,
+                    "balance":2054.80,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
                         "viewSpendingAnalysis":true
                     },
-                    "balanceInCAD":2020.45,
+                    "balanceInCAD":2054.80,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -318,6 +322,86 @@
                     "pfmAvailable":true,
                     "currency":"CAD",
                     "loan":false
+                },
+                {
+                    "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a11e7798da5ac640f769fbb431f6581ec1da57812f4b55969",
+                    "name":"21 Annual Interest Term Deposit Redeemable",
+                    "balance":70000.00,
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true
+                    },
+                    "balanceInCAD":70000.00,
+                    "hold":0.00,
+                    "acctType":"BANK",
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                },
+                {
+                    "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a11e7798da5ac640f40170ed8b8bfa532fdba0d68b6879f42",
+                    "name":"22 Annual Interest Term Deposit 15 Months",
+                    "balance":100.00,
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true
+                    },
+                    "balanceInCAD":100.00,
+                    "hold":0.00,
+                    "acctType":"BANK",
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                },
+                {
+                    "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932a11e7798da5ac640f8b9385fb374e74d70cdc8e7ba728faf0",
+                    "name":"23 Junior Redeemable Annual Interest Term",
+                    "balance":500.00,
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true
+                    },
+                    "balanceInCAD":500.00,
+                    "hold":0.00,
+                    "acctType":"BANK",
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                },
+                {
+                    "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932aba9ae06372b405b669f094bde0a29d584a805bcc56a85e88",
+                    "name":"25 RESP Term Deposit - Redeemable",
+                    "balance":1000.00,
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true
+                    },
+                    "balanceInCAD":1000.00,
+                    "hold":0.00,
+                    "acctType":"BANK",
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                },
+                {
+                    "accountId":"15c9e64893d086872a5f93f14dbec4e677012369e676932ad6435d4f82180058968e3db23d65bf3e6bd775c23519dc99",
+                    "name":"18 Personal Loan",
+                    "balance":-35000.00,
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true
+                    },
+                    "balanceInCAD":-35000.00,
+                    "hold":0.00,
+                    "acctType":"BANK",
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":true
                 }
             ],
             "userPreferredMembership":false
@@ -356,7 +440,7 @@
                         "viewSpendingAnalysis":true,
                         "renameAccount":true
                     },
-                    "balanceInCAD":59.71,
+                    "balanceInCAD":59.85,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -372,7 +456,7 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e6d2a3333aa16e6d927ac2ecb46de872f63f479fa405d93db853dadeadfbad9f17",
                     "name":"0 Daily Cheq",
-                    "balance":962.57,
+                    "balance":4989.87,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
@@ -382,7 +466,7 @@
                         "viewSpendingAnalysis":true,
                         "renameAccount":true
                     },
-                    "balanceInCAD":962.57,
+                    "balanceInCAD":4989.87,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -392,7 +476,7 @@
                 {
                     "accountId":"15c9e64893d086872a5f93f14dbec4e6d2a3333aa16e6d92c0a5a0a5b41633fc199f13912a26e67153dadeadfbad9f17",
                     "name":"0 Bills",
-                    "balance":617.41,
+                    "balance":3.84,
                     "active":true,
                     "permissions":{
                         "viewActivity":true,
@@ -402,7 +486,7 @@
                         "viewSpendingAnalysis":true,
                         "renameAccount":true
                     },
-                    "balanceInCAD":617.41,
+                    "balanceInCAD":3.84,
                     "hold":0.00,
                     "acctType":"BANK",
                     "pfmAvailable":true,
@@ -414,10 +498,2057 @@
         }
     ],
     "partnerAccounts":[
-
+        {
+            "institutionId":"0",
+            "name":"Credential Asset Management Inc.",
+            "refreshed":true,
+            "refreshErrorCode":"",
+            "accounts":[
+                {
+                    "accountId":"42dc99035ec6b1370a16344cf5243d0083cc2946629a3146193e1a7f65573504",
+                    "name":"Plan# 804442744 Client# 4442178",
+                    "balance":74325.25,
+                    "recency":"as of 1 day(s) ago",
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true,
+                        "viewHoldings":true
+                    },
+                    "balanceInCAD":74325.25,
+                    "acctType":"INVESTMENT",
+                    "details":[
+                        {
+                            "key":"CAMAccount.AccountTypeShort",
+                            "value":"SDRSP",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.BookValue",
+                            "value":{
+                                "text":"$63,649.40",
+                                "value":63649.40,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.MarketValue",
+                            "value":{
+                                "text":"$74,325.25",
+                                "value":74325.25,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.PlanNumber",
+                            "value":"804442744",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanType",
+                            "value":"Multiple Fund RRSP",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanRegistered",
+                            "value":"Registered.Text",
+                            "type":"PROPERTY"
+                        },
+                        {
+                            "key":"CAMAccount.BalanceAsOfDate",
+                            "value":1449561600000,
+                            "type":"DATE"
+                        }
+                    ],
+                    "holdings":[
+                        {
+                            "id":"4442746",
+                            "name":"CAM Daily Interest Savings",
+                            "symbol":"CAMCCASH",
+                            "unitHeld":0.27,
+                            "unitPrice":{
+                                "text":"$1.00",
+                                "value":1.0000,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$0.27",
+                                "value":0.27,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"804442744",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"CAM Daily Interest Savings",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"4442746",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"CAMCCASH",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"0.270",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$1.00",
+                                        "value":1.0000,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$0.27",
+                                        "value":0.27,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$0.27",
+                                        "value":0.27,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"6608017",
+                            "name":"Cash Account (CAD)",
+                            "symbol":"CAMCCCA",
+                            "unitHeld":0.0,
+                            "unitPrice":{
+                                "text":"$1.00",
+                                "value":1.0000,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$0.00",
+                                "value":0.00,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"804442744",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Cash Account (CAD)",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"6608017",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"CAMCCCA",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"0.000",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$1.00",
+                                        "value":1.0000,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$0.00",
+                                        "value":0.00,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$0.00",
+                                        "value":0.00,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"12072003",
+                            "name":"Fidelity Canadian Balanced Fund - A",
+                            "symbol":"FID582",
+                            "unitHeld":679.225,
+                            "unitPrice":{
+                                "text":"$24.26",
+                                "value":24.2593,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$16,477.53",
+                                "value":16477.53,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"804442744",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Fidelity Canadian Balanced Fund - A",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"39835632",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"FID582",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"679.225",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$24.26",
+                                        "value":24.2593,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$16,477.53",
+                                        "value":16477.53,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$14,055.82",
+                                        "value":14055.82,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"14904041",
+                            "name":"Fidelity Canadian Balanced Fund - B",
+                            "symbol":"FID282",
+                            "unitHeld":420.898,
+                            "unitPrice":{
+                                "text":"$24.27",
+                                "value":24.2737,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$10,216.74",
+                                "value":10216.74,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"804442744",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Fidelity Canadian Balanced Fund - B",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"39835632",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"FID282",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"420.898",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$24.27",
+                                        "value":24.2737,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$10,216.74",
+                                        "value":10216.74,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$8,421.95",
+                                        "value":8421.95,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"25029002",
+                            "name":"Meritage Balanced Portfolio - Advisor",
+                            "symbol":"NBC7413",
+                            "unitHeld":1276.4,
+                            "unitPrice":{
+                                "text":"$13.45",
+                                "value":13.4500,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$17,167.58",
+                                "value":17167.58,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"804442744",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Meritage Balanced Portfolio - Advisor",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"00012134906",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"NBC7413",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"1276.400",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$13.45",
+                                        "value":13.4500,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$17,167.58",
+                                        "value":17167.58,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$15,184.18",
+                                        "value":15184.18,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"26451687",
+                            "name":"Meritage Moderate Portfolio",
+                            "symbol":"NBC7612",
+                            "unitHeld":1208.661,
+                            "unitPrice":{
+                                "text":"$12.95",
+                                "value":12.9500,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$15,652.16",
+                                "value":15652.16,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"804442744",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Meritage Moderate Portfolio",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"00012134906",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"NBC7612",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"1208.661",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$12.95",
+                                        "value":12.9500,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$15,652.16",
+                                        "value":15652.16,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$15,133.28",
+                                        "value":15133.28,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"14904040",
+                            "name":"CI Portfolio Series Balanced Growth Fund - A",
+                            "symbol":"CIG2601",
+                            "unitHeld":880.034,
+                            "unitPrice":{
+                                "text":"$16.83",
+                                "value":16.8300,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$14,810.97",
+                                "value":14810.97,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"804442744",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"CI Portfolio Series Balanced Growth Fund - A",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"30321657",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"Foreign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"CIG2601",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"880.034",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$16.83",
+                                        "value":16.8300,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$14,810.97",
+                                        "value":14810.97,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$10,853.90",
+                                        "value":10853.90,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        }
+                    ],
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                },
+                {
+                    "accountId":"42dc99035ec6b1370a16344cf5243d0083cc2946629a3146f05f08384500c269",
+                    "name":"Plan# 804492099 Client# 4442178",
+                    "balance":50221.77,
+                    "recency":"as of 1 day(s) ago",
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true,
+                        "viewHoldings":true
+                    },
+                    "balanceInCAD":50221.77,
+                    "acctType":"INVESTMENT",
+                    "details":[
+                        {
+                            "key":"CAMAccount.AccountTypeShort",
+                            "value":"SDLRSP",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.BookValue",
+                            "value":{
+                                "text":"$44,044.13",
+                                "value":44044.13,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.MarketValue",
+                            "value":{
+                                "text":"$50,221.77",
+                                "value":50221.77,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.PlanNumber",
+                            "value":"804492099",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanType",
+                            "value":"Multiple Fund Locked-In RRSP",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanRegistered",
+                            "value":"Registered.Text",
+                            "type":"PROPERTY"
+                        },
+                        {
+                            "key":"CAMAccount.BalanceAsOfDate",
+                            "value":1449561600000,
+                            "type":"DATE"
+                        }
+                    ],
+                    "holdings":[
+                        {
+                            "id":"26096858",
+                            "name":"Fidelity Income Allocation Fund",
+                            "symbol":"FID294",
+                            "unitHeld":1155.875,
+                            "unitPrice":{
+                                "text":"$15.13",
+                                "value":15.1320,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$17,490.71",
+                                "value":17490.71,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"804492099",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Fidelity Income Allocation Fund",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"54420906",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"FID294",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"1155.875",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$15.13",
+                                        "value":15.1320,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$17,490.71",
+                                        "value":17490.71,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$16,308.82",
+                                        "value":16308.82,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"26096848",
+                            "name":"TD Tactical Monthly Income Fund",
+                            "symbol":"TDB2581",
+                            "unitHeld":1536.911,
+                            "unitPrice":{
+                                "text":"$11.55",
+                                "value":11.5479,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$17,748.09",
+                                "value":17748.09,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"804492099",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"TD Tactical Monthly Income Fund",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"1545153",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"TDB2581",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"1536.911",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$11.55",
+                                        "value":11.5479,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$17,748.09",
+                                        "value":17748.09,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$15,850.32",
+                                        "value":15850.32,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"14904042",
+                            "name":"Mackenzie Global Diversified Balanced Fund",
+                            "symbol":"MFC2708",
+                            "unitHeld":1158.122,
+                            "unitPrice":{
+                                "text":"$12.94",
+                                "value":12.9373,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$14,982.97",
+                                "value":14982.97,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"804492099",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Mackenzie Global Diversified Balanced Fund",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"34911859",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"Foreign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"MFC2708",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"1158.122",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$12.94",
+                                        "value":12.9373,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$14,982.97",
+                                        "value":14982.97,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$11,885.00",
+                                        "value":11885.00,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        }
+                    ],
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                },
+                {
+                    "accountId":"42dc99035ec6b1370a16344cf5243d001f5baed50ba35f3c3a5c7079480aa375",
+                    "name":"Plan# 31959360 Client# 4442178",
+                    "balance":16053.76,
+                    "recency":"as of 1 day(s) ago",
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true,
+                        "viewHoldings":true
+                    },
+                    "balanceInCAD":16053.76,
+                    "acctType":"INVESTMENT",
+                    "details":[
+                        {
+                            "key":"CAMAccount.AccountTypeShort",
+                            "value":"RESP-F",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.BookValue",
+                            "value":{
+                                "text":"$15,995.68",
+                                "value":15995.68,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.MarketValue",
+                            "value":{
+                                "text":"$16,053.76",
+                                "value":16053.76,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.PlanNumber",
+                            "value":"31959360",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanType",
+                            "value":"Client Name Family RESP",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanRegistered",
+                            "value":"Registered.Text",
+                            "type":"PROPERTY"
+                        },
+                        {
+                            "key":"CAMAccount.BalanceAsOfDate",
+                            "value":1449561600000,
+                            "type":"DATE"
+                        }
+                    ],
+                    "holdings":[
+                        {
+                            "id":"32102707",
+                            "name":"Fidelity Canadian Balanced Fund - A",
+                            "symbol":"FID582",
+                            "unitHeld":239.268,
+                            "unitPrice":{
+                                "text":"$24.26",
+                                "value":24.2593,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$5,804.47",
+                                "value":5804.47,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"31959360",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Fidelity Canadian Balanced Fund - A",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"58680836",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"FID582",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"239.268",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$24.26",
+                                        "value":24.2593,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$5,804.47",
+                                        "value":5804.47,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$5,790.74",
+                                        "value":5790.74,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"32760602",
+                            "name":"Fidelity Canadian Balanced Fund - A",
+                            "symbol":"FID082",
+                            "unitHeld":87.312,
+                            "unitPrice":{
+                                "text":"$24.26",
+                                "value":24.2593,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$2,118.13",
+                                "value":2118.13,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"31959360",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Fidelity Canadian Balanced Fund - A",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"58680836",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"FID082",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"87.312",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$24.26",
+                                        "value":24.2593,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$2,118.13",
+                                        "value":2118.13,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$2,165.98",
+                                        "value":2165.98,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"39058414",
+                            "name":"Fidelity Northstar Balanced Fund - B",
+                            "symbol":"FID2407",
+                            "unitHeld":658.991,
+                            "unitPrice":{
+                                "text":"$12.34",
+                                "value":12.3388,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$8,131.15",
+                                "value":8131.15,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"31959360",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Fidelity Northstar Balanced Fund - B",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"58680836",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"Foreign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"FID2407",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"658.991",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$12.34",
+                                        "value":12.3388,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$8,131.15",
+                                        "value":8131.15,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$8,038.96",
+                                        "value":8038.96,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        }
+                    ],
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                },
+                {
+                    "accountId":"42dc99035ec6b1370a16344cf5243d001f5baed50ba35f3c899b70691e88932e",
+                    "name":"Plan# 38970720 Client# 4442178",
+                    "balance":104652.50,
+                    "recency":"as of 1 day(s) ago",
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true,
+                        "viewHoldings":true
+                    },
+                    "balanceInCAD":104652.50,
+                    "acctType":"INVESTMENT",
+                    "details":[
+                        {
+                            "key":"CAMAccount.AccountTypeShort",
+                            "value":"OPENE",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.BookValue",
+                            "value":{
+                                "text":"$103,335.92",
+                                "value":103335.92,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.MarketValue",
+                            "value":{
+                                "text":"$104,652.50",
+                                "value":104652.50,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.PlanNumber",
+                            "value":"38970720",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanType",
+                            "value":"Client Name Non-Registered",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanRegistered",
+                            "value":"NotRegistered.Text",
+                            "type":"PROPERTY"
+                        },
+                        {
+                            "key":"CAMAccount.BalanceAsOfDate",
+                            "value":1449561600000,
+                            "type":"DATE"
+                        }
+                    ],
+                    "holdings":[
+                        {
+                            "id":"39418552",
+                            "name":"Fidelity Canadian Balanced Class - B",
+                            "symbol":"FID226",
+                            "unitHeld":1291.282,
+                            "unitPrice":{
+                                "text":"$24.03",
+                                "value":24.0259,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$31,024.21",
+                                "value":31024.21,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"38970720",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Fidelity Canadian Balanced Class - B",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"63699763",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"FID226",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"1291.282",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$24.03",
+                                        "value":24.0259,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$31,024.21",
+                                        "value":31024.21,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$31,335.92",
+                                        "value":31335.92,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"39418553",
+                            "name":"Fidelity Global Income Class Portfolio - B",
+                            "symbol":"FID2282",
+                            "unitHeld":5085.248,
+                            "unitPrice":{
+                                "text":"$14.48",
+                                "value":14.4788,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$73,628.30",
+                                "value":73628.30,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"38970720",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Fidelity Global Income Class Portfolio - B",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"63699763",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"Foreign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"FID2282",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"5085.248",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$14.48",
+                                        "value":14.4788,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$73,628.30",
+                                        "value":73628.30,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$72,000.00",
+                                        "value":72000.00,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        }
+                    ],
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                },
+                {
+                    "accountId":"42dc99035ec6b1370a16344cf5243d001f5baed50ba35f3c4c13a31f4cb19ebc",
+                    "name":"Plan# 38970721 Client# 4442178",
+                    "balance":21355.19,
+                    "recency":"as of 1 day(s) ago",
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true,
+                        "viewHoldings":true
+                    },
+                    "balanceInCAD":21355.19,
+                    "acctType":"INVESTMENT",
+                    "details":[
+                        {
+                            "key":"CAMAccount.AccountTypeShort",
+                            "value":"OPENE",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.BookValue",
+                            "value":{
+                                "text":"$21,357.25",
+                                "value":21357.25,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.MarketValue",
+                            "value":{
+                                "text":"$21,355.19",
+                                "value":21355.19,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.PlanNumber",
+                            "value":"38970721",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanType",
+                            "value":"Client Name Non-Registered",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanRegistered",
+                            "value":"NotRegistered.Text",
+                            "type":"PROPERTY"
+                        },
+                        {
+                            "key":"CAMAccount.BalanceAsOfDate",
+                            "value":1449561600000,
+                            "type":"DATE"
+                        }
+                    ],
+                    "holdings":[
+                        {
+                            "id":"39398431",
+                            "name":"PowerShares 1-5 Year Laddered Corporate Bond Index Fund - A",
+                            "symbol":"AIM53203",
+                            "unitHeld":2291.821,
+                            "unitPrice":{
+                                "text":"$9.32",
+                                "value":9.3180,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$21,355.19",
+                                "value":21355.19,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"38970721",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"PowerShares 1-5 Year Laddered Corporate Bond Index Fund - A",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"20886501",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"AIM53203",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"2291.821",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$9.32",
+                                        "value":9.3180,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$21,355.19",
+                                        "value":21355.19,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$21,357.25",
+                                        "value":21357.25,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        }
+                    ],
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                },
+                {
+                    "accountId":"42dc99035ec6b1370a16344cf5243d001f5baed50ba35f3c013b90ef24c72e01",
+                    "name":"Plan# 39430409 Client# 4442178",
+                    "balance":38910.36,
+                    "recency":"as of 1 day(s) ago",
+                    "active":true,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true,
+                        "viewHoldings":true
+                    },
+                    "balanceInCAD":38910.36,
+                    "acctType":"INVESTMENT",
+                    "details":[
+                        {
+                            "key":"CAMAccount.AccountTypeShort",
+                            "value":"TFSA",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.BookValue",
+                            "value":{
+                                "text":"$38,195.41",
+                                "value":38195.41,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.MarketValue",
+                            "value":{
+                                "text":"$38,910.36",
+                                "value":38910.36,
+                                "currency":"CAD"
+                            },
+                            "type":"AMOUNT"
+                        },
+                        {
+                            "key":"CAMAccount.PlanNumber",
+                            "value":"39430409",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanType",
+                            "value":"Tax-Free Savings Account",
+                            "type":"STRING"
+                        },
+                        {
+                            "key":"CAMAccount.PlanRegistered",
+                            "value":"Registered.Text",
+                            "type":"PROPERTY"
+                        },
+                        {
+                            "key":"CAMAccount.BalanceAsOfDate",
+                            "value":1449561600000,
+                            "type":"DATE"
+                        }
+                    ],
+                    "holdings":[
+                        {
+                            "id":"39418549",
+                            "name":"Fidelity Canadian Balanced Fund - B",
+                            "symbol":"FID282",
+                            "unitHeld":471.594,
+                            "unitPrice":{
+                                "text":"$24.27",
+                                "value":24.2737,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$11,447.34",
+                                "value":11447.34,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"39430409",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Fidelity Canadian Balanced Fund - B",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"63699714",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"NotForeign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"FID282",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"471.594",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$24.27",
+                                        "value":24.2737,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$11,447.34",
+                                        "value":11447.34,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$11,439.51",
+                                        "value":11439.51,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        },
+                        {
+                            "id":"39418550",
+                            "name":"Fidelity Northstar Balanced Fund - B",
+                            "symbol":"FID2407",
+                            "unitHeld":2225.745,
+                            "unitPrice":{
+                                "text":"$12.34",
+                                "value":12.3388,
+                                "currency":"CAD"
+                            },
+                            "marketValue":{
+                                "text":"$27,463.02",
+                                "value":27463.02,
+                                "currency":"CAD"
+                            },
+                            "holdingType":"INVESTMENT_HOLDING",
+                            "interestRate":null,
+                            "couponRate":null,
+                            "currencyType":null,
+                            "faceValue":null,
+                            "parValue":null,
+                            "term":null,
+                            "bookValue":null,
+                            "lastUpdated":1449561600000,
+                            "qtyPending":null,
+                            "details":[
+                                {
+                                    "key":"CAMHolding.PlanNumber",
+                                    "value":"39430409",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundName",
+                                    "value":"Fidelity Northstar Balanced Fund - B",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.AccountMgtNumber",
+                                    "value":"63699714",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.ForeignContent",
+                                    "value":"Foreign.Text",
+                                    "type":"PROPERTY"
+                                },
+                                {
+                                    "key":"CAMHolding.FundSymbol",
+                                    "value":"FID2407",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnits",
+                                    "value":"2225.745",
+                                    "type":"STRING"
+                                },
+                                {
+                                    "key":"CAMHolding.FundUnitPrice",
+                                    "value":{
+                                        "text":"$12.34",
+                                        "value":12.3388,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.MarketValue",
+                                    "value":{
+                                        "text":"$27,463.02",
+                                        "value":27463.02,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BookValue",
+                                    "value":{
+                                        "text":"$26,755.90",
+                                        "value":26755.90,
+                                        "currency":"CAD"
+                                    },
+                                    "type":"AMOUNT"
+                                },
+                                {
+                                    "key":"CAMHolding.BalanceAsOfDate",
+                                    "value":1449561600000,
+                                    "type":"DATE"
+                                }
+                            ]
+                        }
+                    ],
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                }
+            ],
+            "partnerType":"CredentialCAMClients",
+            "partnerDown":false
+        }
     ],
     "externalAccounts":[
-
+        {
+            "institutionId":"15275150",
+            "name":"Desjardins Westminster Savings (Canada) - Credit Card",
+            "institutionCategory":"HeldAway",
+            "refreshed":false,
+            "refreshErrorCode":"518",
+            "accounts":[
+                {
+                    "accountId":"7a8d722793d9888a60ac7f02aa54d8b8fb8d13820e95e425",
+                    "name":"VISA Desjardins Travel GOLD",
+                    "balance":-166.78,
+                    "recency":"from 7 day(s) ago",
+                    "active":false,
+                    "permissions":{
+                        "viewActivity":true,
+                        "viewSpendingAnalysis":true,
+                        "renameAccount":true,
+                        "removeAccount":true,
+                        "removeSite":true
+                    },
+                    "balanceInCAD":-166.78,
+                    "acctType":"CREDIT_CARD",
+                    "details":[
+                        {
+                            "key":"LastUpdated",
+                            "value":1449010520000,
+                            "type":"DATE"
+                        }
+                    ],
+                    "pfmAvailable":true,
+                    "currency":"CAD",
+                    "loan":false
+                }
+            ]
+        }
     ],
     "manualAccounts":[
 

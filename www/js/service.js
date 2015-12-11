@@ -106,6 +106,86 @@ angular.module('App')
   	return categoryService;	
 }])
 
+.factory('AccountService', ['$http', '$q', 'filterFilter', function($http, $q, filterFilter) {
+	var TEST_DATA_URL = 'testData/account/accounts.json'
+	var deffered = $q.defer();
+ 	var accountData = [];  
+ 	var accountService = {};
+
+	accountService.get = function() {
+	    $http.get(TEST_DATA_URL)
+	    .success(function (msg) {
+	      accountData = msg;
+	      deffered.resolve();
+	    })
+	    .error(function (data, status){
+            deffered.reject();
+            console.log(status);
+	    });
+	    
+	    return deffered.promise;
+	};
+
+	accountService.getFinancialAccounts = function() {
+		var accountsToShow = ['memberships', 'partnerAccounts', 'externalAccounts'];
+		var arr = [];
+		for (var i = 0; i < accountsToShow.length; i++) {
+			if(accountData.hasOwnProperty(accountsToShow[i])){
+			  arr = arr.concat(accountData[accountsToShow[i]]);
+			}
+		}
+		return arr;
+    };
+
+	accountService.getAccountNameById = function(id){
+		var accountName = '';
+
+		angular.forEach(accountData, function(financialAccounts, key){
+			angular.forEach(financialAccounts, function(financialAccount, key){
+				angular.forEach(financialAccount.accounts, function(account, key){					
+	 				if (account.accountId === id){
+	 					accountName = account.name;
+	 				}
+				});
+			});
+		});
+		return accountName;
+	}
+  	return accountService;	
+}])
+
+.factory('GroupService', ['$http', '$q', 'filterFilter', function($http, $q, filterFilter) {
+	var TEST_DATA_URL = 'testData/group/group.json'
+	var deffered = $q.defer();
+ 	var groupData = [];  
+ 	var groupService = {};
+
+	groupService.get = function() {
+	    $http.get(TEST_DATA_URL)
+	    .success(function (msg) {
+	      groupData = msg;
+	      deffered.resolve();
+	    }).error(function (data, status){
+            deffered.reject();
+	    });
+	    return deffered.promise;
+	};
+
+	groupService.getGroupList = function() {
+		return groupData;
+	};
+
+	groupService.getGroupNameById = function(id){
+		var matchedData = filterFilter(groupData, function(group) {
+			return group.groupId == id;
+		});
+
+		return (matchedData.length > 0) ? matchedData[0].groupName : null;
+	}
+
+  	return groupService;	
+}])
+
 .factory('TransactionService', ['$http', '$q', 'filterFilter', 'orderByFilter', function($http, $q, filterFilter, orderByFilter) {
 	var TEST_DATA_URLS = ['testData/transaction/transaction.json', 'testData/transaction/transaction1.json'];
  	var transactionData = [];
@@ -204,4 +284,22 @@ angular.module('App')
 		return chartColorsArr[index];
 	};
 	return chartColors;
-});
+})
+
+.service('localStorage', ['$window', function($window) {
+  return {
+    set: function(key, value) {
+      $window.localStorage[key] = value;
+    },
+    get: function(key, defaultValue) {
+      return $window.localStorage[key] || defaultValue;
+    },
+    setObject: function(key, value) {
+      $window.localStorage[key] = JSON.stringify(value);
+    },
+    getObject: function(key) {
+      return JSON.parse($window.localStorage[key] || '{}');
+    }
+  }
+}]);
+;

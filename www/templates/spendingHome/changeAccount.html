@@ -1,0 +1,34 @@
+<ion-view view-title="Accounts">
+	<ion-pane>
+		<ion-content>
+			<div id="spending-accounts">
+				<div id="all-accounts" ng-click="selectionClicked('allAccountClicked', '', '')">All Accounts</div>
+				
+				<div id="groups-header" class="header">Groups</div>
+				<div id="account-group-list">
+					<ul class="list">
+						<li class="item" ng-repeat="group in groups" ng-click="selectionClicked('groupClicked', group.groupId, group.groupName)">
+							{{group.groupName}}
+						</li>
+					</ul>
+					<div id="groupSvc-error" class="error">Service Not Available</div>
+				</div>
+
+				<div id="cu-name" class="header">{{creditUnionName}}</div>
+
+				<div id="account-list">
+					<div ng-repeat="financialAccount in financialAccounts">
+						<div class="header">{{financialAccount.name}}</div>
+						<ul class="list">
+							<li class="item" ng-repeat="account in financialAccount.accounts" ng-click="selectionClicked('accountClicked', account.accountId, account.name)">
+								{{account.name}}
+								<div class="currency">{{account.balance | currency}}</div>
+							</li>
+						</ul>
+					</div>
+					<div id="accountSvc-error" class="error">Service Not Available</div>
+				</div>
+			</div>
+		</ion-content>
+	</ion-pane>
+</ion-view>

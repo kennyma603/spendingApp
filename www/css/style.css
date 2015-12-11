@@ -1,8 +1,20 @@
+/*Create mixin when we use Sass/Less*/
+/*@mixin overflow-hidden {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }*/
+
 .bar-spending-chart-subheader{
   padding: 0;
 }
 .c1-m-spending-subheading{
   background: #ECF0F1;
+}
+.c1-m-spending-subheading .page-heading .col{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .bar-spending-subheader{
   border: 0px !important;
@@ -197,3 +209,60 @@ a{
 .transaction-by-date + .transaction-by-date{
   margin-top: 0;
 }
+
+/************
+Accounts page
+************/
+
+/*Common*/
+#spending-accounts{
+  color: #333333;
+  font-family: HelveticaNeue-Medium;
+  font-size: 16px;
+}
+#spending-accounts .list{
+  margin-bottom: 0;
+}
+#spending-accounts li:first-child{
+  border-top: none;
+}
+#spending-accounts #all-accounts,
+#spending-accounts .header,
+#spending-accounts li,
+#spending-accounts .error{
+  color: #333333;
+  padding: 10px 10px 10px 15px;
+}
+#spending-accounts .header{
+  background-color: #ECF0F1;
+  color: #4f4f4f;
+  font-size: 12px;
+  font-weight: bold;
+  height: 30px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+#spending-accounts #account-group-list #groupSvc-error, 
+#spending-accounts #account-list #accountSvc-error{
+  display: none;
+}
+
+/*"All Accounts" section*/
+#spending-accounts #all-accounts{
+  cursor: pointer;
+  border-bottom: 1px solid #dddddd;
+  display: none;
+}
+
+/*Group list section*/
+#spending-accounts #account-group-list li{
+  line-height: 32px;
+  min-height:62px;
+}
+
+/*Account list section*/
+#spending-accounts #account-list ul li .currency{
+  font-family: HelveticaNeue-Light;
+  padding-top: 5px;
+}
+

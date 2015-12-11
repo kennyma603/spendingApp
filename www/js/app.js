@@ -16,9 +16,15 @@ angular.module('App', ['ionic', 'ui.router', 'highcharts-ng'])
 		templateUrl: 'templates/spendingHome/spendingHome.html'
 	});
   $stateProvider.state('spendingSummary', {
+    cache: false,
     url: '/spendingSummary',
     controller: 'spendingSummaryController',
     templateUrl: 'templates/spendingHome/spendingSummary.html'
+  });
+  $stateProvider.state('changeAccount', {
+    url: '/changeAccount',
+    controller: 'spendingAccountsController',
+    templateUrl: 'templates/spendingHome/changeAccount.html'
   });
 	$urlRouterProvider.otherwise('/home');
   $ionicConfigProvider.navBar.alignTitle('center');

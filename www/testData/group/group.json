@@ -1,0 +1,20 @@
+[
+   {
+      "groupId":10079692,
+      "groupName":"test group 1 fdsa dfsa eee fs seeww ese euuu isdufhi bduslaf dsjlend",
+      "accountsIds":[
+         "15c9e64893d086872a5f93f14dbec4e677012369e676932a9ea1f8dee2f534943f479fa405d93db853dadeadfbad9f17",
+         "15c9e64893d086872a5f93f14dbec4e677012369e676932a9ea1f8dee2f534943f479fa405d93db83efa42d01b081fdd",
+         "15c9e64893d086872a5f93f14dbec4e677012369e676932a4b6c75d99786e545d9ec2dc9c106682953dadeadfbad9f17"
+      ]
+   },
+   {
+      "groupId":10079693,
+      "groupName":"test group 2",
+      "accountsIds":[
+         "15c9e64893d086872a5f93f14dbec4e677012369e676932a9ea1f8dee2f534943f479fa405d93db853dadeadfbad9f17",
+         "15c9e64893d086872a5f93f14dbec4e677012369e676932a4b6c75d99786e545d9ec2dc9c10668293efa42d01b081fdd",
+         "15c9e64893d086872a5f93f14dbec4e677012369e676932a4b6c75d99786e545199f13912a26e67153dadeadfbad9f17"
+      ]
+   }
+]

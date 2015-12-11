@@ -6,9 +6,10 @@ angular.module('App')
 
 }])
 
-.controller('spendingSubheadingCtrl', ['$scope', function ($scope) {
+.controller('spendingSubheadingCtrl', ['$scope', 'localStorage', 'AccountService', 'GroupService', function ($scope, localStorage, AccountSvc, GroupSvc) {
     $scope.selectedMonthYear = getSelectedMonthYear();
-    $scope.selectedAccount = 'All Accounts';
+    
+    setSubheading();
 
     function getSelectedMonthYear() {
         var currentTime = new Date();
@@ -16,6 +17,28 @@ angular.module('App')
         var currentYear = currentTime.getFullYear();
         var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         return monthNames[currentMonth] + ' ' + currentYear;
+    }
+
+    function setSubheading() {
+        
+        var selectedAccount = 'All Accounts';
+
+        if(localStorage.get('accountId')){  
+            selectedAccount = AccountSvc.getAccountNameById(localStorage.get('accountId'));  
+            console.log('accountId exists in localstorage =' + localStorage.get('accountId'));
+            console.log('getAccountNameById = ' + selectedAccount);
+
+        }else if(localStorage.get('groupId')){
+
+            if(localStorage.get('groupId') !== 'all'){
+                selectedAccount = GroupSvc.getGroupNameById(localStorage.get('groupId'));  
+            }
+
+            console.log('groupId exists in localstorage =' + localStorage.get('groupId'));
+            console.log('getGroupNameById  = ' + selectedAccount);
+        }
+
+        $scope.selectedAccount = selectedAccount;
     }
 }])
 
@@ -115,7 +138,7 @@ angular.module('App')
     var isOnClickLoadTransactionEnabled = ($scope.onClickLoadTransaction === 'enable') ? true : false;
     $scope.currentViewingCategoryId = null;
     $scope.orderedCategories = [];
-    console.log($scope, isOnClickLoadTransactionEnabled);
+    //console.log($scope, isOnClickLoadTransactionEnabled);
 
     if(typeof $scope.numberofCate === 'undefined') {
         $scope.numberofCate = 'Infinity';
@@ -159,6 +182,54 @@ angular.module('App')
     }
 }])
 
+
+//------------------
+.controller('spendingAccountsController', ['$scope', '$q', '$state', 'AccountService', 'GroupService', 'localStorage', function ($scope, $q, $state, AccountSvc, GroupSvc, localStorage) {
+    
+    $scope.creditUnionName = 'My Credit Union';
+
+    AccountSvc.get().then(function(){
+        $scope.financialAccounts = AccountSvc.getFinancialAccounts();
+        $('#all-accounts').show();
+        if($scope.financialAccounts.length === 0){
+            $('#cu-name').hide();
+        }
+    }, function(reason){
+        $('#account-list ul').hide();
+        $('#accountSvc-error').show();
+    });
+
+    GroupSvc.get().then(function(){
+        $scope.groups = GroupSvc.getGroupList();
+        $('#all-accounts').show();
+        if($scope.groups.length === 0){
+            $('#groups-header').hide();
+            $('#account-group-list').hide();
+        }
+    }, function(reason){
+        $('#account-group-list ul').hide();
+        $('#groupSvc-error').show();
+    });
+
+    $scope.selectionClicked = function(selectionType, id, name){
+        if(selectionType === 'accountClicked') {
+            localStorage.set('accountId', id);
+            localStorage.set('groupId', '');
+        } else if(selectionType === 'groupClicked') {
+            localStorage.set('accountId', '');
+            localStorage.set('groupId', id);
+
+        } else if(selectionType === 'allAccountClicked') {
+            localStorage.set('accountId', '');
+            localStorage.set('groupId', 'all');
+        }
+        $state.go('spendingSummary');
+    }
+}])
+//------------------
+
+
+
 .controller('spendingSummaryController', ['$scope', '$q', 'SpendingService', 'CategoryService', function ($scope, $q, TransactionSvc, CategorySvc) {
     $q.all([
         TransactionSvc.get(),
@@ -184,4 +255,5 @@ angular.module('App')
     });
 
 }])
+
 ;
