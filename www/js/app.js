@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('App', ['ionic', 'ui.router', 'highcharts-ng'])
+angular.module('App', ['ionic', 'ui.router', 'highcharts-ng', 'angularMoment'])
 
 .config(['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider', '$provide', function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $provide) {
 	$stateProvider.state('home', {
@@ -11,6 +11,7 @@ angular.module('App', ['ionic', 'ui.router', 'highcharts-ng'])
 		templateUrl: 'templates/home/home.html'
 	});
 	$stateProvider.state('spendingHome', {
+    cache: false,
 		url: '/spendingHome',
     controller: 'spendingHomeController',
 		templateUrl: 'templates/spendingHome/spendingHome.html'
@@ -25,6 +26,11 @@ angular.module('App', ['ionic', 'ui.router', 'highcharts-ng'])
     url: '/changeAccount',
     controller: 'spendingAccountsController',
     templateUrl: 'templates/spendingHome/changeAccount.html'
+  });
+  $stateProvider.state('changeMonth', {
+    url: '/changeMonth',
+    controller: 'changeMonthController',
+    templateUrl: 'templates/spendingHome/changeMonth.html'
   });
 	$urlRouterProvider.otherwise('/home');
   $ionicConfigProvider.navBar.alignTitle('center');

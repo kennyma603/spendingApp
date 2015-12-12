@@ -209,7 +209,6 @@ a{
 .transaction-by-date + .transaction-by-date{
   margin-top: 0;
 }
-
 /************
 Accounts page
 ************/
@@ -266,3 +265,17 @@ Accounts page
   padding-top: 5px;
 }
 
+.item-icon-left .item-content {
+  padding-left:3em;  
+}
+
+.item-icon-left i {
+  left:0;
+  right: auto;
+}
+.item-radio .radio-icon{
+  visibility: visible;
+  color: #387ef5;
+  top: 2px;
+  font-size: 18px;
+}

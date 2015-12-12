@@ -6,11 +6,21 @@ angular.module('App')
  	var transactionData = [];  
  	var spending = {};
 
-	spending.get = function() {
+	spending.get = function(params) {
+		var defaultParams = {
+			showSubCategories: false,
+			includeBudgetData: true,
+			grouping: 'monthly',
+			categoryType: 1,
+			categoryType: 3, //? how come there is another categoryType?
+			top: 0
+		};
+		params = angular.extend({}, defaultParams, params);
+
 	    $http({
 			method: 'GET',
 			url: TEST_DATA_URL,
-			params: {test: 'test'},
+			params: params,
 		 	cache:true
 		})
 	    .success(function (msg) {
@@ -87,7 +97,12 @@ angular.module('App')
  	var categoryService = {};
 
 	categoryService.get = function() {
-	    $http.get(TEST_DATA_URL)
+
+	    $http({
+			method: 'GET',
+			url: TEST_DATA_URL,
+		 	cache:true
+		})
 	    .success(function (msg) {
 	      categoryData = msg;
 	      //console.log(msg);
@@ -300,6 +315,108 @@ angular.module('App')
     getObject: function(key) {
       return JSON.parse($window.localStorage[key] || '{}');
     }
-  }
-}]);
+  };
+}])
+
+.service('timeFrameHelper', ['moment', function(moment) {
+	var _timeFrameOptions = {
+		'this-month': {label: 'This month', monthOffSet: 0, yearOffSet: 0},
+		'last-month': {label:'Last month', monthOffSet: -1, yearOffSet: 0},
+		'this-year': {label:'This Year'},
+		'this-month-last-year': {label:'This month last year', monthOffSet: 0, yearOffSet: 0}
+	};
+
+	var _getTimeFrameLabelbyKey = function(key) {
+		if (_timeFrameOptions.hasOwnProperty(key)) {
+			return _timeFrameOptions[key].label;
+		}
+		else {
+			return null;
+		}
+	};
+
+	var _getMonthYear = function(date) {
+        var monthIndex = moment(date).month();
+        var yearIndex = moment(date).year();
+        return moment().month(monthIndex).format('MMM') + ' ' + moment().year(yearIndex).format('YYYY');
+    };
+
+    var _getFromDateEndDate = function(timeFrameKey) {
+    	var timeFrameDates = {fromDate: null, toDate: null};
+    	var _serverTime = Date.now(); // TODO: need to get server time instead of browser time
+    	var _currentYear = _formatTime(_serverTime, 'YYYY');
+		var _currentMonth = _formatTime(_serverTime, 'MM');
+		var _currentDay = _formatTime(_serverTime, 'DD');
+
+		switch (timeFrameKey) {
+			case 'this-month': 
+				timeFrameDates.fromDate = _currentYear + '-' + _currentMonth + '-01';
+				timeFrameDates.toDate = _currentYear + '-' + _currentMonth + '-' + _currentDay;
+				break;
+			case 'last-month':
+				var lastMonth = _modifyDate(_serverTime, -1, 'months');
+				timeFrameDates.fromDate = _modifyDateToBoundary(lastMonth, -1, 'month', 'YYYY-MM-DD');
+				timeFrameDates.toDate = _modifyDateToBoundary(lastMonth, 1, 'month', 'YYYY-MM-DD');
+				break;
+			case 'this-year':
+				timeFrameDates.fromDate = _currentYear + '-01-01';
+				timeFrameDates.toDate = _currentYear + '-' + _currentMonth + '-' + _currentDay;
+				break;
+			case 'this-month-last-year':
+				timeFrameDates.fromDate = (_currentYear - 1) + '-' + _currentMonth + '-01';
+				timeFrameDates.toDate = (_currentYear - 1) + '-' + _currentMonth + '-' + _currentDay;
+				break;
+			default:
+				// defaults to this month
+				timeFrameDates.fromDate = _currentYear + '-' + _currentMonth + '-01';
+				timeFrameDates.toDate = _currentYear + '-' + _currentMonth + '-' + _currentDay;
+				break;
+		};
+
+		return timeFrameDates;
+    };
+
+	var _formatTime = function(unixtime, format) {
+		format = format || 'YYYY-MM-DD';
+		moment.locale('en'); //TODO: get locale from server
+		var now = moment(unixtime);
+		return now.format(format);
+	};
+
+	var _modifyDateToBoundary = function(unixtime, modifier, modifyField, format) {
+		moment.locale('en');
+		var now = moment(unixtime);
+		if (modifier < 0) {
+			now.startOf(modifyField);
+		} else if (modifier > 0) {
+			now.endOf(modifyField);
+		}
+
+		var ret = (!format) ? now.valueOf() : now.format(format);
+		return ret;
+	};
+
+	var _modifyDate = function(unixtime, modifier, modifyField, format) {
+		moment.locale('en');
+		var now = moment(unixtime);
+		if (modifier < 0) {
+			now.subtract(Math.abs(modifier), modifyField);
+		} else {
+			now.add(modifyField, modifier);
+		}
+		var ret = !format ? now.valueOf() : now.format(format);
+		return ret;
+	};
+
+	var _getMonthYear
+
+
+	return {
+		timeFrameOptions: _timeFrameOptions,
+		getTimeFrameLabelbyKey: _getTimeFrameLabelbyKey,
+		getMonthYear: _getMonthYear,
+		getFromDateEndDate: _getFromDateEndDate
+	};
+}])
+
 ;

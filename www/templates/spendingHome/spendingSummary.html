@@ -9,9 +9,9 @@
 					<c1-m-spending-pie-chart prop="spendingSubheading" height='160'></c1-m-spending-pie-chart>
 				</div>
 				<div class="col col-no-padding col-50 spending-info">
-					<p style="padding-top: 10px;">Total Spending <br/> <span>this month</span>:</p>
+					<p style="padding-top: 10px;">Total Spending <br/> <span class="time-frame">{{selectedTimeFrameLabel}}</span>:</p>
 					<h2 style="margin: 10px 0;">{{totalNetSpending | currency}}</h2>
-					<p>APR 2015 <br/> <span><a href="#">Change</a></span></p>
+					<p>{{monthYearLabel}} <br/> <span><a href="#/changeMonth">Change</a></span></p>
 				</div>
 			</div>
 			<div class="widget-body-no-data" style="display:none;">

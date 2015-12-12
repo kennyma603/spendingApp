@@ -1,0 +1,42 @@
+<ion-view view-title="Time Frame">
+<ion-pane>
+	<ion-content>
+		<form name="timeFrameSelector">
+			<label class="item item-icon-left item-radio">
+			    <input type="radio" name="timeFrame" value="this-month" ng-model="timeFrame.selectedTimeFrame">
+			    <div class="item-content ">
+			     	This month
+			    </div>
+			    <i class="radio-icon {{getIconName('this-month')}}"></i>
+		  	</label>
+			<label class="item item-icon-left item-radio">
+		    	<input type="radio" name="timeFrame" value="last-month" ng-model="timeFrame.selectedTimeFrame">
+		    	<div class="item-content ">
+		      		Last month
+		    	</div>
+		    	<i class="radio-icon {{getIconName('last-month')}}"></i>
+			</label>
+			<label class="item item-icon-left item-radio">
+		    	<input type="radio" name="timeFrame" value="this-year" ng-model="timeFrame.selectedTimeFrame">
+		    	<div class="item-content ">
+		      		This year
+		    	</div>
+		    	<i class="radio-icon {{getIconName('this-year')}}"></i>
+			</label>
+			<label class="item item-icon-left item-radio">
+		    	<input type="radio" name="timeFrame" value="this-month-last-year" ng-model="timeFrame.selectedTimeFrame">
+		    	<div class="item-content ">
+		      		This month last year
+		    	</div>
+		    	<i class="radio-icon {{getIconName('this-month-last-year')}}"></i>
+			</label>
+
+			<div class="padding">
+				<button class="button button-block button-positive" ng-click="setTimeFrame()">
+					Go
+				</button>
+			</div>
+		</form>
+	</ion-content>
+</ion-pane>
+</ion-view>

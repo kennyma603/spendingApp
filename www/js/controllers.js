@@ -1,9 +1,11 @@
 angular.module('App')
-.controller('spendingHomeController', ['$scope', '$state', function ($scope, $state) {
+.controller('spendingHomeController', ['$scope', '$state', 'localStorage', function ($scope, $state, localStorage) {
     $scope.sectionClicked = function(sectionName) {
         $state.go('spendingSummary');
     }
-
+    localStorage.set('timeFrame', 'this-month');
+    localStorage.set('accountId', '');
+    localStorage.set('groupId', '');
 }])
 
 .controller('spendingSubheadingCtrl', ['$scope', 'localStorage', 'AccountService', 'GroupService', function ($scope, localStorage, AccountSvc, GroupSvc) {
@@ -20,29 +22,21 @@ angular.module('App')
     }
 
     function setSubheading() {
-        
         var selectedAccount = 'All Accounts';
-
         if(localStorage.get('accountId')){  
-            selectedAccount = AccountSvc.getAccountNameById(localStorage.get('accountId'));  
-            console.log('accountId exists in localstorage =' + localStorage.get('accountId'));
-            console.log('getAccountNameById = ' + selectedAccount);
+            selectedAccount = AccountSvc.getAccountNameById(localStorage.get('accountId'));
 
-        }else if(localStorage.get('groupId')){
+        } else if(localStorage.get('groupId')){
 
             if(localStorage.get('groupId') !== 'all'){
                 selectedAccount = GroupSvc.getGroupNameById(localStorage.get('groupId'));  
             }
-
-            console.log('groupId exists in localstorage =' + localStorage.get('groupId'));
-            console.log('getGroupNameById  = ' + selectedAccount);
         }
-
         $scope.selectedAccount = selectedAccount;
     }
 }])
 
-.controller('spendingPieChartCtrl', ['$scope', '$q', 'SpendingService', 'CategoryService','chartColors', function ($scope, $q, TransactionSvc, CategorySvc, chartColors) {
+.controller('spendingPieChartCtrl', ['$scope', '$q', 'SpendingService', 'CategoryService', 'chartColors', 'timeFrameHelper', 'localStorage', function ($scope, $q, TransactionSvc, CategorySvc, chartColors, timeFrameHelper, localStorage) {
     if(typeof $scope.height === 'undefined') {
         $scope.height = 140;
     }
@@ -88,8 +82,15 @@ angular.module('App')
         }]
     };
 
+    var timeFrameObj = timeFrameHelper.getFromDateEndDate(localStorage.get('timeFrame'));
+    var requestParams = {
+        groupId: 'all',
+        fromDate: timeFrameObj.fromDate,
+        toDate: timeFrameObj.toDate
+    };
+
     $q.all([
-        TransactionSvc.get(),
+        TransactionSvc.get(requestParams),
         CategorySvc.get()
     ]).then(function() {
         var spendingCategories = TransactionSvc.getTopCategories();
@@ -134,7 +135,7 @@ angular.module('App')
 
 }])
 
-.controller('spendingCategoryListCtrl', ['$scope', '$q', 'SpendingService', 'CategoryService','chartColors', function ($scope, $q, TransactionSvc, CategorySvc, chartColors) {
+.controller('spendingCategoryListCtrl', ['$scope', '$q', 'SpendingService', 'CategoryService', 'chartColors', 'timeFrameHelper', 'localStorage', function ($scope, $q, TransactionSvc, CategorySvc, chartColors, timeFrameHelper, localStorage) {
     var isOnClickLoadTransactionEnabled = ($scope.onClickLoadTransaction === 'enable') ? true : false;
     $scope.currentViewingCategoryId = null;
     $scope.orderedCategories = [];
@@ -144,8 +145,15 @@ angular.module('App')
         $scope.numberofCate = 'Infinity';
     }
 
+    var timeFrameObj = timeFrameHelper.getFromDateEndDate(localStorage.get('timeFrame'));
+    var requestParams = {
+        groupId: 'all',
+        fromDate: timeFrameObj.fromDate,
+        toDate: timeFrameObj.toDate
+    };
+
     $q.all([
-        TransactionSvc.get(),
+        TransactionSvc.get(requestParams),
         CategorySvc.get()
     ]).then(function() {
         var spendingCategories = TransactionSvc.getTopCategories();
@@ -182,8 +190,6 @@ angular.module('App')
     }
 }])
 
-
-//------------------
 .controller('spendingAccountsController', ['$scope', '$q', '$state', 'AccountService', 'GroupService', 'localStorage', function ($scope, $q, $state, AccountSvc, GroupSvc, localStorage) {
     
     $scope.creditUnionName = 'My Credit Union';
@@ -226,13 +232,24 @@ angular.module('App')
         $state.go('spendingSummary');
     }
 }])
-//------------------
 
+.controller('spendingSummaryController', ['$scope', '$q', 'SpendingService', 'CategoryService', 'localStorage', 'timeFrameHelper', function ($scope, $q, TransactionSvc, CategorySvc, localStorage, timeFrameHelper) {
+    $scope.selectedTimeFrameLabel = timeFrameHelper.getTimeFrameLabelbyKey(localStorage.get('timeFrame'));
 
+    var timeFrameObj = timeFrameHelper.getFromDateEndDate(localStorage.get('timeFrame'));
+    var fromDate = timeFrameHelper.getMonthYear(timeFrameObj.fromDate);
+    var toDate = timeFrameHelper.getMonthYear(timeFrameObj.toDate);
 
-.controller('spendingSummaryController', ['$scope', '$q', 'SpendingService', 'CategoryService', function ($scope, $q, TransactionSvc, CategorySvc) {
+    $scope.monthYearLabel = (fromDate === toDate) ? fromDate : fromDate + ' - ' + toDate;
+
+    var requestParams = {
+        groupId: 'all',
+        fromDate: timeFrameObj.fromDate,
+        toDate: timeFrameObj.toDate
+    };
+
     $q.all([
-        TransactionSvc.get(),
+        TransactionSvc.get(requestParams),
         CategorySvc.get()
     ]).then(function() {
         $scope.totalNetSpending = TransactionSvc.getTotalNetSpending();
@@ -253,7 +270,22 @@ angular.module('App')
         
         $scope.transactionList = TransactionSvc.getTransactionMapGroupbyDate({order: 'desc'});
     });
+}])
 
+.controller('changeMonthController', ['$scope', '$state', '$ionicViewSwitcher', 'localStorage', function ($scope, $state, $ionicViewSwitcher, localStorage) {
+     var currentTimeFrame = (localStorage.get('timeFrame') !== undefined) ? localStorage.get('timeFrame') : 'this-month' ;
+     $scope.timeFrame = { selectedTimeFrame: currentTimeFrame};
+     
+     $scope.getIconName = function (value) {
+        //console.log('hi');
+        return ($scope.timeFrame.selectedTimeFrame === value) ? 'ion-record' : 'ion-ios-circle-outline';
+     };
+     $scope.setTimeFrame = function() {
+        console.log($scope.timeFrame.selectedTimeFrame);
+        localStorage.set('timeFrame', $scope.timeFrame.selectedTimeFrame);
+        $ionicViewSwitcher.nextDirection('back');
+        $state.go('spendingSummary');
+     }
 }])
 
 ;
