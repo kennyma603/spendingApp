@@ -419,4 +419,101 @@ angular.module('App')
 	};
 }])
 
+
+.factory('BudgetService', ['$http', '$q', 'filterFilter', function($http, $q, filterFilter) {
+	var TEST_DATA_URL = 'testData/budget/budget.json'
+	var deffered = $q.defer();
+ 	var budgetData = [];
+ 	var budgetDataMap = [];
+
+	var get = function() {
+	    $http.get(TEST_DATA_URL)
+	    .success(function (msg) {
+	      budgetData = transformData(msg);
+	      budgetDataMap = transformDataMap(budgetData);
+	      deffered.resolve();
+	    })
+	    .error(function (data, status){
+            deffered.reject();
+            console.log(status);
+	    });
+	    
+	    return deffered.promise;
+	};
+
+	var transformData = function(budgetData) {
+		angular.forEach(budgetData, function(data) {
+			var monthSpent = (data.spent) ? data.spent : 0;
+			var monthCredit = (data.credit) ? data.credit : 0;
+			var monthNetSpent = monthSpent - monthCredit;
+			data.spent = monthSpent;
+			data.netSpent = monthNetSpent;
+			data.credit = monthCredit;
+
+			if (data.budgetCustom !== undefined) {		// use budgetCustom first
+				data.budget = data.budgetCustom;
+				data.budgetType = 'custom';
+				data.budgetDefault = 0;
+			} else {
+				data.budgetType = 'default';
+				data.budgetCustom = 0;
+				if (data.budgetDefault !== undefined) {	// !budgetCustom, then use budgetDefault
+					data.budget = data.budgetDefault;
+				} else {
+					data.budget = 0;						// !budgetCustom & !budgetDefault, then use 0
+					data.budgetDefault = 0;
+				}
+			}
+			data.health = (data.budget > 0) ? parseInt(parseFloat((monthNetSpent / data.budget) * 100).toFixed(0), 10) : 0;
+		});
+		return budgetData;
+	};
+
+	var transformDataMap = function() {
+		var map = {};
+		angular.forEach(budgetData, function(transaction) {
+			var dateArr = transaction.date.split('-');
+			var monthYear = dateArr[0]+ '-' +dateArr[1];
+
+			if (map.hasOwnProperty(monthYear)) {
+				map[monthYear].push(transaction);
+			} else {
+				map[monthYear] = [transaction];
+			}
+		});
+		return map;
+    };
+
+    var getBudgetOverview = function(monthYear) {
+    	var budgetObj = {
+    		spent: 0,
+    		budget: 0,
+    		credit: 0,
+    		netSpent: 0,
+    		health: 0,
+    		categoryId: -1
+    	};
+
+		if (budgetDataMap.hasOwnProperty(monthYear)) {
+			var aggregatedNetSpent = 0, aggregatedBudget = 0, aggregatedHealth = 0;
+
+			angular.forEach(budgetDataMap[monthYear], function(categoryBudget) {
+				aggregatedNetSpent += categoryBudget.netSpent;
+				aggregatedBudget += categoryBudget.budget;
+			});
+
+			budgetObj.netSpent = aggregatedNetSpent;
+			budgetObj.budget = aggregatedBudget;
+			budgetObj.health = (aggregatedBudget > 0) ? parseInt(parseFloat((aggregatedNetSpent / aggregatedBudget) * 100).toFixed(0), 10) : 0;
+		}
+
+    	return budgetObj;
+    };
+
+  	return {
+  		get: get,
+  		getBudgetOverview: getBudgetOverview
+  	};	
+}])
+
 ;

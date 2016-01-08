@@ -55,4 +55,18 @@ angular.module('App')
         controller: 'spendingSelectedCategoryTransListCtrl'
     }
 })
+.directive('c1MSpendingBudgetItem', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            budgeted: '=',
+            netSpent: '=',
+            health: '=',
+            budgetedText: '@',
+            itemLabel: '@'
+        },
+        templateUrl: 'templates/directive/c1-m-spending-budget-item.html',
+        controller: 'spendingBudgetItemCtrl'
+    }
+})
 ;

@@ -1,0 +1,16 @@
+<div class="c1-m-spending-budget-item budget-overview {{healthClass}}">
+	<div class="row">
+		<div class="col budget-category-title">{{itemLabel}}</div>
+		<div class="col budget-category-status">{{statusText}}</div>
+	</div>
+	<div class="budget-bar">
+		<div class="underlay">
+			<div class="progressbar" style="width: {{health}}%">
+				<span>{{netSpent | currency}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="budget-budgeted-text">
+		{{budgetedText}} {{budgeted}}
+	</div>
+</div>

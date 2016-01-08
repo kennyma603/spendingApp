@@ -1,11 +1,21 @@
 angular.module('App')
-.controller('spendingHomeController', ['$scope', '$state', 'localStorage', function ($scope, $state, localStorage) {
+.controller('spendingHomeController', ['$scope', '$state', 'localStorage', 'BudgetService', function ($scope, $state, localStorage, BudgetSvc) {
     $scope.sectionClicked = function(sectionName) {
         $state.go('spendingSummary');
     }
     localStorage.set('timeFrame', 'this-month');
     localStorage.set('accountId', '');
     localStorage.set('groupId', '');
+
+
+    BudgetSvc.get().then(function(){
+        $scope.budgets = BudgetSvc.getBudgetOverview('2016-01');
+        console.log($scope.budgets);
+    }, function(reason){
+        
+    });
+
+
 }])
 
 .controller('spendingSubheadingCtrl', ['$scope', 'localStorage', 'AccountService', 'GroupService', function ($scope, localStorage, AccountSvc, GroupSvc) {
@@ -286,6 +296,20 @@ angular.module('App')
         $ionicViewSwitcher.nextDirection('back');
         $state.go('spendingSummary');
      }
+}])
+
+.controller('spendingBudgetItemCtrl', ['$scope', '$state', '$ionicViewSwitcher', 'localStorage', function ($scope, $state, $ionicViewSwitcher, localStorage) {
+    var health = ($scope.health) ? Number($scope.health) : 0;
+    var netSpent = ($scope.netSpent) ? Number($scope.netSpent) : 0;
+    var budgeted = ($scope.budgeted) ? Number($scope.budgeted) : 0;
+    var remaining = budgeted - netSpent;
+    $scope.healthClass = "on-budget";
+    if(health > 100) {
+        $scope.healthClass = "over-budget";
+        $scope.statusText = Math.abs(remaining) + " " + "over budget";
+    } else {
+        $scope.statusText = remaining + " " + "remaining";
+    }
 }])
 
 ;

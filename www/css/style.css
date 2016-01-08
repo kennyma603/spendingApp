@@ -279,3 +279,42 @@ Accounts page
   top: 2px;
   font-size: 18px;
 }
+
+.c1-m-spending-budget-item .row,
+.c1-m-spending-budget-item .col{
+  padding: 0;
+}
+.c1-m-spending-budget-item .budget-category-title{
+  font-weight: bold;
+}
+.c1-m-spending-budget-item .budget-category-status{
+  text-align: right;
+  color: #333;
+}
+.budget-bar{
+  margin: 6px 0;
+}
+.budget-bar .underlay{
+  background: #ccc;
+  height: 20px;
+}
+.budget-bar .progressbar{
+  height: 20px;
+  max-width: 100%;
+  position: relative;
+}
+.budget-bar .progressbar span{
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  color: #fff;
+}
+.on-budget .progressbar{
+  background: #A9D283;
+}
+.over-budget .progressbar{
+  background: #F53D38;
+}
+.over-budget .budget-category-status{
+  color: #F53D38;
+}
