@@ -26,15 +26,18 @@
 			</div>
 		</div>
 
-		<div id="budget-summary" class="widget">
+		<div id="budget-summary-overview" class="widget" ng-click="sectionClicked('budgetSummary')">
 			<c1-m-spending-widget-heading prop="spendingWidgetHeading" heading="Budgets Summary" link="templates/home.html"></c1-m-spending-widget-heading>
 
 			<div class="widget-body">
-				<div class="widget-body-has-data">
-					<c1-m-spending-budget-item budgeted="100" net-spent="50" health="30.20" item-label="Overview" budgeted-text="Total amount budgeted:"></1-m-spending-budget-item>
+				<div class="widget-content widget-body-has-data" style="display:none;">
+					<c1-m-spending-budget-item item-label="Overview" budgeted-text="Total amount budgeted:"></1-m-spending-budget-item>
 				</div>
-				<div class="widget-body-no-data" style="display:none;">
+				<div class="widget-content widget-body-no-data">
 					no budgets data
+				</div>
+				<div class="widget-content widget-body-data-error">
+					error retreving data
 				</div>
 			</div>
 		</div>

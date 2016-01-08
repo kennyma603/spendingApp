@@ -464,6 +464,7 @@ angular.module('App')
 					data.budgetDefault = 0;
 				}
 			}
+			data.remaining = data.budget - data.netSpent;
 			data.health = (data.budget > 0) ? parseInt(parseFloat((monthNetSpent / data.budget) * 100).toFixed(0), 10) : 0;
 		});
 		return budgetData;
@@ -491,28 +492,51 @@ angular.module('App')
     		credit: 0,
     		netSpent: 0,
     		health: 0,
-    		categoryId: -1
+    		remaining: 0,
+    		categoryId: -1,
+    		hasBudgetData: false
     	};
 
 		if (budgetDataMap.hasOwnProperty(monthYear)) {
-			var aggregatedNetSpent = 0, aggregatedBudget = 0, aggregatedHealth = 0;
+			var aggregatedNetSpent = 0, aggregatedBudget = 0, aggregatedHealth = 0, aggregatedRemaining = 0;
 
 			angular.forEach(budgetDataMap[monthYear], function(categoryBudget) {
 				aggregatedNetSpent += categoryBudget.netSpent;
 				aggregatedBudget += categoryBudget.budget;
+				aggregatedRemaining += categoryBudget.remaining;
 			});
 
+			budgetObj.hasBudgetData = true;
 			budgetObj.netSpent = aggregatedNetSpent;
 			budgetObj.budget = aggregatedBudget;
+			budgetObj.remaining = aggregatedRemaining;
 			budgetObj.health = (aggregatedBudget > 0) ? parseInt(parseFloat((aggregatedNetSpent / aggregatedBudget) * 100).toFixed(0), 10) : 0;
 		}
 
     	return budgetObj;
     };
 
+    var getBudgetStatusClass = function(health) {
+    	var healthClass = "on-budget";
+	    if(health > 100) {
+	        healthClass = "over-budget";
+	    }
+	    return healthClass;
+    };
+
+    var getBudgetStatusText = function(remainingAmount) {
+    	var text = "remaining";
+    	if(remainingAmount < 0) {
+    		text = "over budget";
+    	}
+    	return text;
+    };
+
   	return {
   		get: get,
-  		getBudgetOverview: getBudgetOverview
+  		getBudgetOverview: getBudgetOverview,
+  		getBudgetStatusClass: getBudgetStatusClass,
+  		getBudgetStatusText: getBudgetStatusText
   	};	
 }])
 

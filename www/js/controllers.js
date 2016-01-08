@@ -1,19 +1,11 @@
 angular.module('App')
-.controller('spendingHomeController', ['$scope', '$state', 'localStorage', 'BudgetService', function ($scope, $state, localStorage, BudgetSvc) {
+.controller('spendingHomeController', ['$scope', '$state', 'localStorage', 'BudgetService', function ($scope, $state, localStorage) {
     $scope.sectionClicked = function(sectionName) {
-        $state.go('spendingSummary');
+        $state.go(sectionName);
     }
     localStorage.set('timeFrame', 'this-month');
     localStorage.set('accountId', '');
     localStorage.set('groupId', '');
-
-
-    BudgetSvc.get().then(function(){
-        $scope.budgets = BudgetSvc.getBudgetOverview('2016-01');
-        console.log($scope.budgets);
-    }, function(reason){
-        
-    });
 
 
 }])
@@ -298,18 +290,35 @@ angular.module('App')
      }
 }])
 
-.controller('spendingBudgetItemCtrl', ['$scope', '$state', '$ionicViewSwitcher', 'localStorage', function ($scope, $state, $ionicViewSwitcher, localStorage) {
-    var health = ($scope.health) ? Number($scope.health) : 0;
-    var netSpent = ($scope.netSpent) ? Number($scope.netSpent) : 0;
-    var budgeted = ($scope.budgeted) ? Number($scope.budgeted) : 0;
-    var remaining = budgeted - netSpent;
-    $scope.healthClass = "on-budget";
-    if(health > 100) {
-        $scope.healthClass = "over-budget";
-        $scope.statusText = Math.abs(remaining) + " " + "over budget";
-    } else {
-        $scope.statusText = remaining + " " + "remaining";
-    }
+.controller('spendingBudgetItemCtrl', ['$scope', 'BudgetService', function ($scope, BudgetSvc) {
+
+    BudgetSvc.get().then(function(){
+        var budget = BudgetSvc.getBudgetOverview('2016-01');
+        if(budget.hasBudgetData) {
+            $scope.budget = budget;
+            console.log(budget);
+
+            $scope.healthClass = BudgetSvc.getBudgetStatusClass(budget.health);
+            $scope.statusText = BudgetSvc.getBudgetStatusText(budget.remaining);
+            $scope.remaining = Math.abs(budget.remaining);
+
+            $('#budget-summary-overview .widget-content').hide();
+            $('#budget-summary-overview .widget-body-has-data').show();
+        } else {
+            $('#budget-summary-overview .widget-content').hide();
+            $('#budget-summary-overview .widget-body-no-data').show();
+        }
+
+    }, function(reason){
+        $('#budget-summary-overview .widget-content').hide();
+        $('#budget-summary-overview .widget-body-data-error').show();
+    });
+
+
+}])
+
+.controller('budgetSummaryController', ['$scope', 'BudgetService', function ($scope, BudgetSvc) {
+
 }])
 
 ;

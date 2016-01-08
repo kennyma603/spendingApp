@@ -59,9 +59,6 @@ angular.module('App')
     return {
         restrict: 'E',
         scope: {
-            budgeted: '=',
-            netSpent: '=',
-            health: '=',
             budgetedText: '@',
             itemLabel: '@'
         },
