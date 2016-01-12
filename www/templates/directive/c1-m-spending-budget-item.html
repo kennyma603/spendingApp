@@ -1,16 +1,18 @@
-<div class="c1-m-spending-budget-item budget-overview {{healthClass}}">
-	<div class="row">
-		<div class="col budget-category-title">{{itemLabel}}</div>
-		<div class="col budget-category-status">{{remaining | currency}} {{statusText}}</div>
-	</div>
-	<div class="budget-bar">
-		<div class="underlay">
-			<div class="progressbar" style="width: {{budget.health}}%">
-				<span>{{budget.netSpent | currency}}</span>
+<div class="c1-m-spending-budget-item" ng-repeat="budget in budgetArray" > 
+	<div class="{{getHealthClass(budget.health)}}">
+		<div class="row">
+			<div class="col budget-category-title">{{budget.categoryName}}</div>
+			<div class="col budget-category-status">{{getRemaining(budget.remaining) | currency}} {{getStatusText(budget.remaining)}}</div>
+		</div>
+		<div class="budget-bar">
+			<div class="underlay">
+				<div class="progressbar" style="width: {{budget.health}}%">
+					<span>{{budget.netSpent | currency}}</span>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="budget-budgeted-text">
-		{{budgetedText}} {{budget.budget | currency}}
+		<div class="budget-budgeted-text">
+			{{getBudgetedText(budget.type)}} {{budget.budget | currency}}
+		</div>
 	</div>
 </div>

@@ -290,18 +290,32 @@ angular.module('App')
      }
 }])
 
-.controller('spendingBudgetItemCtrl', ['$scope', 'BudgetService', function ($scope, BudgetSvc) {
-
+.controller('spendingBudgetItemCtrl', ['$scope', 'BudgetService', 'CategoryService', function ($scope, BudgetSvc, CategorySvc) {
+    
     BudgetSvc.get().then(function(){
-        var budget = BudgetSvc.getBudgetOverview('2016-01');
-        if(budget.hasBudgetData) {
-            $scope.budget = budget;
-            console.log(budget);
+        $scope.budgetArray = [];
 
-            $scope.healthClass = BudgetSvc.getBudgetStatusClass(budget.health);
-            $scope.statusText = BudgetSvc.getBudgetStatusText(budget.remaining);
-            $scope.remaining = Math.abs(budget.remaining);
+        if ($scope.showOverview === "true") {
+            var overViewBudget = BudgetSvc.getCurrentMonthBudgetOverview();
+            if((overViewBudget.hasBudgetData)) {
+                $scope.budgetArray.push(overViewBudget);
+            }
+        }
 
+        if ($scope.showCategory === "all") {
+            var currentMonthBudget = BudgetSvc.getCurrentMonthBudget();
+            if((currentMonthBudget.length > 0)) {
+                CategorySvc.get().then(function() {
+                    angular.forEach(currentMonthBudget, function(budget) {
+                        budget.categoryName = CategorySvc.getCateNameById(budget.categoryId);
+                    });
+                });
+
+                $scope.budgetArray = $scope.budgetArray.concat(currentMonthBudget);
+            }
+        }
+
+        if($scope.budgetArray.length > 0) {
             $('#budget-summary-overview .widget-content').hide();
             $('#budget-summary-overview .widget-body-has-data').show();
         } else {
@@ -314,6 +328,18 @@ angular.module('App')
         $('#budget-summary-overview .widget-body-data-error').show();
     });
 
+    $scope.getHealthClass = function(health) {
+        return BudgetSvc.getBudgetStatusClass(health);
+    };
+    $scope.getStatusText = function(remaining) {
+        return BudgetSvc.getBudgetStatusText(remaining);
+    };
+    $scope.getRemaining = function(remaining) {
+        return Math.abs(remaining);
+    };
+    $scope.getBudgetedText = function(type) {
+        return (type === 'summary') ? 'Total amount budgeted:' : 'Your budget:';
+    };
 
 }])
 

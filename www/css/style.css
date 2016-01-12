@@ -318,3 +318,7 @@ Accounts page
 .over-budget .budget-category-status{
   color: #F53D38;
 }
+#budgets .c1-m-spending-budget-item{
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}

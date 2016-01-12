@@ -59,8 +59,8 @@ angular.module('App')
     return {
         restrict: 'E',
         scope: {
-            budgetedText: '@',
-            itemLabel: '@'
+            showOverview: '@',
+            showCategory: '@'
         },
         templateUrl: 'templates/directive/c1-m-spending-budget-item.html',
         controller: 'spendingBudgetItemCtrl'

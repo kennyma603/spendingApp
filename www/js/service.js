@@ -420,7 +420,7 @@ angular.module('App')
 }])
 
 
-.factory('BudgetService', ['$http', '$q', 'filterFilter', function($http, $q, filterFilter) {
+.factory('BudgetService', ['$http', '$q', 'orderByFilter', function($http, $q, orderByFilter) {
 	var TEST_DATA_URL = 'testData/budget/budget.json'
 	var deffered = $q.defer();
  	var budgetData = [];
@@ -494,7 +494,9 @@ angular.module('App')
     		health: 0,
     		remaining: 0,
     		categoryId: -1,
-    		hasBudgetData: false
+    		hasBudgetData: false,
+    		type: 'summary',
+    		categoryName: 'Overview'
     	};
 
 		if (budgetDataMap.hasOwnProperty(monthYear)) {
@@ -512,7 +514,6 @@ angular.module('App')
 			budgetObj.remaining = aggregatedRemaining;
 			budgetObj.health = (aggregatedBudget > 0) ? parseInt(parseFloat((aggregatedNetSpent / aggregatedBudget) * 100).toFixed(0), 10) : 0;
 		}
-
     	return budgetObj;
     };
 
@@ -532,9 +533,27 @@ angular.module('App')
     	return text;
     };
 
+    var getCurrentMonthBudgetOverview = function() {
+    	return getBudgetOverview('2016-01');
+    };
+
+    var getMonthBudget = function(monthYear) {
+    	var data = [];
+    	if (budgetDataMap.hasOwnProperty(monthYear)) {
+    		data = budgetDataMap[monthYear]
+    	}
+    	return data;
+    };
+
+    var getCurrentMonthBudget = function() {
+    	var data = getMonthBudget('2016-01');
+    	return orderByFilter(data, '-health');
+    };
+
   	return {
   		get: get,
-  		getBudgetOverview: getBudgetOverview,
+  		getCurrentMonthBudgetOverview: getCurrentMonthBudgetOverview,
+  		getCurrentMonthBudget: getCurrentMonthBudget,
   		getBudgetStatusClass: getBudgetStatusClass,
   		getBudgetStatusText: getBudgetStatusText
   	};	
