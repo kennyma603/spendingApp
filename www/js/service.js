@@ -11,8 +11,7 @@ angular.module('App')
 			showSubCategories: false,
 			includeBudgetData: true,
 			grouping: 'monthly',
-			categoryType: 1,
-			categoryType: 3, //? how come there is another categoryType?
+			categoryType: [1, 3],
 			top: 0
 		};
 		params = angular.extend({}, defaultParams, params);
@@ -518,10 +517,26 @@ angular.module('App')
     };
 
     var getBudgetStatusClass = function(health) {
-    	var healthClass = "on-budget";
+    	var warningPercentage = 100;
+
+		var _barClasses = {
+			overBudget: 'over-budget',
+			nearBudget: 'near-budget',
+			underBudget: 'on-budget',
+			zeroBar: 'zero-budget',
+			credits: 'negative-budget',
+			smallBudget: 'small-budget'
+		};
+
 	    if(health > 100) {
-	        healthClass = "over-budget";
-	    }
+	        healthClass = _barClasses.overBudget;
+	    } else if (health === 0) {
+			healthClass = _barClasses.zeroBar;
+		} else if (health < 20) {
+			healthClass = _barClasses.underBudget + ' ' + _barClasses.smallBudget;
+		} else {
+			healthClass = _barClasses.underBudget;
+		}
 	    return healthClass;
     };
 

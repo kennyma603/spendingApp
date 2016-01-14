@@ -98,6 +98,7 @@
    {
       "date":"2016-01-01",
       "categoryId":10,
+      "spent": 0.5,
       "budgetDefault":9.73
    },
    {
@@ -108,11 +109,13 @@
    {
       "date":"2016-01-01",
       "categoryId":12,
+      "spent": 20.12,
       "budgetDefault":35.73
    },
    {
       "date":"2016-01-01",
       "categoryId":13,
+      "spent": 219.07,
       "budgetDefault":219.07
    },
    {

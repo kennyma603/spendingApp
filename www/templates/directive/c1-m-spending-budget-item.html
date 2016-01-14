@@ -6,9 +6,10 @@
 		</div>
 		<div class="budget-bar">
 			<div class="underlay">
-				<div class="progressbar" style="width: {{budget.health}}%">
+				<div ng-if="showprogress" class="progressbar animate-if" style="width: {{budget.health}}%">
 					<span>{{budget.netSpent | currency}}</span>
 				</div>
+				<span class="small-budget-spent">{{budget.netSpent | currency}}</span>
 			</div>
 		</div>
 		<div class="budget-budgeted-text">

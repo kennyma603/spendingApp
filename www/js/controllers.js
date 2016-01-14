@@ -290,7 +290,7 @@ angular.module('App')
      }
 }])
 
-.controller('spendingBudgetItemCtrl', ['$scope', 'BudgetService', 'CategoryService', function ($scope, BudgetSvc, CategorySvc) {
+.controller('spendingBudgetItemCtrl', ['$scope', 'BudgetService', 'CategoryService', '$timeout', function ($scope, BudgetSvc, CategorySvc, $timeout) {
     
     BudgetSvc.get().then(function(){
         $scope.budgetArray = [];
@@ -315,6 +315,7 @@ angular.module('App')
             }
         }
 
+        /*
         if($scope.budgetArray.length > 0) {
             $('#budget-summary-overview .widget-content').hide();
             $('#budget-summary-overview .widget-body-has-data').show();
@@ -322,10 +323,13 @@ angular.module('App')
             $('#budget-summary-overview .widget-content').hide();
             $('#budget-summary-overview .widget-body-no-data').show();
         }
+        */
 
     }, function(reason){
+        /*
         $('#budget-summary-overview .widget-content').hide();
         $('#budget-summary-overview .widget-body-data-error').show();
+        */
     });
 
     $scope.getHealthClass = function(health) {
@@ -340,6 +344,17 @@ angular.module('App')
     $scope.getBudgetedText = function(type) {
         return (type === 'summary') ? 'Total amount budgeted:' : 'Your budget:';
     };
+
+    $scope.getHealthCSS = function(health) {
+        return 'style="width: ' + health + '%"';
+    };
+
+    $scope.showprogress = false;
+    var timer = $timeout(function(){
+  $scope.showprogress = true;
+  console.log('hello');
+  $timeout.cancel(timer); // I automatically cancel myself after running.
+}, 100);
 
 }])
 
