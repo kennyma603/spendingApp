@@ -31,6 +31,17 @@ angular.module('App')
         controller: 'spendingPieChartCtrl'
     }
 })
+.directive('c1MSpendingLineChart', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            prop: '=',
+            height: '@'
+        },
+        templateUrl: 'templates/directive/c1-m-spending-line-chart.html',
+        controller: 'spendingLineChartCtrl'
+    }
+})
 .directive('c1MSpendingCategoryList', function() {
     return {
         restrict: 'E',

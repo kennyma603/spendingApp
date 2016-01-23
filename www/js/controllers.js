@@ -362,4 +362,44 @@ angular.module('App')
 
 }])
 
+.controller('spendingLineChartCtrl', ['$scope', '$q', 'SpendingService', 'CategoryService', 'chartColors', 'timeFrameHelper', 'localStorage', function ($scope, $q, TransactionSvc, CategorySvc, chartColors, timeFrameHelper, localStorage) {
+
+    $scope.TrendsChartConfig = {
+       "options":{
+          "chart":{
+             "type":"line"
+          },
+          "plotOptions":{
+             "series":{
+                "stacking":""
+             }
+          }
+       },
+       "series":[
+          {
+             "name":"Some data",
+             "data":[
+                1,
+                2,
+                4,
+                7,
+                3
+             ],
+             "id":"series-0"
+          }
+       ],
+       "title":{
+          "text":"Hello"
+       },
+       "credits":{
+          "enabled":false
+       },
+       "loading":false,
+       "size":{
+
+       }
+    };
+
+}])
+
 ;
