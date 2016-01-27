@@ -362,12 +362,10 @@ angular.module('App')
 
 }])
 
-.controller('spendingLineChartCtrl', ['$scope', 'TrendsService', 'moment', function ($scope, TrendsSvc, moment) {
+.controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', function ($scope, TrendsSvc, moment) {
     $scope.trendsData = [];
     $scope.dataReady = false;
     var _trendsData = [];
-
-
 
     TrendsSvc.get().then(function(){
         _trendsData = TrendsSvc.getRawData();
@@ -379,24 +377,26 @@ angular.module('App')
            "options":{
               "chart":{
                     marginLeft: 0,
-                    marginTop: 25,
+                    marginTop: 28,
                     spacingBottom: 0,
                     spacingLeft: 0,
                     spacingRight: 0,
                     spacingTop: 0,
                     type: 'area',
-                    height: 150
+                    height: 120
               },
               "plotOptions":{
-                 series: {
+                series: {
                         fillOpacity: 0.3
-                    }
+                },
+                area: {
+                    animation: false
+                }
               }
            },
            "series":[
               {
                 showInLegend: false,
-                id: "series-1",
                 data: _trendsData           
                 }
            ],
@@ -447,8 +447,9 @@ angular.module('App')
         });
         return graphData;
     };
+}])
 
-    
+.controller('trendsSummaryController', ['$scope', 'BudgetService', function ($scope, BudgetSvc) {
 
 }])
 

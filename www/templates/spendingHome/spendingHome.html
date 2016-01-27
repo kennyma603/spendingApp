@@ -7,7 +7,8 @@
 
 		
 
-		<div id="spending-summary-overview" class="widget" ng-click="sectionClicked('spendingSummary')">
+		<div id="spending-summary-overview" class="widget">
+			<div class="overlay" ng-click="sectionClicked('spendingSummary')"></div>
 			<c1-m-spending-widget-heading prop="spendingWidgetHeading" heading="Spending Summary"></c1-m-spending-widget-heading>
 
 			<div class="widget-body">
@@ -26,7 +27,8 @@
 			</div>
 		</div>
 
-		<div id="budget-summary-overview" class="widget" ng-click="sectionClicked('budgetSummary')">
+		<div id="budget-summary-overview" class="widget">
+			<div class="overlay" ng-click="sectionClicked('budgetSummary')"></div>
 			<c1-m-spending-widget-heading prop="spendingWidgetHeading" heading="Budgets Summary" link="templates/home.html"></c1-m-spending-widget-heading>
 
 			<div class="widget-body">
@@ -43,14 +45,15 @@
 		</div>
 
 		<div id="trends-summary" class="widget">
+			<div class="overlay" ng-click="sectionClicked('trendsSummary')"></div>
 			<div class="widget-heading">
 				<h4>Trends Summary</h4>
 				<a href="#" class="navigator-right"><i class="icon ion-chevron-right"></i></a>
 			</div>
 
 			<div class="widget-body">
-				<div class="row widget-body-has-data">
-					<c1-m-spending-line-chart prop="spendingSubheading" style="width: 100%;"></c1-m-spending-line-chart>
+				<div class="widget-body-has-data">
+					<c1-m-spending-trends-chart prop="spendingSubheading" style="width: 100%;"></c1-m-spending-trends-chart>
 				</div>
 				<div class="widget-body-no-data" style="display:none;">
 					no trends data
