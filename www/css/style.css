@@ -369,3 +369,12 @@ Accounts page
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
+.monthControl {
+    font-size: 16px;
+    border: 1px solid transparent;
+    border-radius: 59px;
+    padding: 6px 3px;
+}
+.monthControl.active {
+    border: 1px solid red;
+}

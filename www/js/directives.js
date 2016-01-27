@@ -33,7 +33,8 @@ angular.module('App')
 })
 .directive('c1MSpendingLineChart', function() {
     return {
-        restrict: 'E',
+        restrict: 'AE',
+        transclude: true,
         scope: {
             prop: '=',
             height: '@'
