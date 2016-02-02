@@ -1,4 +1,4 @@
-<div class="c1-m-spending-budget-item" ng-repeat="budget in budgetArray" > 
+<div class="c1-m-spending-budget-item" ng-repeat="budget in budgetArray" ng-click="showTransaction({{budget.categoryId}})">
 	<div class="{{getHealthClass(budget.health)}}">
 		<div class="row">
 			<div class="col budget-category-title">{{budget.categoryName}}</div>

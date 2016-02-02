@@ -263,15 +263,20 @@ angular.module('App')
 }])
 
 .controller('spendingSelectedCategoryTransListCtrl', ['$scope', '$q', '$ionicScrollDelegate', 'TransactionService', function ($scope, $q, $ionicScrollDelegate, TransactionSvc) {
-    $scope.transactionList = {};
-    var requestParams = {categoryId: $scope.categoryId};
-    $ionicScrollDelegate.resize();
-    $q.all([
-        TransactionSvc.get({categoryId: $scope.categoryId})
-    ]).then(function() {
-        
-        $scope.transactionList = TransactionSvc.getTransactionMapGroupbyDate({order: 'desc'});
-    });
+        $scope.transactionList = {};
+        var requestParams = {
+            filterType: 'Category', 
+            searchValue: $scope.categoryId
+        };
+
+        $ionicScrollDelegate.resize();
+        $q.all([
+            TransactionSvc.get(requestParams)
+        ]).then(function() {
+            $scope.transactionList = TransactionSvc.getTransactionMapGroupbyDate({order: 'desc'});
+        }, function(reason){
+            console.log(reason);
+        });
 }])
 
 .controller('changeMonthController', ['$scope', '$state', '$ionicViewSwitcher', 'localStorage', function ($scope, $state, $ionicViewSwitcher, localStorage) {
@@ -290,16 +295,14 @@ angular.module('App')
      }
 }])
 
-.controller('spendingBudgetItemCtrl', ['$scope', 'BudgetService', 'CategoryService', '$timeout', function ($scope, BudgetSvc, CategorySvc, $timeout) {
+.controller('spendingBudgetItemCtrl', ['$scope', 'BudgetService', 'CategoryService', '$timeout', '$filter', '$location', 'localStorage', '$state', function ($scope, BudgetSvc, CategorySvc, $timeout, $filter, $location, localStorage, $state) {
     
     BudgetSvc.get().then(function(){
+        var categoryId = 0;
         $scope.budgetArray = [];
 
         if ($scope.showOverview === "true") {
-            var overViewBudget = BudgetSvc.getCurrentMonthBudgetOverview();
-            if((overViewBudget.hasBudgetData)) {
-                $scope.budgetArray.push(overViewBudget);
-            }
+            getOverViewBudget();
         }
 
         if ($scope.showCategory === "all") {
@@ -310,9 +313,27 @@ angular.module('App')
                         budget.categoryName = CategorySvc.getCateNameById(budget.categoryId);
                     });
                 });
-
                 $scope.budgetArray = $scope.budgetArray.concat(currentMonthBudget);
             }
+        } else if (categoryId = parseInt($scope.showCategory)) { 
+            if ( categoryId > 0 ) { // For one specific category
+                // Get current month budget/spending data.
+                var currentMonthBudget = BudgetSvc.getCurrentMonthBudget();
+                
+                if((currentMonthBudget.length > 0)) {
+                    // Filter the data by category ID
+                    var currentMonthBudgetByCatId = $filter("filter")(currentMonthBudget, {categoryId: categoryId}, true);
+
+                    // Get the category name
+                    CategorySvc.get().then(function() {
+                        currentMonthBudgetByCatId[0].categoryName = CategorySvc.getCateNameById(currentMonthBudgetByCatId[0].categoryId);
+                    });
+                
+                    $scope.budgetArray = currentMonthBudgetByCatId;
+                }
+            } else { // For over view
+                getOverViewBudget();
+            } 
         }
 
         /*
@@ -332,6 +353,13 @@ angular.module('App')
         */
     });
 
+    function getOverViewBudget() {
+        var overViewBudget = BudgetSvc.getCurrentMonthBudgetOverview();
+        if((overViewBudget.hasBudgetData)) {
+            $scope.budgetArray.push(overViewBudget);
+        }
+    }
+
     $scope.getHealthClass = function(health) {
         return BudgetSvc.getBudgetStatusClass(health);
     };
@@ -349,17 +377,37 @@ angular.module('App')
         return 'style="width: ' + health + '%"';
     };
 
+    $scope.showTransaction = function(categoryId){
+        if ($location.path() === '/budgetSummary') {
+            localStorage.set('budgetTransactionsCategoryId', categoryId);
+            $state.go('budgetTransactions');
+        }
+    };
+
     $scope.showprogress = false;
     var timer = $timeout(function(){
-  $scope.showprogress = true;
-  console.log('hello');
-  $timeout.cancel(timer); // I automatically cancel myself after running.
+    $scope.showprogress = true;
+    console.log('hello');
+    $timeout.cancel(timer); // I automatically cancel myself after running.
 }, 100);
 
 }])
 
 .controller('budgetSummaryController', ['$scope', 'BudgetService', function ($scope, BudgetSvc) {
 
+}])
+
+.controller('budgetTransactionsController', ['$scope', 'BudgetService', 'CategoryService', 'localStorage', function ($scope, BudgetSvc, CategorySvc, localStorage) {
+    var categoryId = parseInt(localStorage.get('budgetTransactionsCategoryId'));
+    if (!Number.isNaN(categoryId)) {
+        $scope.categoryId = categoryId;
+        CategorySvc.get().then(function() {
+            $scope.categoryName = CategorySvc.getCateNameById(categoryId);
+        });
+    } else {
+        // Show error message.
+        $('#error').show();
+    }
 }])
 
 .controller('spendingLineChartCtrl', ['$scope', '$timeout', function ($scope, $timeout) {

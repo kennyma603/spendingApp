@@ -206,10 +206,22 @@ angular.module('App')
  	var transactionService = {};
 
 	transactionService.get = function(requestParams) {
+		var defaultParams = {
+		   timeframe: "this-month"
+		};
+
+		// Set default params to requestParams if requestParams doesn't have values.
+		angular.forEach(defaultParams, function(value, key) {
+			if (!requestParams.hasOwnProperty(key)) {
+				requestParams[key] = value;
+			}
+		});
+
 		var deffered = $q.defer();
 	    $http({
 			method: 'GET',
-			url: TEST_DATA_URLS[requestParams.categoryId%2],
+			//url: TEST_DATA_URLS[requestParams.categoryId%2],
+			url: TEST_DATA_URLS[(requestParams.searchValue && requestParams.searchValue > 0)?(requestParams.searchValue%2):0],
 			params: requestParams
 		})
 	    .success(function (msg) {
@@ -217,6 +229,9 @@ angular.module('App')
 	      transactionData = _formatData(transactionData);
 	      console.log('rest call finished');
 	      deffered.resolve();
+	    }).error(function (data, status){
+            deffered.reject();
+            console.log(status);
 	    });
 	    return deffered.promise;
 	};

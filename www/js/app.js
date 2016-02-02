@@ -28,6 +28,12 @@ angular.module('App', ['ionic', 'ui.router', 'highcharts-ng', 'angularMoment'])
     controller: 'budgetSummaryController',
     templateUrl: 'templates/spendingHome/budgetSummary.html'
   });
+  $stateProvider.state('budgetTransactions', {
+    cache: false,
+    url: '/budgetTransactions',
+    controller: 'budgetTransactionsController',
+    templateUrl: 'templates/spendingHome/budgetTransactions.html'
+  });
   $stateProvider.state('changeAccount', {
     url: '/changeAccount',
     controller: 'spendingAccountsController',

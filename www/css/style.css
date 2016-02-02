@@ -162,14 +162,14 @@ a{
   padding: 3px 10px;
   color: #333;
 }
-.spending-category-list .transaction-list-by-date-wrapper{
+/*.spending-category-list*/ .transaction-list-by-date-wrapper{
   padding: 0 0 0 17px;
 }
-.spending-category-list .transaction-by-date{
+/*.spending-category-list*/ .transaction-by-date{
   border-bottom: 1px solid #ccc;
   padding: 0;
 }
-.spending-category-list .transaction-by-date:last-child{
+/*.spending-category-list*/ .transaction-by-date:last-child{
   border-bottom: none;
 }
 .spending-category-list .chart_legend{
@@ -368,4 +368,11 @@ Accounts page
 #budgets .c1-m-spending-budget-item{
   padding: 10px;
   border-bottom: 1px solid #ccc;
+}
+#budgetTransactions h4, 
+#budgetTransactions #error {
+  padding-left: 10px;
+}
+#budgetTransactions #error {
+  display: none;
 }
