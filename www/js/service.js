@@ -589,4 +589,103 @@ angular.module('App')
   	};	
 }])
 
+.factory('TrendsService', ['$http', '$q', 'orderByFilter', function($http, $q, orderByFilter) {
+	var TEST_DATA_URL = 'testData/budget/spendingDaily.json'
+	var deffered = $q.defer();
+ 	var trendsData = [];
+
+	var get = function() {
+	    $http.get(TEST_DATA_URL)
+	    .success(function (msg) {
+	      trendsData = msg;
+	      deffered.resolve();
+	    })
+	    .error(function (data, status){
+            deffered.reject();
+	    });
+	    
+	    return deffered.promise;
+	};
+
+	var getRawData = function() {
+		return trendsData;
+	};
+
+	var getDataGroupByWeek = function(rawData) {
+		var orderedWeeks = [];
+		var _constructWeeklyData = function(data) {
+			var weeklyData = [];
+			var monthOffSetRange = [4,3,2,1,0];
+			var weekEndDays = ['01', '08', '15', '22', '29'];
+			angular.forEach(monthOffSetRange, function(offSet) {
+				var yearMonth = moment().subtract(offSet,'months').format('YYYY-MM');
+
+				angular.forEach(weekEndDays, function(endDay) {
+					var day = yearMonth + '-' + endDay;
+					weeklyData[day] = 0;
+					orderedWeeks.push(day);
+				});
+			});
+			return weeklyData;
+		};
+
+		var _getStartingDate = function(itemDate) {
+			var date = itemDate.split('-');
+			var year = date[0];
+			var month = date[1];
+			var day = parseInt(date[2], 10);
+			var weekStarting = null;
+			if (day <= 7) {
+				weekStarting = '01';
+			} else if (day <= 14) {
+				weekStarting = '08';
+			} else if (day <= 21) {
+				weekStarting = '15';
+			} else if (day <= 28) {
+				weekStarting = '22';
+			} else {
+				weekStarting = '29';
+			}
+			return year + '-' + month + '-' + weekStarting;
+		};
+
+		var _populateWeeklyData = function(weeklyDataArr, rawData) {
+			angular.forEach(rawData, function(item) {
+				item.credit = (item.credit) ? (item.credit) : 0;
+				item.spent = (item.spent) ? (item.spent) : 0;
+				item.netSpent = item.spent - item.credit;
+				var weekStartDate = _getStartingDate(item.date);
+
+				if(weeklyDataArr.hasOwnProperty(weekStartDate)){
+					var netSpent = (item.netSpent > 0) ? item.netSpent : 0;
+					weeklyDataArr[weekStartDate] = weeklyDataArr[weekStartDate] + Math.round(netSpent*100)/100;
+				}
+			});
+			return weeklyDataArr;
+		};
+
+		var _generateArrayList = function(weeklyData, orderedWeeks) {
+			var objListArr = [];
+			angular.forEach(orderedWeeks, function(week) {
+				objListArr.push({week: week, amount: weeklyData[week]});
+			});
+			return objListArr;
+		};
+
+		var emptyWeeklyData = _constructWeeklyData(rawData);
+		var weeklyData = _populateWeeklyData(emptyWeeklyData, rawData);
+		weeklyData = _generateArrayList(weeklyData, orderedWeeks);
+
+		return weeklyData;
+
+	};
+
+  	return {
+  		get: get,
+  		getRawData: getRawData,
+  		getDataGroupByWeek: getDataGroupByWeek
+  	};	
+}])
+
+
 ;

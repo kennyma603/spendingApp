@@ -31,15 +31,16 @@ angular.module('App')
         controller: 'spendingPieChartCtrl'
     }
 })
-.directive('c1MSpendingLineChart', function() {
+.directive('c1MSpendingTrendsChart', function() {
     return {
         restrict: 'E',
+        transclude: true,
         scope: {
             prop: '=',
             height: '@'
         },
-        templateUrl: 'templates/directive/c1-m-spending-line-chart.html',
-        controller: 'spendingLineChartCtrl'
+        templateUrl: 'templates/directive/c1-m-spending-trends-chart.html',
+        controller: 'spendingTrendsChartCtrl'
     }
 })
 .directive('c1MSpendingCategoryList', function() {
