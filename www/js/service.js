@@ -590,24 +590,34 @@ angular.module('App')
 }])
 
 .factory('TrendsService', ['$http', '$q', 'orderByFilter', function($http, $q, orderByFilter) {
-	var TEST_DATA_URL = 'testData/budget/spendingDaily.json'
-	var deffered = $q.defer();
+	
  	var trendsData = [];
 
-	var get = function() {
+	var get = function(param) {
+		var deffered = $q.defer();
+		var TEST_DATA_URL = 'testData/budget/spendingDaily.json';
+		if(param && param.grouping === 'monthly') {
+			TEST_DATA_URL = 'testData/budget/spendingMonthly.json'
+		}
+
 	    $http.get(TEST_DATA_URL)
-	    .success(function (msg) {
-	      trendsData = msg;
-	      deffered.resolve();
-	    })
-	    .error(function (data, status){
-            deffered.reject();
-	    });
+		    .success(function (msg) {
+		      trendsData = msg;
+		      deffered.resolve();
+		    })
+		    .error(function (data, status){
+	            deffered.reject();
+		    });
 	    
 	    return deffered.promise;
 	};
 
 	var getRawData = function() {
+		angular.forEach(trendsData, function(item) {
+			item.credit = (item.credit) ? (item.credit) : 0;
+			item.spent = (item.spent) ? (item.spent) : 0;
+			item.netSpent = item.spent - item.credit;
+		});
 		return trendsData;
 	};
 
@@ -651,9 +661,6 @@ angular.module('App')
 
 		var _populateWeeklyData = function(weeklyDataArr, rawData) {
 			angular.forEach(rawData, function(item) {
-				item.credit = (item.credit) ? (item.credit) : 0;
-				item.spent = (item.spent) ? (item.spent) : 0;
-				item.netSpent = item.spent - item.credit;
 				var weekStartDate = _getStartingDate(item.date);
 
 				if(weeklyDataArr.hasOwnProperty(weekStartDate)){
@@ -680,10 +687,55 @@ angular.module('App')
 
 	};
 
+	var getDataGroupByMonth = function(rawData) {
+		var orderedMonths = [];
+		var yearMonthList = constructMonths(rawData);
+		var monthlyData = _populateMonthlyData(rawData, yearMonthList);
+		monthlyData = _generateArrayList(monthlyData, orderedMonths);
+
+		return monthlyData;
+
+		function constructMonths(data) {
+			var monthOffSetRange = [0,1,2,3,4,5,6,7,8,9,10,11,12]; // 13 months
+			var yearMonthLabel = null;
+			var yearMonthList = {};
+			angular.forEach(monthOffSetRange, function(offSet) {
+				yearMonthLabel = moment().subtract(offSet,'months').format('YYYY-MM');
+				Object.defineProperty(yearMonthList, yearMonthLabel, {
+				  value: 0,
+				  writable: true,
+				  enumerable: true
+				});
+				orderedMonths.push(yearMonthLabel);
+			});
+			return yearMonthList;
+		}
+
+		function _populateMonthlyData(rawData, yearMonthList) {
+			angular.forEach(rawData, function(item) {
+				var date = item.date.split('-');
+				var yearMonth = date[0] + '-' +date[1];
+				if(yearMonthList.hasOwnProperty(yearMonth)){
+					yearMonthList[yearMonth] = yearMonthList[yearMonth] + item.netSpent;
+				}
+			});
+			return yearMonthList;
+		}
+
+		function _generateArrayList(monthlyData, orderedMonths) {
+			var objListArr = [];
+			angular.forEach(orderedMonths, function(month) {
+				objListArr.push({month: month, amount: monthlyData[month]});
+			});
+			return objListArr;
+		};
+	};
+
   	return {
   		get: get,
   		getRawData: getRawData,
-  		getDataGroupByWeek: getDataGroupByWeek
+  		getDataGroupByWeek: getDataGroupByWeek,
+  		getDataGroupByMonth: getDataGroupByMonth
   	};	
 }])
 

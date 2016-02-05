@@ -410,12 +410,13 @@ angular.module('App')
     }
 }])
 
-.controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', function ($scope, TrendsSvc, moment) {
+.controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', 'localStorage', '$rootScope', function ($scope, TrendsSvc, moment, localStorage, $rootScope) {
     $scope.trendsData = [];
     $scope.dataReady = false;
     var _trendsData = [];
+    var param = {grouping: 'daily'};
 
-    TrendsSvc.get().then(function(){
+    TrendsSvc.get(param).then(function(){
         _trendsData = TrendsSvc.getRawData();
         _trendsData = TrendsSvc.getDataGroupByWeek(_trendsData);
         _trendsData = transfromToGraphData(_trendsData);
@@ -472,8 +473,9 @@ angular.module('App')
                         var label = null;
                         var month = moment(this.value).month();
                         var date = moment(this.value).date();
+                        var monthYear = moment(this.value).format('YYYY-MM'); 
                         if(date === 1) {
-                            label = '<div class="monthControl">' + moment().month(month).format('MMM') + '</div>';
+                            label = '<div class="monthControl" data-month=' + monthYear + '>' + moment().month(month).format('MMM') + '</div>';
                         }
                         return label;
                     },
@@ -495,10 +497,64 @@ angular.module('App')
         });
         return graphData;
     };
+
+    $rootScope.$on('monthClicked', function(event, month){
+        var $controls = $('#trends-summary .monthControl');
+        angular.forEach($controls, function(control){
+            var controlMonth = $(control).data('month');
+            if(controlMonth === month && !$(control).hasClass('active')) {
+                $(control).addClass('active');
+            } else {
+                $(control).removeClass('active');
+            }
+        });
+    });
+
 }])
 
 .controller('trendsSummaryController', ['$scope', 'BudgetService', function ($scope, BudgetSvc) {
 
+}])
+
+.controller('spendingTrendsMonthlyListCtrl', ['$scope', '$q', 'timeFrameHelper', 'localStorage', 'TrendsService', 'moment', 'localStorage', '$rootScope', function ($scope, $q, timeFrameHelper, localStorage, TrendsSvc, moment, localStorage, $rootScope) {
+    var isOnClickLoadTransactionEnabled = ($scope.onClickLoadTransaction === 'enable') ? true : false;
+    $scope.currentViewingMonth = null;
+    $scope.monthlySpendingData = {};
+
+    var _trendsData = null;
+
+    if(typeof $scope.numberofCate === 'undefined') {
+        $scope.numberofCate = 'Infinity';
+    }
+
+    var requestParams = {
+        grouping: 'monthly'
+    };
+
+    TrendsSvc.get(requestParams).then(function(){
+        _trendsData = TrendsSvc.getRawData();
+        $scope.monthlySpendingData = TrendsSvc.getDataGroupByMonth(_trendsData);
+    }, function(reason){
+
+    });
+
+    $scope.getMonthYearLabel = function(monthYear) {
+        return moment(monthYear, 'YYYY-MM').format('MMM YYYY');
+    }
+
+    $scope.loadTransaction = function(monthId){
+        if(isOnClickLoadTransactionEnabled) {
+            
+            $rootScope.$emit('monthClicked', monthId);
+
+            if($scope.currentViewingMonth === monthId) {
+                //if same category is clicked, we reset currentViewingMonth to null, so transaction list would collapse
+                $scope.currentViewingMonth = null;
+            } else{
+                $scope.currentViewingMonth = monthId;
+            }
+        }
+    }
 }])
 
 ;

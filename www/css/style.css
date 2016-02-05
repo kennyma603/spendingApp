@@ -55,6 +55,9 @@ h4{
 }
 
 /*charts*/
+.chart_legend_scheme:before{
+    background-color: #7CB5EC;
+}
 .chart_legend_scheme0:before{
     background-color: #3366CC;
 }
@@ -381,10 +384,17 @@ Accounts page
     text-transform: uppercase;
     border: 1px solid transparent;
     border-radius: 59px;
-    padding: 6px 3px;
+    padding: 10px 3px;
+    width: 40px;
+    text-align: center;
 }
-.c1-m-spending-trends-chart .monthControl.active {
-    border: 1px solid red;
+#trends-summary .c1-m-spending-trends-chart .monthControl.active {
+    border: 1px solid #7CB5EC;
+    background: #7CB5EC;
+    color: #fff;
+}
+#trends-summary .c1-m-spending-trends-chart .monthControl {
+    color: #7CB5EC;
 }
 .spending-home .widget{
   position:relative;
