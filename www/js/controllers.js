@@ -410,7 +410,7 @@ angular.module('App')
     }
 }])
 
-.controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', 'localStorage', '$rootScope', function ($scope, TrendsSvc, moment, localStorage, $rootScope) {
+.controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', 'localStorage', '$rootScope', '$timeout', '$compile', function ($scope, TrendsSvc, moment, localStorage, $rootScope, $timeout, $compile) {
     $scope.trendsData = [];
     $scope.dataReady = false;
     var _trendsData = [];
@@ -441,7 +441,10 @@ angular.module('App')
                 area: {
                     animation: false
                 }
-              }
+              },
+              tooltip: {
+              enabled: false
+                }
            },
            "series":[
               {
@@ -475,7 +478,7 @@ angular.module('App')
                         var date = moment(this.value).date();
                         var monthYear = moment(this.value).format('YYYY-MM'); 
                         if(date === 1) {
-                            label = '<div class="monthControl" data-month=' + monthYear + '>' + moment().month(month).format('MMM') + '</div>';
+                            label = '<div class="monthControl" on-tap="monthControlTapped(' + this.value + ')" on-swipe-left="monthControlSwiped(' + this.value + ', 0)" on-swipe-right="monthControlSwiped(' + this.value + ', 1)" data-month=' + monthYear + '>' + moment().month(month).format('MMM') + '</div>';
                         }
                         return label;
                     },
@@ -486,9 +489,36 @@ angular.module('App')
                 gridLineWidth: 0
             }
         };
+
+    // need to do this to complie hight chart label html elements with tap, swipe directives.
+    $timeout( function() {
+        var element = $(".highcharts-container");
+        $compile(element)($scope);
+    });
+
     }, function(reason){
 
     });
+
+    $scope.monthControlTapped = function(dateStamp) {
+        var month = moment(dateStamp).format('YYYY-MM'); 
+        $rootScope.$emit('monthControlClicked', month);
+        console.log(month);
+
+        var $controls = $('#trends-summary .monthControl');
+        angular.forEach($controls, function(control){
+            var controlMonth = $(control).data('month');
+            if(controlMonth === month && !$(control).hasClass('active')) {
+                $(control).addClass('active');
+            } else {
+                $(control).removeClass('active');
+            }
+        });
+    };
+
+    $scope.monthControlSwiped = function(dateStamp, leftRight) {
+        alert(dateStamp + '-' + leftRight);
+    };
 
     function transfromToGraphData (data) {
         var graphData = [];
@@ -498,7 +528,7 @@ angular.module('App')
         return graphData;
     };
 
-    $rootScope.$on('monthClicked', function(event, month){
+    var myListener = $rootScope.$on('monthClicked', function(event, month){
         var $controls = $('#trends-summary .monthControl');
         angular.forEach($controls, function(control){
             var controlMonth = $(control).data('month');
@@ -509,6 +539,7 @@ angular.module('App')
             }
         });
     });
+    $scope.$on('$destroy', myListener);
 
 }])
 
@@ -555,6 +586,19 @@ angular.module('App')
             }
         }
     }
+
+    var myListener = $rootScope.$on('monthControlClicked', function(event, monthId){
+        if(isOnClickLoadTransactionEnabled) {
+            if($scope.currentViewingMonth === monthId) {
+                //if same category is clicked, we reset currentViewingMonth to null, so transaction list would collapse
+                $scope.currentViewingMonth = null;
+            } else{
+                $scope.currentViewingMonth = monthId;
+            }
+        }        
+    });
+    $scope.$on('$destroy', myListener);
+
 }])
 
 ;

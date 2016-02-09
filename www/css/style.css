@@ -135,7 +135,8 @@ h4{
 .spending-info-heading{
   padding-top: 10px;
 }
-#top-spending-category-list .spending-info-heading{
+#top-spending-category-list .spending-info-heading,
+#trends-monthly-list .spending-info-heading{
 	padding: 10px 0 0 20px;
   margin-bottom: 5px;
 }
@@ -392,6 +393,7 @@ Accounts page
     border: 1px solid #7CB5EC;
     background: #7CB5EC;
     color: #fff;
+    transition:all 0.5s;
 }
 #trends-summary .c1-m-spending-trends-chart .monthControl {
     color: #7CB5EC;
