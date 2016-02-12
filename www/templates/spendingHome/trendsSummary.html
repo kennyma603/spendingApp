@@ -1,13 +1,22 @@
 <ion-view view-title="Trends">
+<div class="bar bar-subheader bar-spending-subheader bar-spending-chart-subheader">
+  <c1-m-spending-subheading prop="spendingSubheading" type="changeAccount"></c1-m-spending-subheading>
+  
+	<div id="trends-summary" style="padding-top: 20px;">
+		<div class="widget-body">
+			<c1-m-spending-trends-chart prop="spendingSubheading" style="width: 100%;"></c1-m-spending-trends-chart>
+			<div class="widget-body-no-data" style="display:none;">
+				no spending data
+			</div>
+		</div>
+	</div>
 
-<div class="bar bar-subheader bar-spending-subheader">
-  <c1-m-spending-subheading prop="spendingSubheading"></c1-m-spending-subheading>
 </div>
-
 <ion-pane>
-	<ion-content class="has-subheader">
-		<div id="trends">
-			trends page
+	<ion-content class="has-subheader has-spending-chart-as-subheader">
+		<div id="trends-monthly-list" class="trends-monthly-list">
+			<p class="spending-info-heading">Total Spending by month:</p>
+			<c1-m-spending-trends-monthly-list on-click-load-transaction="enable"></c1-m-spending-trends-monthly-list>
 		</div>
 	</ion-content>
 </ion-pane>

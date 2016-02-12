@@ -55,6 +55,18 @@ angular.module('App')
         controller: 'spendingCategoryListCtrl'
     }
 })
+.directive('c1MSpendingTrendsMonthlyList', function() {
+    return {
+        restrict: 'E',
+        scope: {
+            prop: '=',
+            numberofCate: '@numberOfCategory',
+            onClickLoadTransaction: '@'
+        },
+        templateUrl: 'templates/directive/c1-m-spending-trends-monthly-list.html',
+        controller: 'spendingTrendsMonthlyListCtrl'
+    }
+})
 .directive('c1MSpendingSelectedCategoryTransList', function() {
     return {
         restrict: 'E',

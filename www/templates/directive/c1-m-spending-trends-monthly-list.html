@@ -1,0 +1,19 @@
+<div class="c1-m-spending-trends-monthly-list spending-category-list">
+	<ul>
+		<li ng-repeat="data in monthlySpendingData" class="category-list">
+			<div class="row" ng-click="loadTransaction(data.month)">
+				<div class="col col-67 chart_legend chart_legend_scheme item-text-wrap">{{getMonthYearLabel(data.month)}}</div>
+				<div class="col item-text-wrap" style="text-align:right;">{{data.amount | currency}}</div>
+			</div>
+
+			<div class="row row-no-padding" ng-if="onClickLoadTransaction==='enable' && currentViewingMonth==data.month">
+				<div class="col col-no-padding">
+					<div class="padding">
+					<p>transaction list</p>
+					<p>will be implemented in next story</p>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
