@@ -192,20 +192,29 @@ angular.module('App')
     }
 }])
 
-.controller('spendingAccountsController', ['$scope', '$q', '$state', 'AccountService', 'GroupService', 'localStorage', function ($scope, $q, $state, AccountSvc, GroupSvc, localStorage) {
-    
-    $scope.creditUnionName = 'My Credit Union';
+.controller('spendingAccountsController', ['$scope', '$q', '$state', 'AccountService', 'GroupService', 'localStorage', '$ionicHistory', function ($scope, $q, $state, AccountSvc, GroupSvc, localStorage, $ionicHistory) {
 
-    AccountSvc.get().then(function(){
-        $scope.financialAccounts = AccountSvc.getFinancialAccounts();
-        $('#all-accounts').show();
-        if($scope.financialAccounts.length === 0){
-            $('#cu-name').hide();
-        }
-    }, function(reason){
-        $('#account-list ul').hide();
-        $('#accountSvc-error').show();
-    });
+    $scope.showAccountList = true;
+
+    var previousView = $ionicHistory.backView();
+    if (previousView && previousView.url.indexOf('budget') > 0 ) {
+        $scope.showAccountList = false;
+    } 
+
+    if ($scope.showAccountList){
+        $scope.creditUnionName = 'My Credit Union';
+
+        AccountSvc.get().then(function(){
+            $scope.financialAccounts = AccountSvc.getFinancialAccounts();
+            $('#all-accounts').show();
+            if($scope.financialAccounts.length === 0){
+                $('#cu-name').hide();
+            }
+        }, function(reason){
+            $('#account-list ul').hide();
+            $('#accountSvc-error').show();
+        });
+    } 
 
     GroupSvc.get().then(function(){
         $scope.groups = GroupSvc.getGroupList();
@@ -231,7 +240,12 @@ angular.module('App')
             localStorage.set('accountId', '');
             localStorage.set('groupId', 'all');
         }
-        $state.go('spendingSummary');
+        
+        if (previousView && previousView.url === '/budgetTransactions') {
+            $ionicHistory.goBack(-2);
+        } else {
+            $ionicHistory.goBack();
+        }
     }
 }])
 
@@ -262,12 +276,19 @@ angular.module('App')
     });
 }])
 
-.controller('spendingSelectedCategoryTransListCtrl', ['$scope', '$q', '$ionicScrollDelegate', 'TransactionService', function ($scope, $q, $ionicScrollDelegate, TransactionSvc) {
+.controller('spendingSelectedCategoryTransListCtrl', ['$scope', '$q', '$ionicScrollDelegate', 'TransactionService', 'localStorage', function ($scope, $q, $ionicScrollDelegate, TransactionSvc, localStorage) {
         $scope.transactionList = {};
+
         var requestParams = {
             filterType: 'Category', 
             searchValue: $scope.categoryId
         };
+
+        if(localStorage.get('accountId')){  
+            requestParams.accountId = localStorage.get('accountId');
+        } else if(localStorage.get('groupId')){
+            requestParams.groupId = localStorage.get('groupId');
+        }
 
         $ionicScrollDelegate.resize();
         $q.all([
@@ -276,6 +297,7 @@ angular.module('App')
             $scope.transactionList = TransactionSvc.getTransactionMapGroupbyDate({order: 'desc'});
         }, function(reason){
             console.log(reason);
+            $("#transactionSvc-error").show();
         });
 }])
 
@@ -297,11 +319,15 @@ angular.module('App')
 
 .controller('spendingBudgetItemCtrl', ['$scope', 'BudgetService', 'CategoryService', '$timeout', '$filter', '$location', 'localStorage', '$state', function ($scope, BudgetSvc, CategorySvc, $timeout, $filter, $location, localStorage, $state) {
     
-    BudgetSvc.get().then(function(){
+    var requestParams = {};
+    if (localStorage.get('groupId')) {
+        requestParams.groupId = localStorage.get('groupId');
+    }
+    BudgetSvc.get(requestParams).then(function(){
         var categoryId = 0;
         $scope.budgetArray = [];
 
-        if ($scope.showOverview === "true") {
+        if ($scope.showOverview === "true" && Number.isNaN(parseInt(localStorage.get('groupId')))) {
             getOverViewBudget();
         }
 
@@ -316,7 +342,7 @@ angular.module('App')
                 $scope.budgetArray = $scope.budgetArray.concat(currentMonthBudget);
             }
         } else if (categoryId = parseInt($scope.showCategory)) { 
-            if ( categoryId > 0 ) { // For one specific category
+            if ( categoryId > 0 ) { // For one specific category for budgetTransactions view.
                 // Get current month budget/spending data.
                 var currentMonthBudget = BudgetSvc.getCurrentMonthBudget();
                 
@@ -397,7 +423,7 @@ angular.module('App')
 
 }])
 
-.controller('budgetTransactionsController', ['$scope', 'BudgetService', 'CategoryService', 'localStorage', function ($scope, BudgetSvc, CategorySvc, localStorage) {
+.controller('budgetTransactionsController', ['$scope', 'BudgetService', 'CategoryService', 'localStorage', '$ionicHistory', function ($scope, BudgetSvc, CategorySvc, localStorage, $ionicHistory) {
     var categoryId = parseInt(localStorage.get('budgetTransactionsCategoryId'));
     if (!Number.isNaN(categoryId)) {
         $scope.categoryId = categoryId;
@@ -405,9 +431,14 @@ angular.module('App')
             $scope.categoryName = CategorySvc.getCateNameById(categoryId);
         });
     } else {
-        // Show error message.
-        $('#error').show();
+        $('#budgetTransactions-error').show();
     }
+
+    $scope.$on('$ionicView.leave', function(){
+        if($ionicHistory.currentStateName() !== 'changeAccount'){
+            localStorage.set('budgetTransactionsCategoryId', '');
+        }
+    });
 }])
 
 .controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', function ($scope, TrendsSvc, moment) {
@@ -500,5 +531,4 @@ angular.module('App')
 .controller('trendsSummaryController', ['$scope', 'BudgetService', function ($scope, BudgetSvc) {
 
 }])
-
 ;

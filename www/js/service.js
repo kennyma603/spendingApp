@@ -121,12 +121,12 @@ angular.module('App')
 }])
 
 .factory('AccountService', ['$http', '$q', 'filterFilter', function($http, $q, filterFilter) {
-	var TEST_DATA_URL = 'testData/account/accounts.json'
-	var deffered = $q.defer();
+	var TEST_DATA_URL = 'testData/account/accounts.json';
  	var accountData = [];  
  	var accountService = {};
 
 	accountService.get = function() {
+		var deffered = $q.defer();
 	    $http.get(TEST_DATA_URL)
 	    .success(function (msg) {
 	      accountData = msg;
@@ -169,7 +169,7 @@ angular.module('App')
 }])
 
 .factory('GroupService', ['$http', '$q', 'filterFilter', function($http, $q, filterFilter) {
-	var TEST_DATA_URL = 'testData/group/group.json'
+	var TEST_DATA_URL = 'testData/group/group.json';
 	var deffered = $q.defer();
  	var groupData = [];  
  	var groupService = {};
@@ -209,14 +209,8 @@ angular.module('App')
 		var defaultParams = {
 		   timeframe: "this-month"
 		};
-
-		// Set default params to requestParams if requestParams doesn't have values.
-		angular.forEach(defaultParams, function(value, key) {
-			if (!requestParams.hasOwnProperty(key)) {
-				requestParams[key] = value;
-			}
-		});
-
+		requestParams = angular.extend({}, defaultParams, requestParams);
+		
 		var deffered = $q.defer();
 	    $http({
 			method: 'GET',
@@ -434,14 +428,29 @@ angular.module('App')
 }])
 
 
-.factory('BudgetService', ['$http', '$q', 'orderByFilter', function($http, $q, orderByFilter) {
-	var TEST_DATA_URL = 'testData/budget/budget.json'
-	var deffered = $q.defer();
+.factory('BudgetService', ['$http', '$q', 'orderByFilter', 'timeFrameHelper', function($http, $q, orderByFilter, timeFrameHelper) {
+	var TEST_DATA_URL = ['testData/budget/budget.json', 'testData/budget/budgetByGroupId.json'];
  	var budgetData = [];
  	var budgetDataMap = [];
 
-	var get = function() {
-	    $http.get(TEST_DATA_URL)
+	var get = function(requestParams) {
+		var timeFrameObj = timeFrameHelper.getFromDateEndDate('monthly');
+		var defaultParams = {
+		   	showSubCategories: true,
+			includeBudgetData: true,
+			grouping: 'monthly',
+			categoryType: [1, 3],
+			fromDate: timeFrameObj.fromDate,
+        	toDate: timeFrameObj.toDate
+		};
+		requestParams = angular.extend({}, defaultParams, requestParams);
+
+		var deffered = $q.defer();
+	    $http({
+			method: 'GET',
+			url: TEST_DATA_URL[(parseInt(requestParams.groupId) > 0)?1:0],
+			params: requestParams
+		})
 	    .success(function (msg) {
 	      budgetData = transformData(msg);
 	      budgetDataMap = transformDataMap(budgetData);

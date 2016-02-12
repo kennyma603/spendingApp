@@ -210,6 +210,20 @@ a{
   margin-top: 0;
 }
 /************
+Error
+************/
+#spending-accounts #account-group-list #groupSvc-error, 
+#spending-accounts #account-list #accountSvc-error,
+#budgetTransactions-error,
+#transactionSvc-error{
+  display: none;
+  color: #333333;
+  padding: 10px;
+}
+#top-spending-category-list #transactionSvc-error{
+  border-top: 1px solid #cccccc;
+}
+/************
 Accounts page
 ************/
 
@@ -227,10 +241,9 @@ Accounts page
 }
 #spending-accounts #all-accounts,
 #spending-accounts .header,
-#spending-accounts li,
-#spending-accounts .error{
+#spending-accounts li{
   color: #333333;
-  padding: 10px 10px 10px 15px;
+  padding: 10px;
 }
 #spending-accounts .header{
   background-color: #ECF0F1;
@@ -241,11 +254,6 @@ Accounts page
   padding-bottom: 5px;
   padding-top: 5px;
 }
-#spending-accounts #account-group-list #groupSvc-error, 
-#spending-accounts #account-list #accountSvc-error{
-  display: none;
-}
-
 /*"All Accounts" section*/
 #spending-accounts #all-accounts{
   cursor: pointer;

@@ -3,9 +3,8 @@
 		<ion-content>
 			<div id="spending-accounts">
 				<div id="all-accounts" ng-click="selectionClicked('allAccountClicked', '', '')">All Accounts</div>
-				
-				<div id="groups-header" class="header">Groups</div>
 				<div id="account-group-list">
+					<div id="groups-header" class="header">Groups</div>
 					<ul class="list">
 						<li class="item" ng-repeat="group in groups" ng-click="selectionClicked('groupClicked', group.groupId, group.groupName)">
 							{{group.groupName}}
@@ -13,10 +12,8 @@
 					</ul>
 					<div id="groupSvc-error" class="error">Service Not Available</div>
 				</div>
-
-				<div id="cu-name" class="header">{{creditUnionName}}</div>
-
-				<div id="account-list">
+				<div id="account-list" ng-if="showAccountList">
+					<div id="cu-name" class="header">{{creditUnionName}}</div>
 					<div ng-repeat="financialAccount in financialAccounts">
 						<div class="header">{{financialAccount.name}}</div>
 						<ul class="list">
