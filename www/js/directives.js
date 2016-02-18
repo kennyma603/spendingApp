@@ -37,7 +37,7 @@ angular.module('App')
         transclude: true,
         scope: {
             prop: '=',
-            height: '@'
+            numOfMonths: '@'
         },
         templateUrl: 'templates/directive/c1-m-spending-trends-chart.html',
         controller: 'spendingTrendsChartCtrl'

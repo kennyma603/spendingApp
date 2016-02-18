@@ -441,17 +441,26 @@ angular.module('App')
     });
 }])
 
-.controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', 'localStorage', '$rootScope', '$timeout', '$compile', function ($scope, TrendsSvc, moment, localStorage, $rootScope, $timeout, $compile) {
+.controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', 'localStorage', '$rootScope', '$timeout', '$compile', '$ionicScrollDelegate', function ($scope, TrendsSvc, moment, localStorage, $rootScope, $timeout, $compile, $ionicScrollDelegate) {
     $scope.trendsData = [];
     $scope.dataReady = false;
+
+    if(typeof $scope.numOfMonths === 'undefined') {
+        $scope.numOfMonths = 5; // by default, we retrevice 5 months of data
+    }
     var _trendsData = [];
-    var param = {grouping: 'daily'};
+    var param = {
+        grouping: 'daily',
+        fromDate: moment().subtract($scope.numOfMonths-1, 'months').startOf('month').format('YYYY-MM-DD'),
+        toDate: moment().endOf('month').format('YYYY-MM-DD')
+    };
 
     TrendsSvc.get(param).then(function(){
         _trendsData = TrendsSvc.getRawData();
-        _trendsData = TrendsSvc.getDataGroupByWeek(_trendsData);
+        _trendsData = TrendsSvc.getDataGroupByWeek(_trendsData, $scope.numOfMonths);
         _trendsData = transfromToGraphData(_trendsData);
         $scope.dataReady = true;
+        $ionicScrollDelegate.scrollTo(1000, 0);
 
         $scope.TrendsChartConfig = {
            "options":{
@@ -467,14 +476,15 @@ angular.module('App')
               },
               "plotOptions":{
                 series: {
-                        fillOpacity: 0.3
+                    fillOpacity: 0.3,
+                    enableMouseTracking: false
                 },
                 area: {
                     animation: false
                 }
               },
               tooltip: {
-              enabled: false
+                enabled: false
                 }
            },
            "series":[
@@ -520,13 +530,11 @@ angular.module('App')
                 gridLineWidth: 0
             }
         };
-
-    // need to do this to complie hight chart label html elements with tap, swipe directives.
-    $timeout( function() {
-        var element = $(".highcharts-container");
-        $compile(element)($scope);
-    });
-
+        // need to do this to complie hight chart label html elements with tap, swipe directives.
+        $timeout( function() {
+            var element = $(".highcharts-container");
+            $compile(element)($scope);
+        });
     }, function(reason){
 
     });
@@ -536,20 +544,17 @@ angular.module('App')
         $rootScope.$emit('monthControlClicked', month);
         console.log(month);
 
-        var $controls = $('#trends-summary .monthControl');
-        angular.forEach($controls, function(control){
-            var controlMonth = $(control).data('month');
-            if(controlMonth === month && !$(control).hasClass('active')) {
-                $(control).addClass('active');
-            } else {
-                $(control).removeClass('active');
-            }
-        });
+        highLightMonthControl(month);
     };
 
     $scope.monthControlSwiped = function(dateStamp, leftRight) {
         alert(dateStamp + '-' + leftRight);
     };
+
+    var myListener = $rootScope.$on('monthClicked', function(event, month){
+        highLightMonthControl(month);
+    });
+    $scope.$on('$destroy', myListener);
 
     function transfromToGraphData (data) {
         var graphData = [];
@@ -559,7 +564,7 @@ angular.module('App')
         return graphData;
     };
 
-    var myListener = $rootScope.$on('monthClicked', function(event, month){
+    function highLightMonthControl(month) {
         var $controls = $('#trends-summary .monthControl');
         angular.forEach($controls, function(control){
             var controlMonth = $(control).data('month');
@@ -569,8 +574,7 @@ angular.module('App')
                 $(control).removeClass('active');
             }
         });
-    });
-    $scope.$on('$destroy', myListener);
+    }
 
 }])
 
@@ -589,11 +593,13 @@ angular.module('App')
         $scope.numberofCate = 'Infinity';
     }
 
-    var requestParams = {
-        grouping: 'monthly'
+    var param = {
+        grouping: 'monthly',
+        fromDate: moment().subtract(12, 'months').startOf('month').format('YYYY-MM-DD'),
+        toDate: moment().endOf('month').format('YYYY-MM-DD')
     };
 
-    TrendsSvc.get(requestParams).then(function(){
+    TrendsSvc.get(param).then(function(){
         _trendsData = TrendsSvc.getRawData();
         $scope.monthlySpendingData = TrendsSvc.getDataGroupByMonth(_trendsData);
     }, function(reason){

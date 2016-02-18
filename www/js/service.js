@@ -604,6 +604,19 @@ angular.module('App')
 
 	var get = function(param) {
 		var deffered = $q.defer();
+		var defaultParams = {
+	        showSubCategories:false,
+	        includeBudgetData:false,
+	        grouping: 'daily',
+	        categoryType: 1,
+	        categoryType: 3,
+	        fromDate: null,
+	        toDate: null,
+	        groupId: 'all'
+    	};
+		param = angular.extend({}, defaultParams, param);
+
+		console.log(param);
 		var TEST_DATA_URL = 'testData/budget/spendingDaily.json';
 		if(param && param.grouping === 'monthly') {
 			TEST_DATA_URL = 'testData/budget/spendingMonthly.json'
@@ -630,11 +643,11 @@ angular.module('App')
 		return trendsData;
 	};
 
-	var getDataGroupByWeek = function(rawData) {
+	var getDataGroupByWeek = function(rawData, numOfMonths) {
 		var orderedWeeks = [];
 		var _constructWeeklyData = function(data) {
 			var weeklyData = [];
-			var monthOffSetRange = [4,3,2,1,0];
+			var monthOffSetRange = _getMonthRange(numOfMonths);
 			var weekEndDays = ['01', '08', '15', '22', '29'];
 			angular.forEach(monthOffSetRange, function(offSet) {
 				var yearMonth = moment().subtract(offSet,'months').format('YYYY-MM');
@@ -647,6 +660,14 @@ angular.module('App')
 			});
 			return weeklyData;
 		};
+
+		var _getMonthRange = function(numOfMonths) {
+			var range = [];
+			for(var i = numOfMonths-1;i >= 0; i--) {
+				 range.push(i);
+			}
+			return range;
+		}
 
 		var _getStartingDate = function(itemDate) {
 			var date = itemDate.split('-');
