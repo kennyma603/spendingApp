@@ -182,6 +182,15 @@ angular.module('App')
             
             $scope.$emit('pushChangesToAllNodes', { name: 'talkToOne', data: {categoryId: categoryId}});
 
+            $scope.query = {
+                groupId: 'all',
+                fromDate: timeFrameObj.fromDate,
+                toDate: timeFrameObj.toDate,
+                timeframe: 'specific-range',
+                filterType: 'Category',
+                searchValue: categoryId
+            };
+
             if($scope.currentViewingCategoryId === categoryId) {
                 //if same category is clicked, we reset currentViewingCategoryId to null, so transaction list would collapse
                 $scope.currentViewingCategoryId = null;
@@ -276,29 +285,35 @@ angular.module('App')
     });
 }])
 
-.controller('spendingSelectedCategoryTransListCtrl', ['$scope', '$q', '$ionicScrollDelegate', 'TransactionService', 'localStorage', function ($scope, $q, $ionicScrollDelegate, TransactionSvc, localStorage) {
+.controller('spendingSelectedCategoryTransListCtrl', ['$scope', '$q', '$ionicScrollDelegate', 'TransactionService', 'localStorage', 'CategoryService', function ($scope, $q, $ionicScrollDelegate, TransactionSvc, localStorage, CategorySvc) {
         $scope.transactionList = {};
 
-        var requestParams = {
-            filterType: 'Category', 
-            searchValue: $scope.categoryId
-        };
+        if (typeof $scope.queryObj === 'undefined') {
+            $scope.queryObj = {};
+        }
 
         if(localStorage.get('accountId')){  
-            requestParams.accountId = localStorage.get('accountId');
+            $scope.queryObj.accountId = localStorage.get('accountId');
+            $scope.queryObj.groupId = '';
         } else if(localStorage.get('groupId')){
-            requestParams.groupId = localStorage.get('groupId');
+            $scope.queryObj.groupId = localStorage.get('groupId');
+            $scope.queryObj.accountId = '';
         }
 
         $ionicScrollDelegate.resize();
         $q.all([
-            TransactionSvc.get(requestParams)
+            TransactionSvc.get($scope.queryObj),
+            CategorySvc.get()
         ]).then(function() {
             $scope.transactionList = TransactionSvc.getTransactionMapGroupbyDate({order: 'desc'});
         }, function(reason){
             console.log(reason);
             $("#transactionSvc-error").show();
         });
+
+        $scope.getCateName = function(categoryId) {
+            return CategorySvc.getCateNameById(categoryId);
+        };
 }])
 
 .controller('changeMonthController', ['$scope', '$state', '$ionicViewSwitcher', 'localStorage', function ($scope, $state, $ionicViewSwitcher, localStorage) {
@@ -423,13 +438,23 @@ angular.module('App')
 
 }])
 
-.controller('budgetTransactionsController', ['$scope', 'BudgetService', 'CategoryService', 'localStorage', '$ionicHistory', function ($scope, BudgetSvc, CategorySvc, localStorage, $ionicHistory) {
+.controller('budgetTransactionsController', ['$scope', 'BudgetService', 'CategoryService', 'localStorage', '$ionicHistory', 'moment', function ($scope, BudgetSvc, CategorySvc, localStorage, $ionicHistory, moment) {
     var categoryId = parseInt(localStorage.get('budgetTransactionsCategoryId'));
     if (!Number.isNaN(categoryId)) {
         $scope.categoryId = categoryId;
-        CategorySvc.get().then(function() {
-            $scope.categoryName = CategorySvc.getCateNameById(categoryId);
-        });
+
+        $scope.query = {
+            timeframe: 'this-month',
+            fromDate: moment().startOf('month').format('YYYY-MM'),
+            toDate: moment().endOf('month').format('YYYY-MM'),
+            filterType: 'Category',
+            searchValue: categoryId
+        }
+        if (categoryId === -1) { //special case when 'overview' is selected
+            $scope.query.searchValue = '';
+            $scope.query.filterType = '';
+        }
+
     } else {
         $('#budgetTransactions-error').show();
     }
@@ -614,6 +639,14 @@ angular.module('App')
         if(isOnClickLoadTransactionEnabled) {
             
             $rootScope.$emit('monthClicked', monthId);
+
+            $scope.query = {
+                timeframe:'specific-month',
+                fromDate: monthId,
+                toDate: monthId,
+                filterType: '',
+                searchValue: ''
+            }
 
             if($scope.currentViewingMonth === monthId) {
                 //if same category is clicked, we reset currentViewingMonth to null, so transaction list would collapse

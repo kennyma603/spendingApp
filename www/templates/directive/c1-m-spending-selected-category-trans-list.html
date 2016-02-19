@@ -6,7 +6,7 @@
 				<div class="row transaction-by-date" ng-repeat="transaction in transactionList.transactionMap[transDate]">
 					<div class="col col-70 item-text-wrap">
 						<div>{{transaction.fullDescription}}</div>
-						<div class="spending-category">{{categoryName}}</div>
+						<div class="spending-category">{{getCateName(transaction.categoryId)}}</div>
 					</div>
 					<div class="col col-center item-text-wrap" style="text-align:right;">{{transaction.amount.value | currency}}</div>
 				</div>
