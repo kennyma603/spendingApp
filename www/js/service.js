@@ -1,7 +1,7 @@
 angular.module('App')
 .factory('SpendingService', ['$http', '$q', 'orderByFilter', 'filterFilter', function($http, $q, orderByFilter, filterFilter) {
 
-	var TEST_DATA_URL = 'testData/transaction/allTransaction.json'
+	var TEST_DATA_URL = 'testData/budget/spendingSAW.json'
 	var deffered = $q.defer();
  	var transactionData = [];  
  	var spending = {};
@@ -201,13 +201,13 @@ angular.module('App')
 }])
 
 .factory('TransactionService', ['$http', '$q', 'filterFilter', 'orderByFilter', function($http, $q, filterFilter, orderByFilter) {
-	var TEST_DATA_URLS = ['testData/transaction/transaction.json', 'testData/transaction/transaction1.json'];
+	var TEST_DATA_URLS = ['testData/transaction/transaction.json', 'testData/transaction/transaction1.json', 'testData/transaction/transactionAllCate.json'];
  	var transactionData = [];
  	var transactionService = {};
 
 	transactionService.get = function(requestParams) {
 		var defaultParams = {
-		   timeframe: "this-month"
+		   spending: 1
 		};
 		requestParams = angular.extend({}, defaultParams, requestParams);
 		
@@ -215,7 +215,7 @@ angular.module('App')
 	    $http({
 			method: 'GET',
 			//url: TEST_DATA_URLS[requestParams.categoryId%2],
-			url: TEST_DATA_URLS[(requestParams.searchValue && requestParams.searchValue > 0)?(requestParams.searchValue%2):0],
+			url: TEST_DATA_URLS[(requestParams.searchValue && requestParams.searchValue > 0)?(requestParams.searchValue%2):2],
 			params: requestParams
 		})
 	    .success(function (msg) {

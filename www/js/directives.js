@@ -73,7 +73,7 @@ angular.module('App')
         scope: {
             prop: '=',
             categoryId: '=',
-            categoryName: '='
+            queryObj: '='
         },
         templateUrl: 'templates/directive/c1-m-spending-selected-category-trans-list.html',
         controller: 'spendingSelectedCategoryTransListCtrl'
