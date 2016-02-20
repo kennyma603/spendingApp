@@ -276,7 +276,7 @@ angular.module('App')
     });
 }])
 
-.controller('spendingSelectedCategoryTransListCtrl', ['$scope', '$q', '$ionicScrollDelegate', 'TransactionService', 'localStorage', function ($scope, $q, $ionicScrollDelegate, TransactionSvc, localStorage) {
+.controller('spendingSelectedCategoryTransListCtrl', ['$scope', '$q', '$ionicScrollDelegate', 'TransactionService', 'localStorage', 'UtilitiesService', function ($scope, $q, $ionicScrollDelegate, TransactionSvc, localStorage, UtilitiesSvc) {
         $scope.transactionList = {};
 
         var requestParams = {
@@ -284,11 +284,7 @@ angular.module('App')
             searchValue: $scope.categoryId
         };
 
-        if(localStorage.get('accountId')){  
-            requestParams.accountId = localStorage.get('accountId');
-        } else if(localStorage.get('groupId')){
-            requestParams.groupId = localStorage.get('groupId');
-        }
+        requestParams = UtilitiesSvc.addAccountIdOrGroupId(requestParams);
 
         $ionicScrollDelegate.resize();
         $q.all([
@@ -441,7 +437,7 @@ angular.module('App')
     });
 }])
 
-.controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', 'localStorage', '$rootScope', '$timeout', '$compile', '$ionicScrollDelegate', function ($scope, TrendsSvc, moment, localStorage, $rootScope, $timeout, $compile, $ionicScrollDelegate) {
+.controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', 'localStorage', '$rootScope', '$timeout', '$compile', '$ionicScrollDelegate', 'UtilitiesService', function ($scope, TrendsSvc, moment, localStorage, $rootScope, $timeout, $compile, $ionicScrollDelegate, UtilitiesSvc) {
     $scope.trendsData = [];
     $scope.dataReady = false;
 
@@ -454,6 +450,8 @@ angular.module('App')
         fromDate: moment().subtract($scope.numOfMonths-1, 'months').startOf('month').format('YYYY-MM-DD'),
         toDate: moment().endOf('month').format('YYYY-MM-DD')
     };
+
+    param = UtilitiesSvc.addAccountIdOrGroupId(param);
 
     TrendsSvc.get(param).then(function(){
         _trendsData = TrendsSvc.getRawData();
@@ -582,7 +580,7 @@ angular.module('App')
 
 }])
 
-.controller('spendingTrendsMonthlyListCtrl', ['$scope', '$q', 'timeFrameHelper', 'localStorage', 'TrendsService', 'moment', 'localStorage', '$rootScope', function ($scope, $q, timeFrameHelper, localStorage, TrendsSvc, moment, localStorage, $rootScope) {
+.controller('spendingTrendsMonthlyListCtrl', ['$scope', '$q', 'timeFrameHelper', 'localStorage', 'TrendsService', 'moment', 'localStorage', '$rootScope', 'UtilitiesService', function ($scope, $q, timeFrameHelper, localStorage, TrendsSvc, moment, localStorage, $rootScope, UtilitiesSvc) {
     var isOnClickLoadTransactionEnabled = ($scope.onClickLoadTransaction === 'enable') ? true : false;
     $scope.currentViewingMonth = null;
     $scope.monthlySpendingData = {};
@@ -598,6 +596,8 @@ angular.module('App')
         fromDate: moment().subtract(12, 'months').startOf('month').format('YYYY-MM-DD'),
         toDate: moment().endOf('month').format('YYYY-MM-DD')
     };
+
+    param = UtilitiesSvc.addAccountIdOrGroupId(param);
 
     TrendsSvc.get(param).then(function(){
         _trendsData = TrendsSvc.getRawData();

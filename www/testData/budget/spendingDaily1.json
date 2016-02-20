@@ -1,0 +1,104 @@
+[
+   {
+      "date": "2015-07-01",
+      "categoryId": 34,
+      "spent": 0.02
+   },
+   {
+      "date": "2015-08-01",
+      "categoryId": 34,
+      "budgetDefault": 0.00
+   },
+   {
+      "date": "2015-09-01",
+      "categoryId": 34,
+      "budgetDefault": 0.00
+   },
+   {
+      "date": "2015-10-01",
+      "categoryId": 34,
+      "budgetDefault": 0.00
+   },
+   {
+      "date": "2015-11-01",
+      "categoryId": 17,
+      "spent": 93.26
+   },
+   {
+      "date": "2015-11-01",
+      "categoryId": 34,
+      "spent": 1.07,
+      "budgetDefault": 0.00
+   },
+   {
+      "date": "2015-12-01",
+      "categoryId": 17,
+      "budgetDefault": 18.65
+   },
+   {
+      "date": "2015-12-01",
+      "categoryId": 34,
+      "budgetDefault": 0.22
+   },
+   {
+      "date": "2016-01-01",
+      "categoryId": 17,
+      "spent": 186.52,
+      "credit": 2000.00,
+      "budgetDefault": 18.65,
+      "budgetCustom": 210.0
+   },
+   {
+      "date": "2016-01-01",
+      "categoryId": 23,
+      "spent": 9.34
+   },
+   {
+      "date": "2016-01-01",
+      "categoryId": 24,
+      "spent": 0.01
+   },
+   {
+      "date": "2016-01-01",
+      "categoryId": 34,
+      "budgetDefault": 0.21
+   },
+   {
+      "date": "2016-02-01",
+      "categoryId": 15,
+      "spent": 0.03
+   },
+   {
+      "date": "2016-02-01",
+      "categoryId": 17,
+      "spent": 186.52,
+      "budgetDefault": 55.96,
+      "budgetCustom": 99999999999.99
+   },
+   {
+      "date": "2016-02-01",
+      "categoryId": 23,
+      "budgetDefault": 1.87,
+      "budgetCustom": 10.0
+   },
+   {
+      "date": "2016-02-01",
+      "categoryId": 24,
+      "budgetDefault": 0.00
+   },
+   {
+      "date": "2016-02-01",
+      "categoryId": 34,
+      "budgetDefault": 0.21
+   },
+   {
+      "date": "2016-02-01",
+      "categoryId": 38,
+      "credit": 0.07
+   },
+   {
+      "date": "2016-02-01",
+      "categoryId": 39,
+      "spent": 0.05
+   }
+]

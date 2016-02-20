@@ -622,6 +622,13 @@ angular.module('App')
 			TEST_DATA_URL = 'testData/budget/spendingMonthly.json'
 		}
 
+		if(param && (param.accountId || parseInt(param.groupId) > 0)) {
+			TEST_DATA_URL = 'testData/budget/spendingDaily1.json';
+			if(param && param.grouping === 'monthly') { 
+				TEST_DATA_URL = 'testData/budget/spendingMonthly1.json';
+			}
+		}
+
 	    $http.get(TEST_DATA_URL)
 		    .success(function (msg) {
 		      trendsData = msg;
@@ -768,6 +775,20 @@ angular.module('App')
   		getDataGroupByMonth: getDataGroupByMonth
   	};	
 }])
+.factory('UtilitiesService', ['localStorage', function(localStorage) {
 
+	var addAccountIdOrGroupId = function(param) {
+		if(localStorage.get('accountId')){  
+			param.accountId = localStorage.get('accountId');
+		} else if(localStorage.get('groupId')){
+			param.groupId = localStorage.get('groupId');
+		}
+		return param;
+	}
+
+	return {
+		addAccountIdOrGroupId: addAccountIdOrGroupId
+	};
+}])
 
 ;
