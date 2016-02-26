@@ -43,7 +43,7 @@
 	color: #ccc;
 }
 .bar .title{
-	font-size: 19px;
+  font-weight: bold;
 }
 h4{
 	font-size: 15px;
@@ -124,10 +124,10 @@ h4{
 	white-space: nowrap;
 }
 .spending-category-list .row{
-  padding: 5px 5px 5px 0;
+  padding: 7px 0;
 }
-.spending-category-list .chart_legend{
-  font-weight: bold;
+.spending-category-list .row .col.item-text-wrap{
+  padding-right: 10px;
 }
 #spending-summary-overview .row{
   padding-bottom: 10px;
@@ -137,7 +137,7 @@ h4{
 }
 #top-spending-category-list .spending-info-heading,
 #trends-monthly-list .spending-info-heading{
-	padding: 10px 0 0 20px;
+	padding: 10px 0 0 15px;
   margin-bottom: 5px;
 }
 .spending-category-list ul li.category-list{
@@ -160,30 +160,41 @@ a{
 .platform-ios.platform-cordova .has-spending-chart-as-subheader{
   top: 278px !important;
 }
-.transaction-heading{
+.transaction-heading,
+#spending-accounts .header{
   background: #ECF0F1;
-  text-align: center;
-  padding: 3px 10px;
-  color: #333;
+  font-size: 12px;
+  font-weight: 500;
 }
-/*.spending-category-list*/ .transaction-list-by-date-wrapper{
-  padding: 0 0 0 17px;
+.transaction-heading{
+  padding: 1px 10px 1px 15px;
+  color: #111;
 }
-/*.spending-category-list*/ .transaction-by-date{
+#budgetTransactions .spending-category-list .transaction-heading{
+  padding-left: 10px;
+}
+.spending-category-list .transaction-list-by-date-wrapper{
+  padding-left: 10px;
+}
+#budgetTransactions .spending-category-list .transaction-list-by-date-wrapper{
+  padding-left: 5px;
+}
+.spending-category-list .transaction-by-date{
   border-bottom: 1px solid #ccc;
-  padding: 0;
+ padding: 6px 0;
 }
-/*.spending-category-list*/ .transaction-by-date:last-child{
+.spending-category-list .transaction-by-date:last-child{
   border-bottom: none;
 }
 .spending-category-list .chart_legend{
-  padding-left: 18px;
+  font-weight: 500;
+  padding-left: 15px;
 }
 .spending-category-list .chart_legend:before {
     position: absolute;
     top: 0;
     left: 0;
-    height: 40px;
+    height: 46px;
     width: 10px;
 }
 .spending-category-list li{
@@ -206,9 +217,13 @@ a{
 .animate-if.ng-enter.ng-enter-active {
   opacity:1;
 }
-
+.spending-description{
+  color: #111111;
+  margin-bottom: 3px;
+}
 .spending-category{
-  color: #333;
+  color: #4f4f4f;
+  font-size: 13px;
 }
 .transaction-by-date + .transaction-by-date{
   margin-top: 0;
@@ -221,7 +236,9 @@ Error
 #budgetTransactions-error,
 #transactionSvc-error{
   display: none;
-  color: #333333;
+  color: #111111;
+  font-weight: 300;
+  font-size: 16px;
   padding: 10px;
 }
 #top-spending-category-list #transactionSvc-error{
@@ -230,13 +247,7 @@ Error
 /************
 Accounts page
 ************/
-
 /*Common*/
-#spending-accounts{
-  color: #333333;
-  font-family: HelveticaNeue-Medium;
-  font-size: 16px;
-}
 #spending-accounts .list{
   margin-bottom: 0;
 }
@@ -246,17 +257,18 @@ Accounts page
 #spending-accounts #all-accounts,
 #spending-accounts .header,
 #spending-accounts li{
-  color: #333333;
+  color: #111111;
   padding: 10px;
+      
 }
 #spending-accounts .header{
-  background-color: #ECF0F1;
-  color: #4f4f4f;
-  font-size: 12px;
-  font-weight: bold;
-  height: 30px;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  height: 22px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+}
+#spending-accounts #all-accounts,
+#spending-accounts li{
+  font-size: 18px;
 }
 /*"All Accounts" section*/
 #spending-accounts #all-accounts{
@@ -267,14 +279,21 @@ Accounts page
 
 /*Group list section*/
 #spending-accounts #account-group-list li{
-  line-height: 32px;
+  line-height: 39px;
   min-height:62px;
 }
 
 /*Account list section*/
+#spending-accounts #cu-name{
+  padding-bottom: 25px;
+}
+#spending-accounts .header.account-name{
+  color: #4f4f4f;
+}
 #spending-accounts #account-list ul li .currency{
-  font-family: HelveticaNeue-Light;
-  padding-top: 5px;
+  color: #444444;
+  font-size: 14px;
+  padding-top: 3px;
 }
 
 .item-icon-left .item-content {

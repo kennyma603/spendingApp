@@ -15,7 +15,7 @@
 				<div id="account-list" ng-if="showAccountList">
 					<div id="cu-name" class="header">{{creditUnionName}}</div>
 					<div ng-repeat="financialAccount in financialAccounts">
-						<div class="header">{{financialAccount.name}}</div>
+						<div class="header account-name">{{financialAccount.name}}</div>
 						<ul class="list">
 							<li class="item" ng-repeat="account in financialAccount.accounts" ng-click="selectionClicked('accountClicked', account.accountId, account.name)">
 								{{account.name}}
