@@ -460,7 +460,7 @@ angular.module('App')
     });
 }])
 
-.controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', 'localStorage', '$rootScope', '$timeout', '$compile', '$ionicScrollDelegate', 'UtilitiesService', function ($scope, TrendsSvc, moment, localStorage, $rootScope, $timeout, $compile, $ionicScrollDelegate, UtilitiesSvc) {
+.controller('spendingTrendsChartCtrl', ['$scope', 'TrendsService', 'moment', 'localStorage', '$rootScope', '$timeout', '$compile', '$ionicScrollDelegate', '$ionicPosition', 'UtilitiesService', function ($scope, TrendsSvc, moment, localStorage, $rootScope, $timeout, $compile, $ionicScrollDelegate, $ionicPosition, UtilitiesSvc) {
     $scope.trendsData = [];
     $scope.dataReady = false;
 
@@ -540,7 +540,7 @@ angular.module('App')
                         var date = moment(this.value).date();
                         var monthYear = moment(this.value).format('YYYY-MM'); 
                         if(date === 1) {
-                            label = '<div class="monthControl" on-tap="monthControlTapped(' + this.value + ')" on-swipe-left="monthControlSwiped(' + this.value + ', 0)" on-swipe-right="monthControlSwiped(' + this.value + ', 1)" data-month=' + monthYear + '>' + moment().month(month).format('MMM') + '</div>';
+                            label = '<div class="monthControl" on-tap="monthControlTapped(' + this.value + ')" data-month=' + monthYear + '>' + moment().month(month).format('MMM') + '</div>';
                         }
                         return label;
                     },
@@ -563,17 +563,15 @@ angular.module('App')
     $scope.monthControlTapped = function(dateStamp) {
         var month = moment(dateStamp).format('YYYY-MM'); 
         $rootScope.$emit('monthControlClicked', month);
-        console.log(month);
 
         highLightMonthControl(month);
-    };
-
-    $scope.monthControlSwiped = function(dateStamp, leftRight) {
-        alert(dateStamp + '-' + leftRight);
     };
 
     var myListener = $rootScope.$on('monthClicked', function(event, month){
         highLightMonthControl(month);
+        var monthDiv = $('div[data-month=' + month +']');
+        var monthPosition = monthDiv.offset();
+        $ionicScrollDelegate.$getByHandle('monthControlScroll').scrollBy(monthPosition.left, monthPosition.top, true);
     });
     $scope.$on('$destroy', myListener);
 
@@ -599,7 +597,21 @@ angular.module('App')
 
 }])
 
-.controller('trendsSummaryController', ['$scope', 'BudgetService', function ($scope, BudgetSvc) {
+.controller('trendsSummaryController', ['$scope', 'BudgetService', '$rootScope', '$ionicScrollDelegate', '$ionicPosition', '$timeout', '$location', '$anchorScroll', function ($scope, BudgetSvc, $rootScope, $ionicScrollDelegate, $ionicPosition, $timeout, $location, $anchorScroll) {
+    var myListener = $rootScope.$on('monthControlClicked', function(event, monthId){
+        //added a little bit a delay to wait till item collaps finish
+        var timer = $timeout(function(){
+            var monthPosition = $ionicPosition.position(angular.element(document.getElementById('month' + monthId)));
+            $ionicScrollDelegate.$getByHandle('monthScroll').scrollTo(monthPosition.left, monthPosition.top, true);
+            //$location.hash('month' + monthId);
+            //$anchorScroll(true);
+            $timeout.cancel(timer);
+        }, 0);
+
+          
+    });
+    $scope.$on('$destroy', myListener);
+
 
 }])
 

@@ -1,6 +1,6 @@
 <div class="c1-m-spending-trends-monthly-list spending-category-list">
 	<ul>
-		<li ng-repeat="data in monthlySpendingData" class="category-list">
+		<li ng-repeat="data in monthlySpendingData track by $index" class="category-list" id="month{{data.month}}">
 			<div class="row" ng-click="loadTransaction(data.month)">
 				<div class="col col-67 chart_legend chart_legend_scheme item-text-wrap">{{getMonthYearLabel(data.month)}}</div>
 				<div class="col item-text-wrap" style="text-align:right;">{{data.amount | currency}}</div>
