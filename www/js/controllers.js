@@ -100,19 +100,21 @@ angular.module('App')
         $scope.categoryMapToId = mapCategoryToId(newChartData);
         //redraw the chart by updating series data
         $scope.SAWChartConfig.series = [{data: newChartData}];
-        //console.table(newChartData);
+        console.table(newChartData);
     });
 
     function getformattedCategoriesData(categories) {
         var newChartData = [];
         angular.forEach(categories, function(category, index){
-            var newObj = {
-                categoryId: category.categoryId,
-                color: chartColors.getColorbyIndex(index),
-                name: CategorySvc.getCateNameById(category.categoryId), 
-                y: category.netSpending
-            };
-            newChartData.push(newObj);
+            if(category.netSpending > 0) {
+                var newObj = {
+                    categoryId: category.categoryId,
+                    color: chartColors.getColorbyIndex(index),
+                    name: CategorySvc.getCateNameById(category.categoryId), 
+                    y: category.netSpending
+                };
+                newChartData.push(newObj);
+            }
         });
         return newChartData;
     }
@@ -130,7 +132,10 @@ angular.module('App')
         if(chart.length > 0) {
             var chartIndex = chart.data('highchartsChart');
             var categoryIndex = $scope.categoryMapToId[data.categoryId];
-            Highcharts.charts[chartIndex].series[0].data[categoryIndex].select();
+            var selectedCate = Highcharts.charts[chartIndex].series[0].data[categoryIndex];
+            if(selectedCate) {
+                selectedCate.select();
+            }
         }
     });
 
@@ -481,13 +486,12 @@ angular.module('App')
         _trendsData = TrendsSvc.getDataGroupByWeek(_trendsData, $scope.numOfMonths);
         _trendsData = transfromToGraphData(_trendsData);
         $scope.dataReady = true;
-        $ionicScrollDelegate.scrollTo(1000, 0);
 
         $scope.TrendsChartConfig = {
            "options":{
               "chart":{
                     marginLeft: 0,
-                    marginTop: 28,
+                    marginTop: 55,
                     spacingBottom: 0,
                     spacingLeft: 0,
                     spacingRight: 0,
@@ -521,6 +525,11 @@ angular.module('App')
             xAxis: {
                 opposite: true,
                 type: 'datetime',
+                units: [
+                    [
+                      'month', [1]
+                    ]
+                ],
                 dateTimeLabelFormats: { // don't display the dummy year
                     day: '%b %e',
                     week: '%b %e',
@@ -531,17 +540,17 @@ angular.module('App')
                 endOnTick: false,
                 tickWidth: 0,
                 tickInterval: 24 * 3600 * 1000,
+                tickmarkPlacement: 'between',
                 labels: {
                     align: 'left',
-
                     formatter: function() {
                         var label = null;
-                        var month = moment(this.value).month();
-                        var date = moment(this.value).date();
-                        var monthYear = moment(this.value).format('YYYY-MM'); 
-                        if(date === 1) {
-                            label = '<div class="monthControl" on-tap="monthControlTapped(' + this.value + ')" data-month=' + monthYear + '>' + moment().month(month).format('MMM') + '</div>';
-                        }
+                        var utcDate = moment.utc(this.value);
+                        var month = utcDate.month();
+                        var date = utcDate.date();
+                        var monthYear = utcDate.format('YYYY-MM'); 
+                        label = '<div class="monthControl" on-tap="monthControlTapped(' + this.value + ')" data-month=' + monthYear + '>' + moment().month(month).format('MMM') + '</div>';
+                        
                         return label;
                     },
                     useHTML: true
@@ -561,7 +570,7 @@ angular.module('App')
     });
 
     $scope.monthControlTapped = function(dateStamp) {
-        var month = moment(dateStamp).format('YYYY-MM'); 
+        var month = moment.utc(dateStamp).format('YYYY-MM'); 
         $rootScope.$emit('monthControlClicked', month);
 
         highLightMonthControl(month);
@@ -578,7 +587,7 @@ angular.module('App')
     function transfromToGraphData (data) {
         var graphData = [];
         angular.forEach(data, function(item) {
-            graphData.push([moment(item.week).unix()* 1000, item.amount]);
+            graphData.push([moment.utc(item.week).unix()* 1000, item.amount]);
         });
         return graphData;
     };
@@ -598,6 +607,11 @@ angular.module('App')
 }])
 
 .controller('trendsSummaryController', ['$scope', 'BudgetService', '$rootScope', '$ionicScrollDelegate', '$ionicPosition', '$timeout', '$location', '$anchorScroll', function ($scope, BudgetSvc, $rootScope, $ionicScrollDelegate, $ionicPosition, $timeout, $location, $anchorScroll) {
+    
+    $scope.$on('$ionicView.enter', function(){
+      $ionicScrollDelegate.$getByHandle('monthControlScroll').scrollTo(1000, 0, true);
+    });
+
     var myListener = $rootScope.$on('monthControlClicked', function(event, monthId){
         //added a little bit a delay to wait till item collaps finish
         var timer = $timeout(function(){
