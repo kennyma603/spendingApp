@@ -701,7 +701,7 @@ angular.module('App')
 				var weekStartDate = _getStartingDate(item.date);
 
 				if(weeklyDataArr.hasOwnProperty(weekStartDate)){
-					var netSpent = (item.netSpent > 0) ? item.netSpent : 0;
+					var netSpent = (item.netSpent) ? item.netSpent : 0;
 					weeklyDataArr[weekStartDate] = weeklyDataArr[weekStartDate] + Math.round(netSpent*100)/100;
 				}
 			});

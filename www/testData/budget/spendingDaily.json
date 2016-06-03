@@ -1,390 +1,306 @@
-[
-   {
-      "date":"2015-06-12",
-      "categoryId":1,
-      "spent":182.09,
-      "credit":182.09
-   },
-   {
-      "date":"2015-06-15",
-      "categoryId":1,
-      "credit":110.00
-   },
-   {
-      "date":"2015-06-26",
-      "categoryId":1,
-      "spent":189.77,
-      "credit":189.77
-   },
-   {
-      "date":"2015-06-29",
-      "categoryId":44,
-      "credit":30.00
-   },
-   {
-      "date":"2015-06-30",
-      "categoryId":1,
-      "credit":500.00
-   },
-   {
-      "date":"2015-07-02",
-      "categoryId":1,
-      "credit":210.00
-   },
-   {
-      "date":"2015-07-10",
-      "categoryId":1,
-      "spent":131.35,
-      "credit":131.35
-   },
-   {
-      "date":"2015-07-15",
-      "categoryId":1,
-      "credit":110.00
-   },
-   {
-      "date":"2015-07-24",
-      "categoryId":1,
-      "spent":200.39,
-      "credit":200.39
-   },
-   {
-      "date":"2015-07-30",
-      "categoryId":1,
-      "credit":500.00
-   },
-   {
-      "date":"2015-07-30",
-      "categoryId":44,
-      "credit":30.00
-   },
-   {
-      "date":"2015-08-04",
-      "categoryId":1,
-      "credit":210.00
-   },
-   {
-      "date":"2015-08-14",
-      "categoryId":1,
-      "spent":135.94,
-      "credit":135.94
-   },
-   {
-      "date":"2015-08-17",
-      "categoryId":1,
-      "credit":110.00
-   },
-   {
-      "date":"2015-08-28",
-      "categoryId":1,
-      "spent":196.24,
-      "credit":196.24
-   },
-   {
-      "date":"2015-08-28",
-      "categoryId":44,
-      "credit":30.00
-   },
-   {
-      "date":"2015-08-31",
-      "categoryId":1,
-      "credit":500.00
-   },
-   {
-      "date":"2015-09-01",
-      "categoryId":1,
-      "credit":210.00
-   },
-   {
-      "date":"2015-09-10",
-      "categoryId":1,
-      "spent":88.08,
-      "credit":17027.04
-   },
-   {
-      "date":"2015-09-10",
-      "categoryId":8,
-      "spent":538.96
-   },
-   {
-      "date":"2015-09-15",
-      "categoryId":1,
-      "credit":110.00
-   },
-   {
-      "date":"2015-09-29",
-      "categoryId":44,
-      "credit":30.00
-   },
-   {
-      "date":"2015-09-30",
-      "categoryId":1,
-      "credit":500.00
-   },
-   {
-      "date":"2015-10-01",
-      "categoryId":1,
-      "credit":210.00
-   },
-   {
-      "date":"2015-10-15",
-      "categoryId":1,
-      "credit":110.00
-   },
-   {
-      "date":"2015-10-15",
-      "categoryId":44,
-      "credit":987.00
-   },
-   {
-      "date":"2015-10-22",
-      "categoryId":44,
-      "credit":2508.39
-   },
-   {
-      "date":"2015-10-29",
-      "categoryId":44,
-      "credit":30.00
-   },
-   {
-      "date":"2015-10-30",
-      "categoryId":1,
-      "credit":500.00
-   },
-   {
-      "date":"2015-11-02",
-      "categoryId":1,
-      "credit":210.00
-   },
-   {
-      "date":"2015-11-06",
-      "categoryId":44,
-      "spent":92.78
-   },
-   {
-      "date":"2015-11-07",
-      "categoryId":1,
-      "spent":13.64
-   },
-   {
-      "date":"2015-11-07",
-      "categoryId":34,
-      "spent":233.50
-   },
-   {
-      "date":"2015-11-07",
-      "categoryId":38,
-      "spent":110.15
-   },
-   {
-      "date":"2015-11-08",
-      "categoryId":5,
-      "spent":139.38
-   },
-   {
-      "date":"2015-11-08",
-      "categoryId":10,
-      "spent":34.67
-   },
-   {
-      "date":"2015-11-08",
-      "categoryId":34,
-      "spent":45.31
-   },
-   {
-      "date":"2015-11-09",
-      "categoryId":8,
-      "spent":51.53
-   },
-   {
-      "date":"2015-11-09",
-      "categoryId":23,
-      "spent":3.00
-   },
-   {
-      "date":"2015-11-10",
-      "categoryId":13,
-      "spent":693.27
-   },
-   {
-      "date":"2015-11-10",
-      "categoryId":44,
-      "spent":49.59
-   },
-   {
-      "date":"2015-11-11",
-      "categoryId":16,
-      "spent":82.70
-   },
-   {
-      "date":"2015-11-12",
-      "categoryId":1,
-      "spent":68.38
-   },
-   {
-      "date":"2015-11-12",
-      "categoryId":44,
-      "spent":229.92
-   },
-   {
-      "date":"2015-11-13",
-      "categoryId":3,
-      "spent":101.27
-   },
-   {
-      "date":"2015-11-13",
-      "categoryId":12,
-      "spent":22.40
-   },
-   {
-      "date":"2015-11-14",
-      "categoryId":7,
-      "spent":7.99
-   },
-   {
-      "date":"2015-11-14",
-      "categoryId":34,
-      "spent":25.96
-   },
-   {
-      "date":"2015-11-15",
-      "categoryId":8,
-      "spent":60.50
-   },
-   {
-      "date":"2015-11-15",
-      "categoryId":44,
-      "spent":54.56
-   },
-   {
-      "date":"2015-11-16",
-      "categoryId":1,
-      "spent":48.70,
-      "credit":110.00
-   },
-   {
-      "date":"2015-11-16",
-      "categoryId":12,
-      "spent":142.76
-   },
-   {
-      "date":"2015-11-17",
-      "categoryId":5,
-      "spent":117.57
-   },
-   {
-      "date":"2015-11-18",
-      "categoryId":22,
-      "spent":102.82
-   },
-   {
-      "date":"2015-11-18",
-      "categoryId":44,
-      "spent":16.85
-   },
-   {
-      "date":"2015-11-20",
-      "categoryId":2,
-      "spent":438.74
-   },
-   {
-      "date":"2015-11-20",
-      "categoryId":5,
-      "spent":114.20
-   },
-   {
-      "date":"2015-11-20",
-      "categoryId":8,
-      "spent":49.01
-   },
-   {
-      "date":"2015-11-22",
-      "categoryId":1,
-      "spent":75.47
-   },
-   {
-      "date":"2015-11-23",
-      "categoryId":13,
-      "spent":402.07
-   },
-   {
-      "date":"2015-11-23",
-      "categoryId":22,
-      "spent":29.30
-   },
-   {
-      "date":"2015-11-25",
-      "categoryId":8,
-      "spent":52.86
-   },
-   {
-      "date":"2015-11-25",
-      "categoryId":12,
-      "spent":13.50
-   },
-   {
-      "date":"2015-11-25",
-      "categoryId":34,
-      "spent":12.27
-   },
-   {
-      "date":"2015-11-26",
-      "categoryId":5,
-      "spent":89.60
-   },
-   {
-      "date":"2015-11-26",
-      "categoryId":10,
-      "spent":13.99
-   },
-   {
-      "date":"2015-11-26",
-      "categoryId":20,
-      "spent":88.83
-   },
-   {
-      "date":"2015-11-27",
-      "categoryId":11,
-      "spent":145.58
-   },
-   {
-      "date":"2015-11-27",
-      "categoryId":44,
-      "credit":30.00
-   },
-   {
-      "date":"2015-11-30",
-      "categoryId":1,
-      "credit":500.00
-   },
-   {
-      "date":"2015-12-01",
-      "categoryId":1,
-      "credit":210.00
-   },
-   {
-      "date":"2015-12-15",
-      "categoryId":1,
-      "credit":110.00
-   },
-   {
-      "date":"2015-12-30",
-      "categoryId":1,
-      "credit":500.00
-   },
-   {
-      "date":"2015-12-30",
-      "categoryId":44,
-      "credit":20.00
-   },
-   {
-      "date":"2016-01-04",
-      "categoryId":1,
-      "credit":210.00
-   },
-   {
-      "date":"2016-01-15",
-      "categoryId":1,
-      "credit":110.00
-   }
+[{
+    "date": "2016-02-03",
+    "categoryId": 16,
+    "spent": 10.10,
+    "credit": 5.10
+}, {
+    "date": "2016-02-07",
+    "categoryId": 35,
+    "spent": 32.71
+}, {
+    "date": "2016-02-11",
+    "categoryId": 16,
+    "spent": 10.10,
+    "credit": 5.10
+}, {
+    "date": "2016-02-13",
+    "categoryId": 35,
+    "spent": 2.01
+}, {
+    "date": "2016-02-17",
+    "categoryId": 16,
+    "spent": 85.62,
+    "credit": 50.12
+}, {
+    "date": "2016-02-18",
+    "categoryId": 16,
+    "spent": 999.00,
+    "credit": 999.00
+}, {
+    "date": "2016-02-23",
+    "categoryId": 16,
+    "spent": 20.45,
+    "credit": 15.45
+}, {
+    "date": "2016-02-27",
+    "categoryId": 35,
+    "spent": 32.54
+}, {
+    "date": "2016-02-29",
+    "categoryId": 1,
+    "spent": 69856.73,
+    "credit": 69574.54
+}, {
+    "date": "2016-03-01",
+    "categoryId": 1,
+    "credit": 97.30
+}, {
+    "date": "2016-03-02",
+    "categoryId": 16,
+    "spent": 10.10,
+    "credit": 5.10
+}, {
+    "date": "2016-03-03",
+    "categoryId": 16,
+    "spent": 64.22,
+    "credit": 38.72
+}, {
+    "date": "2016-03-04",
+    "categoryId": 16,
+    "spent": 1.20,
+    "credit": 1.20
+}, {
+    "date": "2016-03-08",
+    "categoryId": 16,
+    "spent": 10.10,
+    "credit": 5.10
+}, {
+    "date": "2016-03-10",
+    "categoryId": 16,
+    "spent": 10.10,
+    "credit": 5.10
+}, {
+    "date": "2016-03-13",
+    "categoryId": 35,
+    "spent": 32.55
+}, {
+    "date": "2016-03-14",
+    "categoryId": 16,
+    "spent": 15.67,
+    "credit": 15.67
+}, {
+    "date": "2016-03-14",
+    "categoryId": 35,
+    "spent": 0.16
+}, {
+    "date": "2016-03-15",
+    "categoryId": 16,
+    "spent": 32.81,
+    "credit": 27.81
+}, {
+    "date": "2016-03-16",
+    "categoryId": 16,
+    "spent": 30.81,
+    "credit": 30.01
+}, {
+    "date": "2016-03-17",
+    "categoryId": 16,
+    "spent": 54.93,
+    "credit": 20.23
+}, {
+    "date": "2016-03-18",
+    "categoryId": 16,
+    "spent": 11.10,
+    "credit": 6.10
+}, {
+    "date": "2016-03-21",
+    "categoryId": 16,
+    "spent": 10.10,
+    "credit": 5.10
+}, {
+    "date": "2016-03-29",
+    "categoryId": 16,
+    "spent": 20.20,
+    "credit": 10.20
+}, {
+    "date": "2016-03-31",
+    "categoryId": 1,
+    "spent": 185663.71,
+    "credit": 185451.55
+}, {
+    "date": "2016-03-31",
+    "categoryId": 16,
+    "spent": 10.10,
+    "credit": 5.10
+}, {
+    "date": "2016-03-31",
+    "categoryId": 35,
+    "spent": 2.01
+}, {
+    "date": "2016-04-02",
+    "categoryId": 1,
+    "credit": 12943.28
+}, {
+    "date": "2016-04-06",
+    "categoryId": 16,
+    "spent": 17.11,
+    "credit": 7.11
+}, {
+    "date": "2016-04-07",
+    "categoryId": 35,
+    "spent": 2.01
+}, {
+    "date": "2016-04-08",
+    "categoryId": 16,
+    "spent": 1.14,
+    "credit": 1.14
+}, {
+    "date": "2016-04-08",
+    "categoryId": 35,
+    "spent": 4.02
+}, {
+    "date": "2016-04-10",
+    "categoryId": 35,
+    "spent": 2.01
+}, {
+    "date": "2016-04-11",
+    "categoryId": 16,
+    "spent": 15.10,
+    "credit": 5.10
+}, {
+    "date": "2016-04-13",
+    "categoryId": 1,
+    "credit": 107.58
+}, {
+    "date": "2016-04-16",
+    "categoryId": 35,
+    "spent": 2.01
+}, {
+    "date": "2016-04-19",
+    "categoryId": 16,
+    "spent": 15.10,
+    "credit": 5.10
+}, {
+    "date": "2016-04-21",
+    "categoryId": 1,
+    "credit": 75.12
+}, {
+    "date": "2016-04-21",
+    "categoryId": 16,
+    "spent": 33.27,
+    "credit": 11.27
+}, {
+    "date": "2016-04-21",
+    "categoryId": 35,
+    "spent": 2.01
+}, {
+    "date": "2016-04-22",
+    "categoryId": 16,
+    "spent": 19.70
+}, {
+    "date": "2016-04-25",
+    "categoryId": 16,
+    "spent": 15.10,
+    "credit": 5.10
+}, {
+    "date": "2016-04-27",
+    "categoryId": 16,
+    "spent": 94.32,
+    "credit": 45.82
+}, {
+    "date": "2016-04-28",
+    "categoryId": 16,
+    "spent": 86.57,
+    "credit": 39.91
+}, {
+    "date": "2016-04-30",
+    "categoryId": 1,
+    "spent": 2856.19,
+    "credit": 2800.01
+}, {
+    "date": "2016-05-04",
+    "categoryId": 16,
+    "spent": 29.21,
+    "credit": 9.21
+}, {
+    "date": "2016-05-05",
+    "categoryId": 16,
+    "spent": 28.76,
+    "credit": 0.01
+}, {
+    "date": "2016-05-08",
+    "categoryId": 35,
+    "spent": 32.71
+}, {
+    "date": "2016-05-09",
+    "categoryId": 16,
+    "spent": 2.03
+}, {
+    "date": "2016-05-10",
+    "categoryId": 16,
+    "spent": 15.10,
+    "credit": 5.10
+}, {
+    "date": "2016-05-14",
+    "categoryId": 35,
+    "spent": 4.02
+}, {
+    "date": "2016-05-17",
+    "categoryId": 16,
+    "spent": 15.10,
+    "credit": 5.10
+}, {
+    "date": "2016-05-19",
+    "categoryId": 9,
+    "credit": 0.01
+}, {
+    "date": "2016-05-19",
+    "categoryId": 16,
+    "spent": 15.10,
+    "credit": 5.09
+}, {
+    "date": "2016-05-20",
+    "categoryId": 35,
+    "spent": 2.01
+}, {
+    "date": "2016-05-25",
+    "categoryId": 9,
+    "spent": 0.01
+}, {
+    "date": "2016-05-25",
+    "categoryId": 16,
+    "spent": 15.09,
+    "credit": 5.10
+}, {
+    "date": "2016-05-29",
+    "categoryId": 35,
+    "spent": 2.01
+}, {
+    "date": "2016-05-31",
+    "categoryId": 1,
+    "spent": 11739.99,
+    "credit": 11564.23
+}, {
+    "date": "2016-05-31",
+    "categoryId": 9,
+    "credit": 0.01
+}, {
+    "date": "2016-05-31",
+    "categoryId": 16,
+    "spent": 15.10,
+    "credit": 5.09
+}, {
+    "date": "2016-06-01",
+    "categoryId": 6,
+    "spent": 6.16
+}, {
+    "date": "2016-06-01",
+    "categoryId": 10,
+    "spent": 0.01,
+    "credit": 0.01
+}, {
+    "date": "2016-06-01",
+    "categoryId": 16,
+    "spent": 33.68,
+    "credit": 14.48
+}, {
+    "date": "2016-06-01",
+    "categoryId": 35,
+    "spent": 3.22
+}, {
+    "date": "2016-06-02",
+    "categoryId": 16,
+    "spent": 54.70
+}
 ]
+

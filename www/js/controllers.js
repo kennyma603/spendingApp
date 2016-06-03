@@ -484,6 +484,7 @@ angular.module('App')
     TrendsSvc.get(param).then(function(){
         _trendsData = TrendsSvc.getRawData();
         _trendsData = TrendsSvc.getDataGroupByWeek(_trendsData, $scope.numOfMonths);
+        console.table(_trendsData);
         _trendsData = transfromToGraphData(_trendsData);
         $scope.dataReady = true;
 
@@ -587,7 +588,8 @@ angular.module('App')
     function transfromToGraphData (data) {
         var graphData = [];
         angular.forEach(data, function(item) {
-            graphData.push([moment.utc(item.week).unix()* 1000, item.amount]);
+            var itemAmount = (item.amount < 0) ? 0 : item.amount;
+            graphData.push([moment.utc(item.week).unix()* 1000, itemAmount]);
         });
         return graphData;
     };
